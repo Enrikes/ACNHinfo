@@ -13,6 +13,19 @@
   background-image: linear-gradient(180deg, #96cc39, #a7e074);
 }
 .fish-blur {
-  min-height: 100vh;
-  background-color: red;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(255, 255, 255, 0.363);
+  overflow: hidden;
+}
+.x-mark {
+  display: flex;
+  justify-content: right;
+  padding: 20px;
 }

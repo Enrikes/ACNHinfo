@@ -29,3 +29,9 @@
   justify-content: right;
   padding: 20px;
 }
+.fish-info-container {
+  background-color: #96cc39;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}

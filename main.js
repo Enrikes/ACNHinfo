@@ -5,13 +5,28 @@ async function getFishIcon(wrapper) {
   const data = await res.json();
   for (const fishIcon of data) {
     const fishPic = fishIcon["icon_uri"];
+    const fishId = fishIcon["id"];
     const icon = document.createElement("div");
     icon.classList.add("fish-item");
     icon.innerHTML = `<img class='loading' src='${fishPic}'>`;
     wrapper.appendChild(icon);
+    //Sends
+    icon.onclick = function (fishUrl, fishID) {
+      fishUrl = fishId;
+      displayFishInfo(fishUrl);
+    };
   }
 }
-function displayFishInfo() {
+async function grabFishUrl(url) {
+  const res = await fetch(`https://acnhapi.com/v1/fish/${url}`);
+  const data = await res.json();
+  console.log(data);
+  return data;
+}
+async function displayFishInfo(url) {
+  const fishUrl = await grabFishUrl(url);
+
+  const fishDiv = document.querySelector(".fish-item");
   const fishBlur = document.createElement("div");
   fishBlur.classList.add("fish-blur");
   document.body.style.overflow = "hidden";
@@ -19,6 +34,11 @@ function displayFishInfo() {
   const xMark = document.createElement("div");
   xMark.classList.add("x-mark");
   xMark.innerHTML = `<img src='img/overaly/x.png'>`;
+  const fishInfo = document.createElement("div");
+  const fishName = fishUrl["name"]["name-USen"];
+  fishInfo.classList.add("fish-info-container");
+  fishInfo.innerHTML = `<h1>Hello my name is ${fishName}, nice to meet you</h1>`;
+  fishBlur.appendChild(fishInfo);
   xMark.addEventListener("click", removeDisplayFishInfo);
   // Removes Fish information
   function removeDisplayFishInfo() {
@@ -26,11 +46,13 @@ function displayFishInfo() {
     fishBlur.remove();
     document.body.style.removeProperty("overflow");
   }
+
   fishBlur.appendChild(xMark);
-  console.log("i have been clicked");
 }
+
+function grabFishInfo() {}
 function fishClick() {
-  fishWrapper.addEventListener("click", displayFishInfo);
+  fishWrapper.addEventListener("click", grabFishInfo);
 }
 
 fishClick();

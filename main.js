@@ -6,16 +6,39 @@ async function getFishIcon(wrapper) {
   for (const fishIcon of data) {
     const fishPic = fishIcon["icon_uri"];
     const fishId = fishIcon["id"];
+    const fishName = fishIcon["name"]["name-USen"];
+
     const icon = document.createElement("div");
     icon.classList.add("fish-item");
     icon.innerHTML = `<img class='loading' src='${fishPic}'>`;
     wrapper.appendChild(icon);
+
+    icon.addEventListener("mouseover", grabFishName);
+    icon.addEventListener("mouseout", grabFishNameOut);
+
+    function grabFishName() {
+      const fishNamePlate = document.createElement("div");
+      fishNamePlate.classList.add("fish-name-plate");
+      fishNamePlate.innerHTML = fishName;
+      icon.appendChild(fishNamePlate);
+    }
+    function grabFishNameOut() {
+      const fishNamePlate = document.querySelector(".fish-name-plate");
+      icon.removeChild(fishNamePlate);
+      console.log("bye!");
+      fishNamePlate.innerHTML = "";
+    }
     //Sends
-    icon.onclick = function (fishUrl, fishID) {
+    icon.addEventListener("click", grabFishInfo);
+    function grabFishInfo(fishUrl, fishID) {
       fishUrl = fishId;
       displayFishInfo(fishUrl);
-    };
+      stopFishEventListener(icon);
+    }
   }
+}
+function stopFishEventListener(event) {
+  event.removeEventListener("click", grabFishInfo);
 }
 async function grabFishUrl(url) {
   const res = await fetch(`https://acnhapi.com/v1/fish/${url}`);
@@ -25,7 +48,7 @@ async function grabFishUrl(url) {
 }
 async function displayFishInfo(url) {
   const fishUrl = await grabFishUrl(url);
-
+  console.log(fishUrl);
   const fishDiv = document.querySelector(".fish-item");
   const fishBlur = document.createElement("div");
   fishBlur.classList.add("fish-blur");
@@ -36,9 +59,17 @@ async function displayFishInfo(url) {
   xMark.innerHTML = `<img src='img/overaly/x.png'>`;
   const fishInfo = document.createElement("div");
   const fishName = fishUrl["name"]["name-USen"];
-  fishInfo.classList.add("fish-info-container");
-  fishInfo.innerHTML = `<h1>Hello my name is ${fishName}, nice to meet you</h1>`;
-  fishBlur.appendChild(fishInfo);
+  const fish = fishUrl["image_uri"];
+  const myFish = new Image();
+  myFish.src = fish;
+  myFish.onload = function () {
+    fishInfo.classList.add("fish-info-container");
+    fishInfo.innerHTML = `<h1 class='fish-title'>${fishName}</h1>
+  <img id='fish-img' src='${fish}'>  
+  `;
+    fishBlur.appendChild(fishInfo);
+  };
+
   xMark.addEventListener("click", removeDisplayFishInfo);
   // Removes Fish information
   function removeDisplayFishInfo() {
@@ -49,6 +80,7 @@ async function displayFishInfo(url) {
 
   fishBlur.appendChild(xMark);
 }
+function collectionMode() {}
 
 function grabFishInfo() {}
 function fishClick() {

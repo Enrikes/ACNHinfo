@@ -1,7 +1,22 @@
+@font-face {
+  font-family: AC;
+  src: url("fonts/AC.ttf");
+}
+#collection {
+  background-color: #6ba32d;
+  margin: 20px;
+  border-radius: 10px;
+  width: 80px;
+  left: 90vw;
+  position: fixed;
+  text-align: right;
+}
 .fish-icons {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .fish-item {
@@ -31,7 +46,33 @@
 }
 .fish-info-container {
   background-color: #96cc39;
-  display: flex;
-  justify-content: center;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   position: absolute;
+  width: 50%;
+  border-radius: 10px;
+  margin-top: 40px;
+  border: 10px;
+  border-style: solid;
+  border-color: #c48d3f;
+}
+.fish-title {
+  text-transform: capitalize;
+  align-items: center;
+  text-align: center;
+  font-family: AC;
+  font-size: 60px;
+}
+#fish-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  box-shadow: 10px 10px;
+}
+.fish-name-plate {
+  position: absolute;
+  background-color: aliceblue;
 }

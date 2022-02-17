@@ -1,6 +1,8 @@
 @font-face {
-  font-family: AC;
-  src: url("fonts/AC.ttf");
+  font-family: "FinkHeavy";
+  font-weight: 900;
+  font-style: normal;
+  src: url(fonts/AC.ttf);
 }
 #collection {
   background-color: #6ba32d;
@@ -70,9 +72,33 @@
   margin-left: auto;
   margin-right: auto;
   width: 80%;
-  box-shadow: 10px 10px;
 }
 .fish-name-plate {
-  position: absolute;
+  position: fixed;
   background-color: aliceblue;
+  border-radius: 4px;
+  padding: 2px;
+  text-transform: capitalize;
+  font: FinkHeavy;
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+#month-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
+  margin-left: 10%;
+  margin-right: 10%;
+}
+#months {
+  border: 1px solid black;
+  text-align: center;
+  background-color: bisque;
 }

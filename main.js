@@ -46,6 +46,7 @@ async function grabFishUrl(url) {
   console.log(data);
   return data;
 }
+
 async function displayFishInfo(url) {
   const fishUrl = await grabFishUrl(url);
   console.log(fishUrl);
@@ -67,6 +68,30 @@ async function displayFishInfo(url) {
     fishInfo.innerHTML = `<h1 class='fish-title'>${fishName}</h1>
   <img id='fish-img' src='${fish}'>  
   `;
+
+    const monthGrid = document.createElement("div");
+    monthGrid.setAttribute("id", "month-grid");
+    fishInfo.appendChild(monthGrid);
+    const monthArray = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    for (const month of monthArray) {
+      const monthDom = document.createElement("div");
+      monthDom.setAttribute("id", "months");
+      monthDom.innerHTML = month;
+      monthGrid.appendChild(monthDom);
+    }
     fishBlur.appendChild(fishInfo);
   };
 
@@ -80,6 +105,7 @@ async function displayFishInfo(url) {
 
   fishBlur.appendChild(xMark);
 }
+
 function collectionMode() {}
 
 function grabFishInfo() {}

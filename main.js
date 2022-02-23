@@ -146,6 +146,33 @@ async function displayFishInfo(url) {
       }
     }
     monthDetector();
+    function addLocation() {
+      const locationWrapper = document.createElement("div");
+      locationWrapper.classList.add("location-wrapper");
+      const location = document.createElement("h1");
+      const locationInfo = fishUrl["availability"]["location"];
+      location.innerHTML = "Location";
+      const locationElement = document.createElement("p");
+      locationElement.innerHTML = locationInfo;
+      locationWrapper.appendChild(location);
+      locationWrapper.appendChild(locationElement);
+      fishInfo.appendChild(locationWrapper);
+    }
+    function addPrice() {
+      const priceWrapper = document.createElement("div");
+      priceWrapper.classList.add("price-wrapper");
+      const priceHeader = document.createElement("h1");
+      priceHeader.innerHTML = "Price";
+      const price = document.createElement("p");
+      const regularPrice = fishUrl["price"];
+      const cjPrice = fishUrl["price-cj"];
+      price.innerHTML = `${regularPrice} bells ( ${cjPrice} bells when sold at CJ )`;
+      priceWrapper.appendChild(priceHeader);
+      priceWrapper.appendChild(price);
+      fishInfo.appendChild(priceWrapper);
+    }
+    addLocation();
+    addPrice();
   };
 
   xMark.addEventListener("click", removeDisplayFishInfo);

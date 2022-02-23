@@ -96,9 +96,20 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
   margin-left: 10%;
   margin-right: 10%;
+  border: 3px solid black;
+  border-radius: 4px;
 }
 #months {
   border: 1px solid black;
   text-align: center;
   background-color: bisque;
+}
+.location-wrapper {
+  display: inline-block;
+  text-align: center;
+}
+.price-wrapper {
+  display: inline-block;
+  text-align: center;
+  float: right;
 }

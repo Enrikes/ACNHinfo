@@ -200,10 +200,19 @@ const insectEvent = document.getElementById("insect");
 insectEvent.addEventListener("click", insectButton);
 async function insectButton() {
   const wrapper = document.querySelector(".icons");
-  wrapper.innerHTML = "geloo";
   const fish = "fish";
   const bug = "bugs";
   wrapper.innerHTML = "";
 
   await getFishIcon(wrapper, bug);
+}
+// fish click event
+const fishEvent = document.getElementById("fish");
+fishEvent.addEventListener("click", fishButton);
+
+async function fishButton() {
+  const wrapper = document.querySelector(".icons");
+  const fish = "fish";
+  wrapper.innerHTML = "";
+  await getFishIcon(wrapper, fish);
 }

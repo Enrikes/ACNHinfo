@@ -1,6 +1,8 @@
-const fishWrapper = document.querySelector(".fish-icons");
-async function getFishIcon(wrapper) {
-  const res = await fetch("https://acnhapi.com/v1a/fish/");
+const fishWrapper = document.querySelector(".icons");
+const fish = "fish";
+const bug = "bugs";
+async function getFishIcon(wrapper, type) {
+  const res = await fetch(`https://acnhapi.com/v1a/${type}/`);
   const data = await res.json();
   for (const fishIcon of data) {
     const fishPic = fishIcon["icon_uri"];
@@ -26,9 +28,11 @@ async function getFishIcon(wrapper) {
     }
     //Sends
     icon.addEventListener("click", grabFishInfo);
-    function grabFishInfo(fishUrl, fishID) {
+    function grabFishInfo(types, fishUrl) {
+      types = type;
       fishUrl = fishId;
-      displayFishInfo(fishUrl);
+      console.log(type);
+      displayFishInfo(type, fishUrl);
       stopFishEventListener(icon);
     }
   }
@@ -36,14 +40,14 @@ async function getFishIcon(wrapper) {
 function stopFishEventListener(event) {
   event.removeEventListener("click", grabFishInfo);
 }
-async function grabFishUrl(url) {
-  const res = await fetch(`https://acnhapi.com/v1/fish/${url}`);
+async function grabFishUrl(type, url) {
+  const res = await fetch(`https://acnhapi.com/v1/${type}/${url}`);
   const data = await res.json();
   console.log(data);
   return data;
 }
-async function displayFishInfo(url) {
-  const fishUrl = await grabFishUrl(url);
+async function displayFishInfo(type, url) {
+  const fishUrl = await grabFishUrl(type, url);
   console.log(fishUrl);
   const fishDiv = document.querySelector(".fish-item");
   const fishBlur = document.createElement("div");
@@ -152,6 +156,7 @@ async function displayFishInfo(url) {
       const location = document.createElement("h1");
       const locationInfo = fishUrl["availability"]["location"];
       location.innerHTML = "Location";
+      location.setAttribute("id", "location-header");
       const locationElement = document.createElement("p");
       locationElement.innerHTML = locationInfo;
       locationWrapper.appendChild(location);
@@ -189,4 +194,16 @@ function fishClick() {
   fishWrapper.addEventListener("click", grabFishInfo);
 }
 fishClick();
-getFishIcon(fishWrapper);
+getFishIcon(fishWrapper, fish);
+// insect section
+const insectEvent = document.getElementById("insect");
+insectEvent.addEventListener("click", insectButton);
+async function insectButton() {
+  const wrapper = document.querySelector(".icons");
+  wrapper.innerHTML = "geloo";
+  const fish = "fish";
+  const bug = "bugs";
+  wrapper.innerHTML = "";
+
+  await getFishIcon(wrapper, bug);
+}

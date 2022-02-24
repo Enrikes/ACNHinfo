@@ -2,8 +2,31 @@
   font-family: "FinkHeavy";
   font-weight: 900;
   font-style: normal;
-  src: url(fonts/AC.ttf);
+  src: url(fonts/AC.otf);
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10px;
+  background-color: #1f1d36;
+}
+#logo {
+  min-width: 10em;
+  max-width: 10em;
+}
+#insect {
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+  margin: 20px;
+}
+
 #collection {
   background-color: #6ba32d;
   margin: 20px;
@@ -13,7 +36,7 @@
   position: fixed;
   text-align: right;
 }
-.fish-icons {
+.icons {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
@@ -64,7 +87,7 @@
   text-transform: capitalize;
   align-items: center;
   text-align: center;
-  font-family: AC;
+  font-family: FinkHeavy;
   font-size: 60px;
 }
 #fish-img {
@@ -82,6 +105,7 @@
   font: FinkHeavy;
   animation-name: fadeIn;
   animation-duration: 0.3s;
+  margin-top: 5px;
 }
 @keyframes fadeIn {
   0% {
@@ -98,18 +122,21 @@
   margin-right: 10%;
   border: 3px solid black;
   border-radius: 4px;
+  font: FinkHeavy;
 }
 #months {
   border: 1px solid black;
   text-align: center;
   background-color: bisque;
+  font: FinkHeavy;
 }
 .location-wrapper {
-  display: inline-block;
   text-align: center;
+  font: FinkHeavy;
+}
+#location-header {
+  font: FinkHeavy;
 }
 .price-wrapper {
-  display: inline-block;
   text-align: center;
-  float: right;
 }

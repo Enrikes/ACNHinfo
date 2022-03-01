@@ -9,13 +9,48 @@
   padding: 0;
   box-sizing: border-box;
 }
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 10px;
+.navbar {
   background-color: #1f1d36;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
 }
+
+.nav-list {
+  list-style-type: none;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+}
+.nav-list .list-item {
+  display: inline-block;
+  padding: 20px 10px;
+}
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+.navbar a:hover {
+  color: #6ba32d;
+}
+
+.primary-logo {
+  width: 100px;
+}
+
+.menu-line {
+  width: 40px;
+  height: 5px;
+  background-color: white;
+  margin-bottom: 4px;
+  border-radius: 1px;
+}
+.menu {
+  display: none;
+}
+
 #logo {
   min-width: 10em;
   max-width: 10em;
@@ -25,6 +60,14 @@ header {
   color: white;
   font-size: 2em;
   margin: 20px;
+  cursor: pointer;
+}
+#fish {
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+  margin: 20px;
+  cursor: pointer;
 }
 
 #collection {
@@ -39,11 +82,15 @@ header {
 .icons {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  min-width: 90px;
   margin-left: 10%;
   margin-right: 10%;
 }
-
+.creature-icon {
+  width: 90%;
+  padding: 10p;
+}
 .fish-item {
   display: flex;
   justify-content: center;
@@ -94,7 +141,9 @@ header {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 40%;
+  min-width: 200px;
+  max-width: 40%;
 }
 .fish-name-plate {
   position: fixed;
@@ -117,9 +166,10 @@ header {
 }
 #month-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
-  margin-left: 10%;
-  margin-right: 10%;
+  min-width: 1px;
+  max-width: 200px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto;
   border: 3px solid black;
   border-radius: 4px;
   font: FinkHeavy;
@@ -139,4 +189,38 @@ header {
 }
 .price-wrapper {
   text-align: center;
+}
+@media screen and (max-width: 480px) {
+  .nav-list .list-item {
+    display: block;
+    padding: 10px;
+    border: 1px solid white;
+  }
+  .nav-list {
+    display: none;
+  }
+  .navbar {
+    flex-direction: column;
+  }
+  .menu {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+  }
+  .primary-logo {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .active {
+    display: block;
+  }
+  .icons {
+    grid-template-columns: auto auto auto auto;
+  }
+  .fish-info-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
 }

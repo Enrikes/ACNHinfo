@@ -94,8 +94,11 @@ async function displayFishInfo(type, url) {
     for (const month of monthArray) {
       const monthDom = document.createElement("div");
       monthDom.classList.add(month);
-      monthDom.innerHTML = month;
       monthGrid.appendChild(monthDom);
+      const monthLayer = document.createElement("div");
+      monthLayer.setAttribute("id", "month-idle");
+      monthLayer.innerHTML = month;
+      monthDom.appendChild(monthLayer);
       monthDom.style.textAlign = "center";
       monthDom.style.border = "1px";
       monthDom.style.borderStyle = "solid";
@@ -105,54 +108,91 @@ async function displayFishInfo(type, url) {
     fishBlur.appendChild(fishInfo);
     // Month detector
     const fishMonth = fishUrl["availability"]["month-array-northern"];
+    console.log(fishMonth);
     function monthDetector() {
       if (fishMonth.includes(1)) {
         const jan = document.querySelector(".Jan");
-        jan.style.backgroundColor = "red";
+        const child = jan.querySelector("#month-idle");
+        child.classList.add("month-selector");
+        child.removeAttribute("id");
+        child.innerHTML = "Jan.";
       }
       if (fishMonth.includes(2)) {
         const feb = document.querySelector(".Feb");
-        feb.style.backgroundColor = "red";
+        const child = feb.querySelector("#month-idle");
+        child.classList.add("month-selector");
+        child.removeAttribute("id");
+        child.innerHTML = "Feb.";
       }
       if (fishMonth.includes(3)) {
         const feb = document.querySelector(".Mar");
-        feb.style.backgroundColor = "red";
+        const child = feb.querySelector("#month-idle");
+        child.classList.add("month-selector");
+        child.removeAttribute("id");
+        child.innerHTML = "Mar.";
       }
       if (fishMonth.includes(4)) {
         const feb = document.querySelector(".Apr");
-        feb.style.backgroundColor = "red";
+        const child = feb.querySelector("#month-idle");
+        child.classList.add("month-selector");
+        child.removeAttribute("id");
+        child.innerHTML = "Apr.";
       }
       if (fishMonth.includes(5)) {
         const feb = document.querySelector(".May");
-        feb.style.backgroundColor = "red";
+        const child = feb.querySelector("#month-idle");
+        child.classList.add("month-selector");
+        child.removeAttribute("id");
+        child.innerHTML = "May.";
       }
       if (fishMonth.includes(6)) {
         const feb = document.querySelector(".Jun");
-        feb.style.backgroundColor = "red";
+        const child = feb.querySelector("#month-idle");
+        child.classList.add("month-selector");
+        child.removeAttribute("id");
+        child.innerHTML = "Jun.";
       }
       if (fishMonth.includes(7)) {
         const feb = document.querySelector(".Jul");
-        feb.style.backgroundColor = "red";
+        const child = feb.querySelector("#month-idle");
+        child.classList.add("month-selector");
+        child.removeAttribute("id");
+        child.innerHTML = "Jul.";
       }
       if (fishMonth.includes(8)) {
         const feb = document.querySelector(".Aug");
-        feb.style.backgroundColor = "red";
+        const child = feb.querySelector("#month-idle");
+        child.classList.add("month-selector");
+        child.removeAttribute("id");
+        child.innerHTML = "Aug.";
       }
       if (fishMonth.includes(9)) {
         const feb = document.querySelector(".Sep");
-        feb.style.backgroundColor = "red";
+        const child = feb.querySelector("#month-idle");
+        child.classList.add("month-selector");
+        child.removeAttribute("id");
+        child.innerHTML = "Sep.";
       }
       if (fishMonth.includes(10)) {
         const feb = document.querySelector(".Oct");
-        feb.style.backgroundColor = "red";
+        const child = feb.querySelector("#month-idle");
+        child.classList.add("month-selector");
+        child.removeAttribute("id");
+        child.innerHTML = "Oct.";
       }
       if (fishMonth.includes(11)) {
         const feb = document.querySelector(".Nov");
-        feb.style.backgroundColor = "red";
+        const child = feb.querySelector("#month-idle");
+        child.classList.add("month-selector");
+        child.removeAttribute("id");
+        child.innerHTML = "Nov.";
       }
       if (fishMonth.includes(12)) {
         const feb = document.querySelector(".Dec");
-        feb.style.backgroundColor = "red";
+        const child = feb.querySelector("#month-idle");
+        child.classList.add("month-selector");
+        child.removeAttribute("id");
+        child.innerHTML = "Dec.";
       }
     }
     monthDetector();
@@ -205,7 +245,6 @@ getFishIcon(fishWrapper, fish);
 const insectEvent = document.getElementById("insect");
 insectEvent.addEventListener("click", insectButton);
 async function insectButton() {
-  const wrapper = document.querySelector(".icons");
   const fish = "fish";
   const bug = "bugs";
   wrapper.innerHTML = "";

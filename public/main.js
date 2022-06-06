@@ -6,24 +6,38 @@ const naviList = document.querySelector(".nav-list");
 toggeleButton.addEventListener("click", () => {
   naviList.classList.toggle("active");
 });
-
+// async function test() {
+//   const apiTest = `/creatures`;
+//   const response = await fetch(apiTest);
+//   const data = await response.json();
+//   console.log(data);
+//   for (const fish of data) {
+//     if (fish.sourceSheet === "Fish") {
+//       console.log("im a fish");
+//     } else {
+//       console.log("I am not a fish");
+//     }
+//   }
+// }
+// test();
 async function getFishIcon(wrapper, type) {
-  const res = await fetch(`https://acnhapi.com/v1a/${type}/`);
+  const res = await fetch(`/fish`);
   const data = await res.json();
-  for (const fishIcon of data) {
-    const fishPic = fishIcon["icon_uri"];
-    const fishId = fishIcon["id"];
-    const fishName = fishIcon["name"]["name-USen"];
+  console.log(data[0].num);
+  for (const creatures of data) {
+    const creatureIcon = creatures.iconImage;
+    const creatureID = creatures.num;
+    const creatureName = creatures.name;
     const icon = document.createElement("div");
     icon.classList.add("fish-item");
-    icon.innerHTML = `<img class='creature-icon' src='${fishPic}'>`;
+    icon.innerHTML = `<img class='creature-icon' src='${creatureIcon}'>`;
     wrapper.appendChild(icon);
     icon.addEventListener("mouseover", grabFishName);
     icon.addEventListener("mouseout", grabFishNameOut);
     function grabFishName() {
       const fishNamePlate = document.createElement("div");
       fishNamePlate.classList.add("fish-name-plate");
-      fishNamePlate.innerHTML = fishName;
+      fishNamePlate.innerHTML = creatureName;
       icon.appendChild(fishNamePlate);
     }
     function grabFishNameOut() {
@@ -34,11 +48,12 @@ async function getFishIcon(wrapper, type) {
     }
     //Sends
     icon.addEventListener("click", grabFishInfo);
-    function grabFishInfo(types, fishUrl) {
+    function grabFishInfo(types, url) {
       types = type;
-      fishUrl = fishId;
-      console.log(type);
-      displayFishInfo(type, fishUrl);
+      url = creatureID;
+      console.log(creatures);
+      url = creatures;
+      displayFishInfo(type, url);
       stopFishEventListener(icon);
     }
   }
@@ -46,15 +61,17 @@ async function getFishIcon(wrapper, type) {
 function stopFishEventListener(event) {
   event.removeEventListener("click", grabFishInfo);
 }
-async function grabFishUrl(type, url) {
-  const res = await fetch(`https://acnhapi.com/v1/${type}/${url}`);
+async function grabFishUrl(type) {
+  const res = await fetch(`/fish`);
   const data = await res.json();
   console.log(data);
   return data;
 }
+const test = { testt: 123, test: 234 };
+console.log(test);
 async function displayFishInfo(type, url) {
-  const fishUrl = await grabFishUrl(type, url);
-  console.log(fishUrl);
+  const creature = url;
+  console.log(creature);
   const fishDiv = document.querySelector(".fish-item");
   const fishBlur = document.createElement("div");
   fishBlur.classList.add("fish-blur");
@@ -64,18 +81,22 @@ async function displayFishInfo(type, url) {
   xMark.classList.add("x-mark");
   xMark.innerHTML = `<img src='img/overaly/x.png'>`;
   const fishInfo = document.createElement("div");
-  const fishName = fishUrl["name"]["name-USen"];
-  const fish = fishUrl["image_uri"];
+  const creatureName = creature.name;
+  const creatureIcon = creature.critterpediaImage;
   const myFish = new Image();
+  const fish = creature.critterpediaImage;
   myFish.src = fish;
   myFish.onload = function () {
     fishInfo.classList.add("fish-info-container");
-    fishInfo.innerHTML = `<h1 class='fish-title'>${fishName}</h1>
-  <img id='fish-img' src='${fish}'>  
+    fishInfo.innerHTML = `<h1 class='fish-title'>${creatureName}</h1>
+  <img id='fish-img' src='${creatureIcon}'>  
   `;
+    const monthGridWrapper = document.createElement("div");
+    monthGridWrapper.setAttribute("id", "month-grid-wrapper");
     const monthGrid = document.createElement("div");
     monthGrid.setAttribute("id", "month-grid");
-    fishInfo.appendChild(monthGrid);
+    fishInfo.appendChild(monthGridWrapper);
+    monthGridWrapper.appendChild(monthGrid);
     const monthArray = [
       "Jan",
       "Feb",
@@ -107,7 +128,7 @@ async function displayFishInfo(type, url) {
     }
     fishBlur.appendChild(fishInfo);
     // Month detector
-    const fishMonth = fishUrl["availability"]["month-array-northern"];
+    const fishMonth = creature["hemispheres"]["north"]["monthsArray"];
     console.log(fishMonth);
     function monthDetector() {
       if (fishMonth.includes(1)) {
@@ -196,33 +217,39 @@ async function displayFishInfo(type, url) {
       }
     }
     monthDetector();
-    function addLocation() {
+    function addInfo() {
+      const infoWrapper = document.createElement("div");
+      infoWrapper.classList.add("info-wrapper");
       const locationWrapper = document.createElement("div");
       locationWrapper.classList.add("location-wrapper");
       const location = document.createElement("h1");
-      const locationInfo = fishUrl["availability"]["location"];
+      const locationInfo = creature.whereHow;
       location.innerHTML = "Location";
       location.setAttribute("id", "location-header");
       const locationElement = document.createElement("p");
       locationElement.innerHTML = locationInfo;
       locationWrapper.appendChild(location);
       locationWrapper.appendChild(locationElement);
-      fishInfo.appendChild(locationWrapper);
-    }
-    function addPrice() {
+
       const priceWrapper = document.createElement("div");
       priceWrapper.classList.add("price-wrapper");
       const priceHeader = document.createElement("h1");
       priceHeader.innerHTML = "Price";
       const price = document.createElement("p");
-      const regularPrice = fishUrl["price"];
-      const cjPrice = fishUrl["price-cj"];
-      price.innerHTML = `${regularPrice} bells ( ${cjPrice} bells when sold at CJ )`;
+      const regularPrice = creature.sell;
+      price.innerHTML = `${regularPrice} bells`;
+      fishInfo.appendChild(infoWrapper);
       priceWrapper.appendChild(priceHeader);
       priceWrapper.appendChild(price);
-      fishInfo.appendChild(priceWrapper);
+      infoWrapper.appendChild(locationWrapper);
+      infoWrapper.appendChild(priceWrapper);
     }
-    addLocation();
+    function timeline() {
+      const timelineWrapper = document.createElement("div");
+      timelineWrapper.classList.add("timeline-wrapper");
+    }
+    function addPrice() {}
+    addInfo();
     addPrice();
   };
 
@@ -248,8 +275,7 @@ async function insectButton() {
   const fish = "fish";
   const bug = "bugs";
   wrapper.innerHTML = "";
-  if (bug === bug) {
-  }
+
   await getFishIcon(wrapper, bug);
 }
 // fish click event

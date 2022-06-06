@@ -1,0 +1,396 @@
+@font-face {
+  font-family: "FinkHeavy";
+  font-weight: 900;
+  font-style: normal;
+  src: url(fonts/AC.otf);
+}
+@font-face {
+  font-family: "Humming";
+  font-weight: 900;
+  font-style: normal;
+  src: url(fonts/Humming.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f8eebc;
+}
+.navbar {
+  background-color: #f7d359;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+.nav-list {
+  list-style-type: none;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+}
+.nav-list .list-item {
+  display: inline-block;
+  padding: 20px 10px;
+}
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+.navbar a:hover {
+  color: #6ba32d;
+}
+
+.primary-logo {
+  width: 100px;
+}
+
+.menu-line {
+  width: 40px;
+  height: 5px;
+  background-color: white;
+  margin-bottom: 4px;
+  border-radius: 1px;
+}
+.menu {
+  display: none;
+}
+
+#logo {
+  min-width: 10em;
+  max-width: 10em;
+}
+#insect {
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+  margin: 20px;
+  cursor: pointer;
+  font-family: FinkHeavy;
+}
+#fish {
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+  margin: 20px;
+  cursor: pointer;
+  font-family: FinkHeavy;
+}
+
+#collection {
+  background-color: #6ba32d;
+  margin: 20px;
+  border-radius: 10px;
+  width: 80px;
+  left: 90vw;
+  position: fixed;
+  text-align: right;
+}
+.icons {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  min-width: 90px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.creature-icon {
+  width: 90%;
+  padding: 1px;
+}
+.creature-fish-item {
+  display: flex;
+  justify-content: center;
+  background-color: #96cc39;
+  border-radius: 10px;
+  background-image: url("img/creature-background/fish.png"),
+    linear-gradient(180deg, #017c74, #7cc9c3);
+  background-size: 25%;
+  background-attachment: fixed;
+  background-repeat: repeat-x repeat-y;
+}
+.creature-insect-item {
+  display: flex;
+  justify-content: center;
+  border: 4px solid #6ba32d;
+  background-color: #96cc39;
+  border-radius: 10px;
+  background-image: url("img/creature-background/insect.png"),
+    linear-gradient(180deg, #68b893, #a4d4a2);
+  background-size: 100%;
+  background-attachment: scroll;
+  background-repeat: repeat-x repeat-y;
+}
+.creature-blur {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.363);
+  overflow: hidden;
+}
+.x-mark {
+  display: flex;
+  justify-content: right;
+  padding: 20px;
+}
+.creature-info-container {
+  background-color: #68b893;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  width: 90%;
+  border-radius: 10px;
+  margin-top: 40px;
+  border: 10px;
+  border-style: solid;
+  border-color: #c48d3f;
+  font-family: Humming;
+  background-image: url("/src/img/creature-background/fish.png");
+  background-size: 50%;
+}
+.creature-title {
+  text-transform: capitalize;
+  align-items: center;
+  text-align: center;
+  font-family: FinkHeavy;
+  font-size: 60px;
+}
+#creature-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  min-width: 20%;
+  max-width: 20%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  filter: drop-shadow(8px 8px 1px rgba(0, 0, 0, 0.397));
+}
+.creature-name-plate {
+  position: fixed;
+  background-color: aliceblue;
+  border-radius: 4px;
+  padding: 2px;
+  text-transform: capitalize;
+  font: FinkHeavy;
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  margin-top: 5px;
+}
+.info-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.creature-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+#month-grid-wrapper {
+  display: flex;
+  justify-content: center;
+}
+#month-grid {
+  display: grid;
+  min-width: 1px;
+  max-width: 500px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 10px auto;
+  border: 2px solid black;
+  border-radius: 4px;
+  font: FinkHeavy;
+  justify-content: center;
+}
+#months {
+  border: 1px solid black;
+  text-align: center;
+  background-color: bisque;
+
+  font: FinkHeavy;
+}
+.month {
+  text-align: center;
+  border: 1px solid black;
+  background-color: bisque;
+}
+#month-idle {
+  font-size: 25px;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.1);
+}
+.month-selector {
+  border-radius: 4px;
+  background-color: rgba(25, 168, 25, 0.623);
+  color: rgb(255, 255, 255);
+  margin: 2px;
+  font-size: 25px;
+  font-style: italic;
+}
+
+.location-wrapper {
+  display: inline-block;
+  text-align: center;
+  font: FinkHeavy;
+}
+.acHeader {
+  font: FinkHeavy;
+  display: flex;
+  justify-content: center;
+}
+
+.price-wrapper {
+  display: inline-block;
+  text-align: center;
+}
+.creature-description {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+#grid-title {
+  font-size: 100px;
+  font: FinkHeavy;
+}
+/* Filter Buttons */
+#filter-buttons-container {
+  position: relative;
+}
+#rn-Button {
+  background-color: #96cc39;
+  border: 5px solid #6ba32d;
+  border-radius: 10px;
+  color: white;
+  position: relative;
+  padding: 10px;
+}
+#rn-Button :hover {
+  background-color: rgba(255, 255, 255, 0.363);
+}
+/* Footer */
+#footer {
+  background-color: green;
+  border-top: 2px solid red;
+  width: 100%;
+  bottom: 0;
+  color: white;
+  font-size: 25px;
+  position: fixed;
+}
+/* Timeline Hours */
+.timeline-hours-container {
+  display: flex;
+  background-color: #017c74;
+  border: #017c74 solid 10px;
+  justify-content: center;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 30px;
+}
+.timeline-hour-inactive {
+  width: 100px;
+  border: #017c74 solid 1px;
+  padding: 5px;
+  background-color: #c48d3f;
+  color: rgba(0, 0, 0, 0.1);
+}
+.timeline-hour-active {
+  background-color: blue;
+  border: #017c74 solid 1px;
+  padding: 5px;
+  color: white;
+}
+.timeline-hour-active-current {
+  background-color: blue;
+  border: red solid 5px;
+  padding: 5px;
+  color: white;
+  box-sizing: border-box;
+}
+.timeline-hour-inactive-current {
+  background-color: #c48d3f;
+  border: red solid 5px;
+  padding: 5px;
+  color: rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+@media screen and (max-width: 480px) {
+  .nav-list .list-item {
+    display: block;
+    padding: 10px;
+    border: 1px solid white;
+  }
+  .nav-list {
+    display: none;
+  }
+  .navbar {
+    flex-direction: column;
+  }
+  .menu {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+  }
+  .primary-logo {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .active {
+    display: block;
+  }
+  .icons {
+    grid-template-columns: auto auto auto auto;
+  }
+  .creature-info-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  .months {
+    margin: 5px;
+  }
+  .month-grid {
+    width: 100%;
+  }
+  #creature-img {
+    min-width: 90%;
+    max-width: 90%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #month-grid {
+    width: 100%;
+  }
+  .creature-info-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  #creature-img {
+    min-width: 90%;
+    max-width: 90%;
+  }
+}

@@ -1,5 +1,3 @@
-import KofiButton from "kofi-button";
-
 export default function Footer() {
   return (
     <footer id="footer">

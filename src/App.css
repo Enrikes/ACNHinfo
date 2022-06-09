@@ -127,6 +127,7 @@ body {
   background-size: 100%;
   background-attachment: scroll;
   background-repeat: repeat-x repeat-y;
+  font-family: Humming;
 }
 .creature-blur {
   position: fixed;

@@ -305,12 +305,19 @@ body {
   background-color: #017c74;
   border: #017c74 solid 10px;
   justify-content: center;
-  width: 60%;
+
   margin: 0 auto;
   border-radius: 30px;
+  flex-wrap: wrap;
+}
+.timeline-am-container {
+  display: flex;
+}
+.timeline-pm-container {
+  display: flex;
 }
 .timeline-hour-inactive {
-  width: 100px;
+  width: 60%;
   border: #017c74 solid 1px;
   padding: 5px;
   background-color: #c48d3f;
@@ -330,6 +337,7 @@ body {
   box-sizing: border-box;
 }
 .timeline-hour-inactive-current {
+  width: 60%;
   background-color: #c48d3f;
   border: red solid 5px;
   padding: 5px;

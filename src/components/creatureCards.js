@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Card({
   icon,
@@ -12,9 +12,16 @@ export default function Card({
     grabCreatureInfo(name);
     return;
   }
+  const [isShown, setIsShown] = useState(false);
+  function nameTag(creatureName) {
+    console.log("i ran " + creatureName);
+    return <div className="nameTag">{creatureName}</div>;
+  }
   return (
     <>
       <div
+        onMouseEnter={() => setIsShown(true)}
+        onMouseLeave={() => setIsShown(false)}
         className={
           type === "Insects" ? "creature-insect-item" : "creature-fish-item"
         }
@@ -22,6 +29,7 @@ export default function Card({
           handleClick(e);
         }}
       >
+        {isShown && <div id="nameTag">{name}</div>}
         <img className={"creature-icon"} src={icon}></img>
       </div>
     </>

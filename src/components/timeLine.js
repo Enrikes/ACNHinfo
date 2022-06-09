@@ -45,7 +45,6 @@ export default function Timeline({ time }) {
       }
       if (hour > 12) {
         pm.push(hour);
-
       }
     }
   }
@@ -54,7 +53,7 @@ export default function Timeline({ time }) {
   console.log(pm);
   //Timeline AM
   const hoursAM = timesArrayAM.map((hour, index) => {
-   if (am.includes(index)) {
+    if (am.includes(index)) {
       return (
         <div
           className={
@@ -82,18 +81,18 @@ export default function Timeline({ time }) {
   });
   // Timeline PM
   const hoursPM = timesArrayPM.map((hour, index) => {
-    function slicer(hour){
-      const convertedHour = parseInt(hour.replace('pm',""))
-      function miltaryTime(newHour){
-        if (newHour === 12){
-          return 12
+    function slicer(hour) {
+      const convertedHour = parseInt(hour.replace("pm", ""));
+      function miltaryTime(newHour) {
+        if (newHour === 12) {
+          return 12;
         }
-        return newHour + 12
+        return newHour + 12;
       }
-      return miltaryTime(convertedHour)
+      return miltaryTime(convertedHour);
     }
     slicer(hour);
-    console.log(slicer(hour))
+    console.log(slicer(hour));
 
     if (pm.includes(slicer(hour))) {
       return (
@@ -123,8 +122,8 @@ export default function Timeline({ time }) {
   });
   return (
     <div className="timeline-hours-container">
-      {hoursAM}
-      {hoursPM}
+      <div className="timeline-am-container">{hoursAM}</div>
+      <div className="timeline-pm-container">{hoursPM}</div>
     </div>
   );
 }

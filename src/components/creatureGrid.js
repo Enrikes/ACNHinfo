@@ -8,8 +8,6 @@ export default function Grid({
   setGrid,
 }) {
   const [creatures, setCreature] = useState([]);
-  const [ hover, setHover ] = useState(false)
-
   useEffect(() => {
     axios.get(setGrid).then(function (response) {
       setCreature(response.data);
@@ -77,7 +75,7 @@ export default function Grid({
     <div className="">
       <div id="grid-title">
         {displayInsectGrid.length === 0 ? <div>fishybois</div> : null}
-        <div className="icons"> {displayFishGrid}</div>
+        <div className="icons">{displayFishGrid}</div>
       </div>
 
       <div id="grid-title">

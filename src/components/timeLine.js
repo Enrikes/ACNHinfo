@@ -32,6 +32,7 @@ export default function Timeline({ time }) {
   let am = [];
   let pm = [];
   const date = new Date();
+// This split creature array into AM and PM arrays.
   function splitCreatureArrayAM(array, am, pm) {
     console.log(array);
     for (const hour of array) {
@@ -49,8 +50,7 @@ export default function Timeline({ time }) {
     }
   }
   splitCreatureArrayAM(time, am, pm);
-  console.log(am);
-  console.log(pm);
+
   //Timeline AM
   const hoursAM = timesArrayAM.map((hour, index) => {
     if (am.includes(index)) {
@@ -79,6 +79,7 @@ export default function Timeline({ time }) {
       </div>
     );
   });
+
   // Timeline PM
   const hoursPM = timesArrayPM.map((hour, index) => {
     function slicer(hour) {

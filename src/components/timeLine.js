@@ -32,16 +32,13 @@ export default function Timeline({ time }) {
   let am = [];
   let pm = [];
   const date = new Date();
-// This split creature array into AM and PM arrays.
+  // This split creature array into AM and PM arrays.
   function splitCreatureArrayAM(array, am, pm) {
-    console.log(array);
     for (const hour of array) {
       if (hour < 12) {
-        console.log(hour);
         am.push(hour);
       }
       if (hour === 12) {
-        console.log(hour);
         pm.push(hour);
       }
       if (hour > 12) {
@@ -50,21 +47,21 @@ export default function Timeline({ time }) {
     }
   }
   splitCreatureArrayAM(time, am, pm);
+  const test = setInterval(refresh, 5000, am);
+  function refresh(am) {
+    console.log(am + "I AM AM");
+    let currentHour = date.getHours();
 
+    if (am.includes(currentHour)) {
+      return "timeline-hour-active-current";
+    } else {
+      return "timeline-hour-active";
+    }
+  }
   //Timeline AM
   const hoursAM = timesArrayAM.map((hour, index) => {
     if (am.includes(index)) {
-      return (
-        <div
-          className={
-            date.getHours() === index
-              ? "timeline-hour-active-current"
-              : "timeline-hour-active"
-          }
-        >
-          {hour}
-        </div>
-      );
+      return <div className={test}>{hour}</div>;
     }
 
     return (
@@ -81,8 +78,8 @@ export default function Timeline({ time }) {
   });
 
   // Timeline PM
-  const hoursPM = timesArrayPM.map((hour, index) => {
-    function slicer(hour) {
+  const hoursPM = timesArrayPM.map((hour) => {
+    function slicer(hour, date) {
       const convertedHour = parseInt(hour.replace("pm", ""));
       function miltaryTime(newHour) {
         if (newHour === 12) {
@@ -93,7 +90,6 @@ export default function Timeline({ time }) {
       return miltaryTime(convertedHour);
     }
     slicer(hour);
-    console.log(slicer(hour));
 
     if (pm.includes(slicer(hour))) {
       return (

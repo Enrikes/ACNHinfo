@@ -21,13 +21,13 @@ export default function MonthGrid({ months }) {
   const displayGrid = monthArray.map((month, index) => {
     if (newMonths.includes(index)) {
       return (
-        <div className="month">
+        <div key={month} className="month">
           <div className="month-selector">{month}</div>
         </div>
       );
     }
     return (
-      <div className="month">
+      <div key={month} className="month">
         <div id="month-idle">{month}</div>
       </div>
     );

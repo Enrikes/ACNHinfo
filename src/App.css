@@ -175,7 +175,7 @@ body {
   margin-right: auto;
   width: 100%;
   min-width: 20%;
-  max-width: 20%;
+  max-width: 30%;
   padding-top: 50px;
   padding-bottom: 50px;
   padding-left: 20px;
@@ -286,11 +286,10 @@ body {
   border: 5px solid #6ba32d;
   border-radius: 10px;
   color: white;
-  position: relative;
   padding: 10px;
 }
 #rn-Button :hover {
-  background-color: rgba(255, 255, 255, 0.363);
+  background-color: red;
 }
 /* Footer */
 #footer {

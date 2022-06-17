@@ -13,10 +13,7 @@ export default function Card({
     return;
   }
   const [isShown, setIsShown] = useState(false);
-  function nameTag(creatureName) {
-    console.log("i ran " + creatureName);
-    return <div className="nameTag">{creatureName}</div>;
-  }
+
   return (
     <>
       <div

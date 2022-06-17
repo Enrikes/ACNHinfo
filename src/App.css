@@ -185,7 +185,7 @@ body {
 #nameTag {
   position: absolute;
   background-color: aliceblue;
-  border-radius: 4px;
+  border-radius: 15px;
   padding: 2px;
   text-transform: capitalize;
   font: Humming !important;

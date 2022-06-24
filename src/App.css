@@ -147,20 +147,18 @@ body {
 }
 .creature-info-container {
   background-color: #68b893;
-  left: 0;
+  left: 50%;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  top: 50%;
+  margin: 0;
   position: absolute;
   width: 50%;
-  border-radius: 10px;
+  border-radius: 50px;
   margin-top: 40px;
-  border: 10px;
-  border-style: solid;
-  border-color: #c48d3f;
   font-family: Humming;
   background-image: url("/src/img/creature-background/fish.png");
   background-size: 50%;
+  transform: translate(-50%, -50%);
 }
 .creature-title {
   text-transform: capitalize;
@@ -168,7 +166,19 @@ body {
   text-align: center;
   font-family: FinkHeavy;
   font-size: 60px;
+  background-color: #f8eebc;
+  color: white;
+  width: min-content;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 40px;
+  top: -30px;
+  left: 3%;
+  position: relative;
+  white-space: nowrap;
 }
+/* */
+
 #creature-img {
   display: block;
   margin-left: auto;

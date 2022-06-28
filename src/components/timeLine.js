@@ -47,21 +47,21 @@ export default function Timeline({ time }) {
     }
   }
   splitCreatureArrayAM(time, am, pm);
-  const test = setInterval(refresh, 5000, am);
-  function refresh(am) {
-    console.log(am + "I AM AM");
-    let currentHour = date.getHours();
 
-    if (am.includes(currentHour)) {
-      return "timeline-hour-active-current";
-    } else {
-      return "timeline-hour-active";
-    }
-  }
   //Timeline AM
   const hoursAM = timesArrayAM.map((hour, index) => {
     if (am.includes(index)) {
-      return <div className={test}>{hour}</div>;
+      return (
+        <div
+          className={
+            date.getHours() === index
+              ? "timeline-hour-active-current"
+              : "timeline-hour-active"
+          }
+        >
+          {hour}
+        </div>
+      );
     }
 
     return (

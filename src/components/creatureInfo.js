@@ -34,10 +34,10 @@ export default function CreatureInfo({ cardInfo, toggleIsCreatureInfoShown }) {
         <img id="creature-img" src={creature.critterpediaImage}></img>
         <p style={{ textAlign: "center" }}>{creature.catchPhrase}</p>
         <MonthGrid months={months} />
-        <h1 className="acHeader">Active Hours</h1>
         <div className="creature-time">
           <p>{creature?.hemispheres.north.time}</p>
         </div>
+        <h1 className="acHeader">Active Hours</h1>
 
         <Timeline time={creature.hemispheres.north.timeArray} />
         <div className="creature-description">

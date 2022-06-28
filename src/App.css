@@ -269,9 +269,18 @@ body {
   font: FinkHeavy;
 }
 .acHeader {
+  position: relative;
   font: FinkHeavy;
-  display: flex;
-  justify-content: center;
+  background-color: #f8eebc;
+  border-radius: 30px;
+  color: white;
+  font-size: 120%;
+  padding-left: 2%;
+  padding-right: 2%;
+  width: min-content;
+  white-space: nowrap;
+  bottom: -1vh;
+  right: -2vw;
 }
 
 .price-wrapper {
@@ -321,6 +330,8 @@ body {
   margin: 0 auto;
   border-radius: 30px;
   flex-wrap: wrap;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 .timeline-am-container {
   display: flex;

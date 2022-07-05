@@ -13,6 +13,7 @@ export default function Grid({
       setCreature(response.data);
     });
   }, [setGrid]);
+
   const fish = creatures.filter(
     (creaturez) => creaturez.sourceSheet === "Fish"
   );
@@ -21,6 +22,9 @@ export default function Grid({
   );
   const seaCreature = creatures.filter(
     (creaturez) => creaturez.sourceSheet === "Sea Creature"
+  );
+  const villager = creatures.filter(
+    (creaturez) => creaturez.sourceSheet === "Villagers"
   );
   const displayFishGrid = fish.map((creature) => {
     return (
@@ -58,17 +62,16 @@ export default function Grid({
       />
     );
   });
-  const displayGrid = creatures.map((creature) => {
+  const displayVillagerGrid = villager.map((creature) => {
     return (
-      <>
-        <Card
-          toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
-          key={creature.name}
-          icon={creature.iconImage}
-          name={creature.name}
-          grabCreatureInfo={grabCreatureInfo}
-        />
-      </>
+      <Card
+        toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
+        key={creature.name}
+        icon={creature.iconImage}
+        name={creature.name}
+        grabCreatureInfo={grabCreatureInfo}
+        type={creature.sourceSheet}
+      />
     );
   });
   return (
@@ -84,6 +87,7 @@ export default function Grid({
       </div>
 
       <div className="icons">{displaySeaCreatureGrid}</div>
+      <div className="icons">{displayVillagerGrid}</div>
     </div>
   );
 }

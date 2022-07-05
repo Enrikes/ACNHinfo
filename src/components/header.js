@@ -7,6 +7,9 @@ export default function Header({ setGrid, toggledDarkMode }) {
   function setFish() {
     setGrid("/fish");
   }
+  function setVillager() {
+    setGrid("/villager");
+  }
   function darkMode() {
     toggledDarkMode();
   }
@@ -24,6 +27,11 @@ export default function Header({ setGrid, toggledDarkMode }) {
         <li className="list-item">
           <p onClick={setInsect} id="insect">
             Insect
+          </p>
+        </li>
+        <li className="list-item">
+          <p onClick={setVillager} id="insect">
+            Villager
           </p>
         </li>
       </ul>

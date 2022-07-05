@@ -1,6 +1,6 @@
 export default function FilterButtons({ setGrid }) {
   function setCurrentCreatures() {
-    setGrid("/caughtNow");
+    setGrid("/villager");
   }
   return (
     <div id="filter-buttons-container">

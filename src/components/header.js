@@ -1,5 +1,5 @@
 import React from "react";
-export default function Header({ setGrid, toggledDarkMode }) {
+export default function Header({ setGrid }) {
   function setInsect() {
     console.log("i have been clicked");
     setGrid("/insect");
@@ -10,9 +10,7 @@ export default function Header({ setGrid, toggledDarkMode }) {
   function setVillager() {
     setGrid("/villager");
   }
-  function darkMode() {
-    toggledDarkMode();
-  }
+
   return (
     <nav className="navbar">
       <div className="logo">
@@ -35,7 +33,6 @@ export default function Header({ setGrid, toggledDarkMode }) {
           </p>
         </li>
       </ul>
-      <div onClick={darkMode}>darkmode</div>
       <div className="menu" id="toggle-button">
         <div className="menu-line"></div>
         <div className="menu-line"></div>

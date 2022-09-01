@@ -81,6 +81,7 @@ export default function Timeline({ time }) {
   const hoursPM = timesArrayPM.map((hour) => {
     function slicer(hour, date) {
       const convertedHour = parseInt(hour.replace("pm", ""));
+      // Converts time to miltary time
       function miltaryTime(newHour) {
         if (newHour === 12) {
           return 12;
@@ -89,6 +90,7 @@ export default function Timeline({ time }) {
       }
       return miltaryTime(convertedHour);
     }
+    console.log(slicer(hour));
     slicer(hour);
 
     if (pm.includes(slicer(hour))) {
@@ -117,10 +119,87 @@ export default function Timeline({ time }) {
       </div>
     );
   });
+  //Mobile Timeline AM
+  const mobileHoursAM = timesArrayAM.map((hour, index) => {
+    const mobileHours = hour.replace("am", "");
+
+    if (am.includes(index)) {
+      return (
+        <div
+          className={
+            date.getHours() === index
+              ? "timeline-hour-active-current"
+              : "timeline-hour-active"
+          }
+        >
+          {mobileHours}
+        </div>
+      );
+    }
+
+    return (
+      <div
+        className={
+          date.getHours() === index
+            ? "timeline-hour-inactive-current"
+            : "timeline-hour-inactive"
+        }
+      >
+        {mobileHours}
+      </div>
+    );
+  });
+
+  const mobileHoursPM = timesArrayPM.map((hour) => {
+    const mobileHours = hour.replace("pm", "");
+    function slicer(hour, date) {
+      const convertedHour = parseInt(hour.replace("am", "deez"));
+      function miltaryTime(newHour) {
+        if (newHour === 12) {
+          return 12;
+        }
+        console.log(newHour + 12);
+        return newHour + 12;
+      }
+      return miltaryTime(convertedHour);
+    }
+
+    if (pm.includes(slicer(hour))) {
+      return (
+        <div
+          className={
+            date.getHours() === slicer(hour)
+              ? "timeline-hour-active-current"
+              : "timeline-hour-active"
+          }
+        >
+          {mobileHours}
+        </div>
+      );
+    }
+
+    return (
+      <div
+        className={
+          date.getHours() === slicer(hour)
+            ? "timeline-hour-inactive-current"
+            : "timeline-hour-inactive"
+        }
+      >
+        {mobileHours}
+      </div>
+    );
+  });
   return (
-    <div className="timeline-hours-container">
-      <div className="timeline-am-container">{hoursAM}</div>
-      <div className="timeline-pm-container">{hoursPM}</div>
+    <div className="timeline-container">
+      <div className="timeline-hours-container">
+        <div className="timeline-am-container">{hoursAM}</div>
+        <div className="timeline-pm-container">{hoursPM}</div>
+      </div>
+      <div className="timeline-mobile-hours-container">
+        <div className="timeline-mobile-am-container">{mobileHoursAM}</div>
+        <div className="timeline-mobile-pm-container">{mobileHoursPM}</div>
+      </div>
     </div>
   );
 }

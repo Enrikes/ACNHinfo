@@ -17,8 +17,6 @@ export default function Card({
   return (
     <>
       <div
-        onMouseEnter={() => setIsShown(true)}
-        onMouseLeave={() => setIsShown(false)}
         className={
           type === "Insects" ? "creature-insect-item" : "creature-fish-item"
         }
@@ -26,7 +24,7 @@ export default function Card({
           handleClick(e);
         }}
       >
-        {isShown && <div id="nameTag">{name}</div>}
+        <div id="nameTag">{name}</div>
         <img className={"creature-icon"} src={icon}></img>
       </div>
     </>

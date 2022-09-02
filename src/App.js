@@ -4,16 +4,23 @@ import Grid from "./components/creatureGrid";
 import CreatureInfo from "./components/creatureInfo";
 import Footer from "./components/footer";
 import FilterButtons from "./components/filterButtons";
+import VillagerFilter from "./components/villagerFilter";
+import Login from "./components/login";
+import Dashboard from "./components/dashboard";
 
-function App({ setGrid, toggleDarkMode }) {
+function App({ setGrid, toggleLoginMode }) {
   const [isCreatureInfoShown, setIsCreatureInfoShown] = useState(false);
   const [cardInfo, setCardInfo] = useState();
   const [url, setUrl] = useState("/fish");
-  const [darkMode, setDarkMode] = useState();
+  const [loginMode, setLoginMode] = useState(true);
+  const [loginSuccess, setLoginSuccess] = useState();
+  const loggedIn = window.localStorage.getItem("isLoggedIn");
+  console.log(loggedIn);
+
   function toggleIsCreatureInfoShown() {
     setIsCreatureInfoShown(!isCreatureInfoShown);
   }
-
+  console.log(loginMode);
   function setCreatureNameToSend(name) {
     setCardInfo(name);
     return cardInfo;
@@ -25,13 +32,8 @@ function App({ setGrid, toggleDarkMode }) {
     setUrl(value);
     return url;
   }
-  function toggleDarkMode(value) {
-    console.log("I am nig mode");
-    setDarkMode(!darkMode);
-    if (darkMode) {
-      return (document.body.style = "background-color: #121212;");
-    }
-    return (document.body.style = "background-color: white;");
+  function toggleLoginMode(value) {
+    setLoginMode(!loginMode);
   }
   return (
     <>
@@ -39,12 +41,24 @@ function App({ setGrid, toggleDarkMode }) {
         <CreatureInfo
           cardInfo={cardInfo}
           toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
+          url={url}
         />
       ) : (
         ""
       )}
-      <Header setGrid={setGrid} toggledDarkMode={toggleDarkMode} />
+      {loginSuccess === true || loggedIn === "true" ? (
+        <Dashboard setLoginSuccess={setLoginSuccess} />
+      ) : (
+        ""
+      )}
+      <Header setGrid={setGrid} toggleLoginMode={toggleLoginMode} />
+      {!loginMode ? (
+        <Login setLoginMode={setLoginMode} setLoginSuccess={setLoginSuccess} />
+      ) : (
+        ""
+      )}
       <FilterButtons setGrid={setGrid} />
+      {url === "/villager" ? <VillagerFilter setGrid={url} /> : ""}
       <Grid
         toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
         grabCreatureInfo={setCreatureNameToSend}

@@ -75,17 +75,9 @@ export default function Grid({
     );
   });
   return (
-    <div className="">
-      <div id="grid-title">
-        {displayInsectGrid.length === 0 ? <div>fishybois</div> : null}
-        <div className="icons">{displayFishGrid}</div>
-      </div>
-
-      <div id="grid-title">
-        {displayFishGrid.length === 0 ? <div>Insects</div> : null}
-        <div className="icons"> {displayInsectGrid}</div>
-      </div>
-
+    <div>
+      <div className="icons">{displayFishGrid}</div>
+      <div className="icons">{displayInsectGrid}</div>
       <div className="icons">{displaySeaCreatureGrid}</div>
       <div className="icons">{displayVillagerGrid}</div>
     </div>

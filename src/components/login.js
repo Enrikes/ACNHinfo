@@ -53,21 +53,24 @@ export default function Login({ setLoginMode, setLoginSuccess }) {
     }
   }
   return (
-    <div className="container">
+    <div className="login-wrapper">
       {!registration ? (
         //Register an account
         <div className="login-container">
           {!duplicateInfo ? <p id="red">Username already exists.</p> : ""}
-          <form onSubmit={handleRegistration}>
-            <label for="username">Username</label>
-            <input type="text" id="username"></input>
-            <label for="password">Password</label>
-            <input type="password" id="password"></input>
-            <button type="submit">Create Account</button>
-          </form>
-          <button type="button" onClick={handleRegistrationClick}>
-            Login existing account
-          </button>
+          <div className="form-container">
+            <form className="form" onSubmit={handleRegistration}>
+              <label for="username">Username</label>
+              <input type="text" id="username"></input>
+              <label for="password">Password</label>
+              <input type="password" id="password"></input>
+              <button type="submit">Create Account</button>
+              <p>Already have an account?</p>
+              <button type="button" onClick={handleRegistrationClick}>
+                Login existing account
+              </button>
+            </form>
+          </div>
         </div>
       ) : (
         //Login to existing account
@@ -77,17 +80,18 @@ export default function Login({ setLoginMode, setLoginSuccess }) {
           ) : (
             ""
           )}
-          <form onSubmit={handleLogin}>
+          <form className="form" onSubmit={handleLogin}>
             <label for="username">Username</label>
             <input type="text" id="username"></input>
             <label for="password">Password</label>
             <input type="password" id="password"></input>
             <button type="submit">Login</button>
             <p>{handleLogin}</p>
+            <p>Need an account?</p>
+            <button type="button" onClick={handleRegistrationClick}>
+              Register
+            </button>
           </form>
-          <button type="button" onClick={handleRegistrationClick}>
-            Register
-          </button>
         </div>
       )}
     </div>

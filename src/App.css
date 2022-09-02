@@ -438,11 +438,32 @@ body {
 .timeline-mobile-pm-container {
   display: none;
 }
+/* Login */
+.dashboard-wrapper {
+}
 .login-button {
   font: Humming;
   text-align: right;
   padding-right: 10px;
+  cursor: pointer;
 }
+.login-wrapper {
+  display: flex;
+  flex-direction: flex-end;
+  justify-content: end;
+}
+.login-container {
+  background-color: red;
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  display: flex;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
 @media screen and (max-width: 480px) {
   .nav-list .list-item {
     display: block;

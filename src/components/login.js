@@ -64,9 +64,15 @@ export default function Login({ setLoginMode, setLoginSuccess }) {
               <input type="text" id="username"></input>
               <label for="password">Password</label>
               <input type="password" id="password"></input>
-              <button type="submit">Create Account</button>
+              <button id="login-submit" type="submit">
+                Create Account
+              </button>
               <p>Already have an account?</p>
-              <button type="button" onClick={handleRegistrationClick}>
+              <button
+                id="login-submit"
+                type="button"
+                onClick={handleRegistrationClick}
+              >
                 Login existing account
               </button>
             </form>
@@ -85,10 +91,16 @@ export default function Login({ setLoginMode, setLoginSuccess }) {
             <input type="text" id="username"></input>
             <label for="password">Password</label>
             <input type="password" id="password"></input>
-            <button type="submit">Login</button>
+            <button id="login-submit" type="submit">
+              Login
+            </button>
             <p>{handleLogin}</p>
             <p>Need an account?</p>
-            <button type="button" onClick={handleRegistrationClick}>
+            <button
+              id="login-submit"
+              type="button"
+              onClick={handleRegistrationClick}
+            >
               Register
             </button>
           </form>

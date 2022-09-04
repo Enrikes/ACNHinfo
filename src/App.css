@@ -17,7 +17,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #f8eebc;
+  background-color: #fff9e5;
 }
 .navbar {
   background-color: #f7d359;
@@ -453,17 +453,32 @@ body {
   justify-content: end;
 }
 .login-container {
-  background-color: red;
-  padding: 10px;
+  background-color: #786951;
+  width: 10%;
+  padding: 20px;
   border-radius: 10px;
   position: absolute;
   display: flex;
+  justify-content: center;
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
 }
 .form {
   display: flex;
   flex-direction: column;
+  font-family: Humming;
 }
-
+#username,
+#password {
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+#login-submit {
+  border-radius: 10px;
+  border: none;
+}
 @media screen and (max-width: 480px) {
   .nav-list .list-item {
     display: block;

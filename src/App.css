@@ -475,9 +475,14 @@ body {
   margin-bottom: 10px;
   padding: 5px;
 }
+
 #login-submit {
   border-radius: 10px;
   border: none;
+}
+#login-submit:active {
+  transform: scale(0.95);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.5);
 }
 @media screen and (max-width: 480px) {
   .nav-list .list-item {
@@ -560,7 +565,7 @@ body {
     border-radius: 0px;
   }
   .creature-title {
-    margin: 0 auto;
+    top: 0;
   }
   #month-grid {
     width: 100%;
@@ -573,5 +578,7 @@ body {
   #creature-img {
     min-width: 20%;
     max-width: 50%;
+  }
+  .acHeader {
   }
 }

@@ -440,6 +440,7 @@ body {
 }
 /* Login */
 .dashboard-wrapper {
+  background-color: #f7d359;
 }
 .login-button {
   font: Humming;

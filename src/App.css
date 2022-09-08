@@ -18,6 +18,9 @@
 }
 body {
   background-color: #fff9e5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .navbar {
   background-color: #f7d359;
@@ -99,6 +102,7 @@ body {
   min-width: 90px;
   margin-left: 10%;
   margin-right: 10%;
+  margin-bottom: 5%;
 }
 .creature-icon {
   width: 90%;
@@ -373,13 +377,27 @@ body {
 }
 /* Footer */
 #footer {
-  background-color: green;
-  border-top: 2px solid red;
+  background-color: #786951;
   width: 100%;
   bottom: 0;
   color: white;
   font-size: 25px;
-  position: fixed;
+  position: relative;
+  margin-top: auto;
+  height: 200px;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer-col-1,
+.footer-col-2,
+.footer-col-3 {
+  display: flex;
+  border: rebeccapurple solid 5px;
+  flex-grow: 1;
+  justify-content: center;
 }
 /* Timeline Hours */
 .timeline-hours-container {
@@ -581,5 +599,12 @@ body {
     max-width: 50%;
   }
   .acHeader {
+  }
+  /* Footer */
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
   }
 }

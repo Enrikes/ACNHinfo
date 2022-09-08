@@ -1,7 +1,6 @@
 import React from "react";
 export default function Header({ setGrid }) {
   function setInsect() {
-    console.log("i have been clicked");
     setGrid("/insect");
   }
   function setFish() {

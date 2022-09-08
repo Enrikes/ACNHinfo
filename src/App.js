@@ -15,18 +15,15 @@ function App({ setGrid, toggleLoginMode }) {
   const [loginMode, setLoginMode] = useState(true);
   const [loginSuccess, setLoginSuccess] = useState();
   const loggedIn = window.localStorage.getItem("isLoggedIn");
-  console.log(loggedIn);
 
   function toggleIsCreatureInfoShown() {
     setIsCreatureInfoShown(!isCreatureInfoShown);
   }
-  console.log(loginMode);
   function setCreatureNameToSend(name) {
     setCardInfo(name);
     return cardInfo;
   }
   const time = new Date();
-  console.log(time.getHours() + ":" + time.getMinutes());
   function setGrid(value) {
     console.log("poggers");
     setUrl(value);

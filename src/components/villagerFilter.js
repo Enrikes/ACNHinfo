@@ -1,6 +1,5 @@
 import React from "react";
 export default function VillagerFilter({ setGrid }) {
-  console.log(setGrid);
   function setFilter(species) {
     setGrid("/alligator");
   }

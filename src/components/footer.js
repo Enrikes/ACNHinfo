@@ -28,29 +28,31 @@ export default function Footer() {
         <div className="footer-col-2">
           <p>copy right</p>
         </div>
-        <div className="footer-col-3">
-          <script>
-            {kofiWidgetOverlay.draw("twentyfifthcorn", {
-              type: "floating-chat",
-              "floating-chat.donateButton.text": "Support me",
-              "floating-chat.donateButton.background-color": "#00b9fe",
-              "floating-chat.donateButton.text-color": "#fff",
-            })}
-          </script>
-          <KofiButton
-            username="twentyfifthcorn"
-            label="Support me!"
-          ></KofiButton>
-        </div>
+        <div className="footer-col-3"></div>
       </div>
       <div className="footer-row-1">
         <FontAwesomeIcon
-          href="https://twitter.com/_Enrikes_"
           className="social-icons"
           icon={faTwitter}
+          onClick={() => {
+            window.open("https://twitter.com/_Enrikes_", "_blank");
+          }}
         />
-        <FontAwesomeIcon href="" className="social-icons" icon={faGithub} />
-        <FontAwesomeIcon className="social-icons" icon={faLinkedin} />
+
+        <FontAwesomeIcon
+          className="social-icons"
+          icon={faGithub}
+          onClick={() => {
+            window.open("https://github.com/Enrikes", "_blank");
+          }}
+        />
+        <FontAwesomeIcon
+          className="social-icons"
+          icon={faLinkedin}
+          onClick={() => {
+            window.open("https://www.linkedin.com/in/enriquetroche/", "_blank");
+          }}
+        />
       </div>
 
       <div className="footer-row-1">copyright</div>

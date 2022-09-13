@@ -505,7 +505,7 @@ ul li a {
 .login-wrapper {
   display: flex;
   flex-direction: flex-end;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .login-container {
   background-color: #786951;

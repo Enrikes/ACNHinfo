@@ -48,7 +48,10 @@ export default function CreatureInfo({
     return isLoading ? (
       <div className="creature-blur"></div>
     ) : (
-      <VillagerInfo villager={villager} />
+      <VillagerInfo
+        villager={villager}
+        toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
+      />
     );
   } else {
     console.log("I SHOULD NOT BE CONSOLINH");

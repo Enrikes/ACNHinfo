@@ -1,9 +1,12 @@
 import React from "react";
 
-export default function VillagerInfo({ villager }) {
+export default function VillagerInfo({ villager, toggleIsCreatureInfoShown }) {
   console.log(villager);
+  function hideCreatureInfo() {
+    toggleIsCreatureInfoShown();
+  }
   return (
-    <div className="creature-blur">
+    <div className="creature-blur" onClick={hideCreatureInfo}>
       <div className="x-mark" onClick={console.log("deez bolas")}>
         <img src="/../src/img/loading/exit-button.png"></img>
       </div>

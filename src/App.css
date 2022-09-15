@@ -507,18 +507,33 @@ ul li a {
   flex-direction: flex-end;
   justify-content: flex-end;
 }
+#login-item {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
 .login-container {
   background-color: #786951;
-  width: 10%;
+  width: min-content;
   padding: 20px;
   border-radius: 10px;
   position: absolute;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   animation-name: fadeIn;
   animation-duration: 0.3s;
 }
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
 .form {
+  display: flex;
+  flex-direction: column;
+  font-family: Humming;
+}
+.registration {
   display: flex;
   flex-direction: column;
   font-family: Humming;

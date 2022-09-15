@@ -6,6 +6,8 @@ export default function Login({ setLoginMode, setLoginSuccess }) {
   const [incorrectLogin, setIncorrectLogin] = useState(true);
   const [duplicateInfo, setDuplicateInfo] = useState(true);
   function handleRegistrationClick() {
+    console.log("click!");
+
     setRegistration(!registration);
   }
 
@@ -44,9 +46,9 @@ export default function Login({ setLoginMode, setLoginSuccess }) {
           setLoginMode(true);
           setLoginSuccess(true);
           window.localStorage.setItem("isLoggedIn", true);
-          const userInfo = resp.data;
         }
       } catch (error) {
+        //Sends a login info incorrect message.
         setIncorrectLogin(false);
         return error.response.data;
       }
@@ -86,24 +88,20 @@ export default function Login({ setLoginMode, setLoginSuccess }) {
           ) : (
             ""
           )}
-          <form className="form" onSubmit={handleLogin}>
-            <label for="username">Username</label>
-            <input type="text" id="username"></input>
-            <label for="password">Password</label>
-            <input type="password" id="password"></input>
-            <button id="login-submit" type="submit">
-              Login
-            </button>
-            <p>{handleLogin}</p>
-            <p>Need an account?</p>
-            <button
-              id="login-submit"
-              type="button"
-              onClick={handleRegistrationClick}
-            >
-              Register
-            </button>
-          </form>
+          <div className="form-container">
+            <form className="form" onSubmit={handleLogin}>
+              <label htmlFor="username">Username</label>
+              <input type="text" id="username"></input>
+              <label htmlFor="password">Password</label>
+              <input type="password" id="password"></input>
+              <button id="login-submit" type="submit">
+                Login
+              </button>
+            </form>
+          </div>
+
+          <p>Need an account?</p>
+          <button onClick={handleRegistrationClick}>Register</button>
         </div>
       )}
     </div>

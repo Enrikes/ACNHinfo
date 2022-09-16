@@ -43,11 +43,7 @@ function App({ setGrid, toggleLoginMode }) {
       ) : (
         ""
       )}
-      {loginSuccess === true || loggedIn === "true" ? (
-        <Dashboard setLoginSuccess={setLoginSuccess} />
-      ) : (
-        ""
-      )}
+      <Dashboard setLoginSuccess={setLoginSuccess} />
       <Header setGrid={setGrid} toggleLoginMode={toggleLoginMode} />
       {!loginMode ? (
         <Login setLoginMode={setLoginMode} setLoginSuccess={setLoginSuccess} />

@@ -371,6 +371,7 @@ body {
 }
 /* Filter Buttons */
 #filter-buttons-container {
+  width: min-content;
   position: relative;
 }
 #rn-Button {
@@ -665,5 +666,11 @@ ul li a {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+  }
+  /* Login/Register */
+  .login-container {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0px;
   }
 }

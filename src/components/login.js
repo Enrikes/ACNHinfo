@@ -99,6 +99,7 @@ export default function Login({ setLoginMode, setLoginSuccess }) {
                 Login
               </button>
             </form>
+            <h1 id="register">Need an account?</h1>
             <RegisterButton registerClick={handleRegistrationClick} />
           </div>
         </div>

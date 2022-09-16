@@ -12,7 +12,6 @@ export default function Card({
     grabCreatureInfo(name);
     return;
   }
-
   return (
     <>
       <div

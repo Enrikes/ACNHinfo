@@ -358,6 +358,14 @@ body {
 }
 
 /* Login/Register */
+#register {
+  font-family: humming;
+  font-size: 15px;
+}
+.register-wrapper {
+  display: flex;
+  flex-direction: column;
+}
 #red {
   color: red;
 }

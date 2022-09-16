@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import RegisterButton from "./registerButton";
 
 export default function Login({ setLoginMode, setLoginSuccess }) {
   const [registration, setRegistration] = useState(true);
@@ -98,10 +99,8 @@ export default function Login({ setLoginMode, setLoginSuccess }) {
                 Login
               </button>
             </form>
+            <RegisterButton registerClick={handleRegistrationClick} />
           </div>
-
-          <p>Need an account?</p>
-          <button onClick={handleRegistrationClick}>Register</button>
         </div>
       )}
     </div>

@@ -25,7 +25,6 @@ function App({ setGrid, toggleLoginMode }) {
   }
   const time = new Date();
   function setGrid(value) {
-    console.log("poggers");
     setUrl(value);
     return url;
   }

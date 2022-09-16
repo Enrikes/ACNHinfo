@@ -13,7 +13,17 @@ export default function Grid({
       setCreature(response.data);
     });
   }, [setGrid]);
-
+  //Loading loop
+  function loadingLoop() {
+    const loadingItems = [1, 2, 3, 4, 5, 6, 7];
+    const loadingCards = loadingItems.map((items) => {
+      return <Card name={items} />;
+    });
+    return loadingCards;
+  }
+  if (creatures.length === 0) {
+    console.log("hello");
+  }
   const fish = creatures.filter(
     (creaturez) => creaturez.sourceSheet === "Fish"
   );
@@ -76,7 +86,11 @@ export default function Grid({
   });
   return (
     <div>
-      <div className="icons">{displayFishGrid}</div>
+      {creatures.length === 0 ? (
+        loadingLoop()
+      ) : (
+        <div className="icons">{displayFishGrid}</div>
+      )}
       <div className="icons">{displayInsectGrid}</div>
       <div className="icons">{displaySeaCreatureGrid}</div>
       <div className="icons">{displayVillagerGrid}</div>

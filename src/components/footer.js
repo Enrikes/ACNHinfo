@@ -5,7 +5,6 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import React from "react";
-import { KofiButton } from "react-kofi-button";
 
 export default function Footer() {
   return (

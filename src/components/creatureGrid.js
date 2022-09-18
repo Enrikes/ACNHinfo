@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "./creatureCards";
+import LoadingGrid from "./loadingGrid";
 
 export default function Grid({
   toggleIsCreatureInfoShown,
@@ -9,21 +10,17 @@ export default function Grid({
 }) {
   const [creatures, setCreature] = useState([]);
   useEffect(() => {
-    axios.get(setGrid).then(function (response) {
-      setCreature(response.data);
-    });
+    // Sends grid name to enpoint to recieve info.
+    const retrieveGridData = async () => {
+      try{
+        const resp = await axios.get(setGrid)
+        setCreature(resp.data)
+      } catch (err){
+        return err
+      }
+    }
+    retrieveGridData()
   }, [setGrid]);
-  //Loading loop
-  function loadingLoop() {
-    const loadingItems = [1, 2, 3, 4, 5, 6, 7];
-    const loadingCards = loadingItems.map((items) => {
-      return <Card name={items} />;
-    });
-    return loadingCards;
-  }
-  if (creatures.length === 0) {
-    console.log("hello");
-  }
   const fish = creatures.filter(
     (creaturez) => creaturez.sourceSheet === "Fish"
   );
@@ -87,7 +84,7 @@ export default function Grid({
   return (
     <div>
       {creatures.length === 0 ? (
-        loadingLoop()
+        <div className="icons"><LoadingGrid /></div>
       ) : (
         <div className="icons">{displayFishGrid}</div>
       )}

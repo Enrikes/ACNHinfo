@@ -106,6 +106,7 @@ body {
 }
 .creature-icon {
   width: 90%;
+  max-width: 124px;
   padding: 1px;
 }
 .creature-fish-item {

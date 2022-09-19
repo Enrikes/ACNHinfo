@@ -112,7 +112,7 @@ body {
 .creature-fish-item {
   display: flex;
   justify-content: center;
-  background-color: #96cc39;
+  background-color: #017c74;
   border-radius: 10px;
   background-image: url("img/creature-background/fish.png"),
     linear-gradient(180deg, #017c74, #7cc9c3);

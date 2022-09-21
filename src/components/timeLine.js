@@ -163,7 +163,6 @@ export default function Timeline({ time }) {
       }
       return miltaryTime(convertedHour);
     }
-
     if (pm.includes(slicer(hour))) {
       return (
         <div
@@ -177,7 +176,6 @@ export default function Timeline({ time }) {
         </div>
       );
     }
-
     return (
       <div
         className={
@@ -201,8 +199,10 @@ export default function Timeline({ time }) {
         <div className='timeline-mobile-pm-container'>{mobileHoursPM}</div>
       </div>
       <div className='am-pm-container'>
-        <div className='timeline-am'>AM</div>
-        <div className='timeline-pm'>PM</div>
+        <div className='timeline-am'>
+          AM <div className='tests'>PM</div>
+        </div>
+        {/* <div className='timeline-pm'>PM</div> */}
       </div>
     </div>
   );

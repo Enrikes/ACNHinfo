@@ -263,18 +263,7 @@ body {
   border-radius: 10px;
   background-color: #017c74;
 }
-.am-pm-container {
-  text-align: center;
-  margin: 0 auto;
-}
-.timeline-am,
-.timeline-pm {
-  width: min-content;
-  padding: 10px;
-  position: relative;
-  border-radius: 10px;
-  background-color: #017c74;
-}
+
 /* Villager filter buttons */
 .villager-filter-container {
   display: flex;
@@ -514,8 +503,6 @@ ul li a {
   border-radius: 30px;
   padding-top: 1%;
   padding-bottom: 1%;
-  min-width: 50%;
-  max-width: 70%;
   flex-direction: column;
   max-width: min-content;
 }
@@ -523,8 +510,33 @@ ul li a {
 .timeline-mobile-pm-container {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
+  z-index: 2;
 }
-
+.am-pm-container {
+  text-align: center;
+  margin: 0 auto;
+}
+.timeline-am,
+.timeline-pm {
+  margin: 0 auto;
+  left: 205px;
+  bottom: 130px;
+  z-index: 1;
+  width: min-content;
+  padding: 10px;
+  position: relative;
+  border-radius: 10px;
+  background-color: #017c74;
+}
+.timeline-am {
+  display: flex;
+  flex-direction: column;
+}
+.tests {
+  display: flex;
+  margin-top: 25px;
+}
 /* Login */
 .dashboard-wrapper {
   background-color: #f7d359;

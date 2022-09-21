@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "FinkHeavy";
+  font-family: 'FinkHeavy';
   font-weight: 900;
   font-style: normal;
   src: url(fonts/AC.otf);
 }
 @font-face {
-  font-family: "Humming";
+  font-family: 'Humming';
   font-weight: 900;
   font-style: normal;
   src: url(fonts/Humming.otf);
@@ -114,7 +114,7 @@ body {
   justify-content: center;
   background-color: #017c74;
   border-radius: 10px;
-  background-image: url("img/creature-background/fish.png"),
+  background-image: url('img/creature-background/fish.png'),
     linear-gradient(180deg, #017c74, #7cc9c3);
   background-size: 25%;
   background-attachment: fixed;
@@ -127,7 +127,7 @@ body {
   border: 4px solid #6ba32d;
   background-color: #96cc39;
   border-radius: 10px;
-  background-image: url("img/creature-background/insect.png"),
+  background-image: url('img/creature-background/insect.png'),
     linear-gradient(180deg, #68b893, #a4d4a2);
   background-size: 100%;
   background-attachment: scroll;
@@ -185,7 +185,7 @@ body {
   border-radius: 50px;
   margin-top: 40px;
   font-family: Humming;
-  background-image: url("/src/img/creature-background/fish.png");
+  background-image: url('/src/img/creature-background/fish.png');
   background-size: 50%;
   transform: translate(-50%, -50%);
 }
@@ -259,6 +259,18 @@ body {
   padding: 10px;
   top: 50px;
   left: 100px;
+  position: relative;
+  border-radius: 10px;
+  background-color: #017c74;
+}
+.am-pm-container {
+  text-align: center;
+  margin: 0 auto;
+}
+.timeline-am,
+.timeline-pm {
+  width: min-content;
+  padding: 10px;
   position: relative;
   border-radius: 10px;
   background-color: #017c74;
@@ -493,14 +505,26 @@ ul li a {
   color: rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 }
-
-/* Mobile timeline desktop */
-.timeline-mobile-am-container {
-  display: none;
+.timeline-mobile-hours-container {
+  display: flex;
+  background-color: #017c74;
+  border: #017c74 solid 10px;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 30px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  min-width: 50%;
+  max-width: 70%;
+  flex-direction: column;
+  max-width: min-content;
 }
+.timeline-mobile-am-container,
 .timeline-mobile-pm-container {
-  display: none;
+  display: flex;
+  justify-content: center;
 }
+
 /* Login */
 .dashboard-wrapper {
   background-color: #f7d359;
@@ -608,7 +632,7 @@ ul li a {
   }
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
-  #creature-img{
+  #creature-img {
     width: 30%;
     max-width: 30%;
     min-width: 20%;
@@ -616,26 +640,6 @@ ul li a {
   /* Timeline CSS */
   .timeline-hours-container {
     display: none;
-  }
-
-  .timeline-mobile-hours-container {
-    display: flex;
-    background-color: #017c74;
-    border: #017c74 solid 10px;
-    justify-content: center;
-    margin: 0 auto;
-    border-radius: 30px;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    min-width: 50%;
-    max-width: 70%;
-    flex-direction: column;
-    max-width: min-content;
-  }
-  .timeline-mobile-am-container,
-  .timeline-mobile-pm-container {
-    display: flex;
-    justify-content: center;
   }
 
   .timeline-hour-active,
@@ -681,7 +685,7 @@ ul li a {
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  .creature-info-container{
+  .creature-info-container {
     width: 100%;
   }
 }

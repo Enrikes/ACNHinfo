@@ -257,7 +257,7 @@ body {
   align-items: center;
   width: min-content;
   padding: 10px;
-  top: 50px;
+  top: 10px;
   left: 100px;
   position: relative;
   border-radius: 10px;
@@ -333,19 +333,11 @@ body {
   text-align: center;
   font: FinkHeavy;
 }
-.acHeader {
-  position: relative;
-  font: FinkHeavy;
-  background-color: #f8eebc;
-  border-radius: 30px;
+.active-hours {
+  background-color: #025e57;
+  border-radius: 10px;
+  text-align: center;
   color: white;
-  font-size: 120%;
-  padding-left: 2%;
-  padding-right: 2%;
-  width: min-content;
-  white-space: nowrap;
-  bottom: -10px;
-  right: -10%;
 }
 
 .price-wrapper {

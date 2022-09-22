@@ -54,7 +54,6 @@ export default function CreatureInfo({
       />
     );
   } else {
-    console.log('I SHOULD NOT BE CONSOLINH');
     const months = creature?.hemispheres.north.monthsArray;
     const price = (150 / 100) * creature?.sell;
 
@@ -76,7 +75,6 @@ export default function CreatureInfo({
           <div className='creature-time-container'>
             <p id='creature-time'>{creature?.hemispheres.north.time}</p>
           </div>
-          <h1 className='acHeader'>Active Hours</h1>
           <Timeline time={creature.hemispheres.north.timeArray} />
           <div className='creature-description'>
             <div className='creature-location'>

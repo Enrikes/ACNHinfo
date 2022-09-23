@@ -278,12 +278,14 @@ body {
 }
 /* Villager Info  */
 .villager-image-container {
-  width: 128px;
   display: flex;
-  align-items: center;
 }
 .villager-image {
-  display: flex;
+  border-radius: 150px;
+  margin: 0 auto;
+}
+#villager-gender {
+  color: red;
 }
 @keyframes fadeIn {
   0% {

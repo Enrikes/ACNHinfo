@@ -20,21 +20,16 @@ export default function CreatureInfo({
     setUrlState(url);
   }
   useEffect(() => {
-    console.log('i ran');
     if (url === '/villager') {
-      console.log('i ran');
-
       axios
         .get('/singleVillager', { params: { name: cardInfo } })
         .then((res) => {
-          console.log(res.data);
           setVillager(res.data[0]);
         });
     } else {
       axios
         .get('/singleCreature', { params: { name: cardInfo } })
         .then((res) => {
-          console.log(res.data[0]);
           setCreature(res.data[0]);
         });
     }
@@ -43,7 +38,6 @@ export default function CreatureInfo({
       setIsLoading(false);
     }, 2000);
   }, []);
-  console.log(villager);
   if (url === '/villager') {
     return isLoading ? (
       <div className='creature-blur'></div>

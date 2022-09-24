@@ -1,4 +1,6 @@
 import React from 'react';
+import male from '../img/villager/male.png';
+import female from '../img/villager/female.png';
 
 export default function VillagerInfo({ villager, toggleIsCreatureInfoShown }) {
   console.log(villager);
@@ -7,24 +9,24 @@ export default function VillagerInfo({ villager, toggleIsCreatureInfoShown }) {
   }
   function gender(genderId) {
     if (genderId === 'Male') {
-      return 'M';
+      return <img className='villager-gender' src={male}></img>;
     } else {
-      return 'F';
+      console.log('ima girl');
+      return <img className='villager-gender' src={female}></img>;
     }
   }
-  console.log(villager);
   return (
     <div className='creature-blur' onClick={hideCreatureInfo}>
       <div className='x-mark' onClick={console.log('deez bolas')}>
         <img src='/../src/img/loading/exit-button.png'></img>
       </div>
       <div className='creature-info-container'>
-        <h1 className='creature-title'>
-          {villager.name}
-          <div id='villager-gender'>{gender(villager.gender)}</div>
-        </h1>
+        <h1 className='creature-title'>{villager.name}</h1>
         <div className='villager-image-container'>
           <img className='villager-image' src={villager.photoImage}></img>
+          <div className='villager-gender-container'>
+            {gender(villager.gender)}
+          </div>
         </div>
         <div className='creature-description'></div>
       </div>

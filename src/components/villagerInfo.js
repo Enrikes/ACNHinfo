@@ -4,6 +4,11 @@ import female from '../img/villager/female.png';
 
 export default function VillagerInfo({ villager, toggleIsCreatureInfoShown }) {
   console.log(villager);
+  console.log(villager.nameColor);
+  const villagerName = {
+    color: villager.nameColor,
+    backgroundColor: villager.bubbleColor,
+  };
   function hideCreatureInfo() {
     toggleIsCreatureInfoShown();
   }
@@ -21,7 +26,9 @@ export default function VillagerInfo({ villager, toggleIsCreatureInfoShown }) {
         <img src='/../src/img/loading/exit-button.png'></img>
       </div>
       <div className='creature-info-container'>
-        <h1 className='creature-title'>{villager.name}</h1>
+        <h1 className='creature-title' style={villagerName}>
+          {villager.name}
+        </h1>
         <div className='villager-image-container'>
           <img className='villager-image' src={villager.photoImage}></img>
           <div className='villager-gender-container'>

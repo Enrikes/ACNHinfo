@@ -178,10 +178,10 @@ body {
   background-color: #68b893;
   left: 50%;
   right: 0;
-  top: 50%;
+  top: 20%;
   margin: 0;
   position: absolute;
-  width: 50%;
+  width: 70%;
   border-radius: 50px;
   margin-top: 40px;
   font-family: Humming;
@@ -197,7 +197,6 @@ body {
   font-family: FinkHeavy;
   font-size: 60px;
   background-color: #f8eebc;
-  color: white;
   width: min-content;
   padding-left: 2%;
   padding-right: 2%;
@@ -642,6 +641,8 @@ ul li a {
     width: 100%;
     height: 100%;
     margin: 0;
+    top: 50%;
+    border-radius: 0;
   }
   .months {
     margin: 5px;
@@ -686,6 +687,7 @@ ul li a {
     width: 100%;
     height: 100%;
     margin: 0;
+    top: 50%;
   }
   #creature-img {
     min-width: 20%;
@@ -710,5 +712,6 @@ ul li a {
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .creature-info-container {
     width: 100%;
+    top: 20%;
   }
 }

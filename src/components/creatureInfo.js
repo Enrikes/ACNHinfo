@@ -13,7 +13,9 @@ export default function CreatureInfo({
   const [creature, setCreature] = useState();
   const [villager, setVillager] = useState();
   const [urlState, setUrlState] = useState();
-  function hideCreatureInfo() {
+  function hideCreatureInfo(e) {
+    if (e.currentTarget != e.target) return;
+    e.stopPropagation();
     toggleIsCreatureInfoShown();
   }
   function setUrlNewState() {
@@ -52,35 +54,43 @@ export default function CreatureInfo({
     const price = (150 / 100) * creature?.sell;
 
     return isLoading ? (
-      <div className='creature-blur'></div>
+      <div className='creature-blur'>test</div>
     ) : (
       <div className='creature-container'>
-        <div className='creature-blur' onClick={hideCreatureInfo}></div>
-        <div className='creature-info-container'>
-          <div className='creature-header' onClick={hideCreatureInfo}>
-            <h1 className='creature-title'>{creature.name}</h1>
-            <div className='x-mark'>X</div>
-          </div>
-          <img id='creature-img' src={creature.critterpediaImage}></img>
-          <div className='creature-catch-phrase-container'>
-            <p id='creature-catch-phrase'>{creature.catchPhrase}</p>
-          </div>
-          <MonthGrid months={months} />
-          <div className='creature-time-container'>
-            <p id='creature-time'>{creature?.hemispheres.north.time}</p>
-          </div>
-          <Timeline time={creature.hemispheres.north.timeArray} />
-          <div className='creature-description'>
-            <div className='creature-location'>
-              <h1>Location</h1>
-              <p>{creature.whereHow}</p>
+        <div
+          className='creature-blur'
+          onClick={(e) => {
+            hideCreatureInfo(e);
+          }}
+        >
+          <div className='creature-info-container'>
+            <div className='creature-header'>
+              <h1 className='creature-title'>{creature.name}</h1>
+              <div className='x-mark' onClick={hideCreatureInfo}>
+                X
+              </div>
             </div>
-            <div className='creature-price'>
-              <h1>Price</h1>
-              <p>{creature.sell} Bells</p>
-              <p>
-                <b>Flick Price:</b> {price} Bells
-              </p>
+            <img id='creature-img' src={creature.critterpediaImage}></img>
+            <div className='creature-catch-phrase-container'>
+              <p id='creature-catch-phrase'>{creature.catchPhrase}</p>
+            </div>
+            <MonthGrid months={months} />
+            <div className='creature-time-container'>
+              <p id='creature-time'>{creature?.hemispheres.north.time}</p>
+            </div>
+            <Timeline time={creature.hemispheres.north.timeArray} />
+            <div className='creature-description'>
+              <div className='creature-location'>
+                <h1>Location</h1>
+                <p>{creature.whereHow}</p>
+              </div>
+              <div className='creature-price'>
+                <h1>Price</h1>
+                <p>{creature.sell} Bells</p>
+                <p>
+                  <b>Flick Price:</b> {price} Bells
+                </p>
+              </div>
             </div>
           </div>
         </div>

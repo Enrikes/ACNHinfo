@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Card from "./creatureCards";
-import LoadingGrid from "./loadingGrid";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Card from './creatureCards';
+import LoadingGrid from './loadingGrid';
 
 export default function Grid({
   toggleIsCreatureInfoShown,
@@ -12,26 +12,26 @@ export default function Grid({
   useEffect(() => {
     // Sends grid name to enpoint to recieve info.
     const retrieveGridData = async () => {
-      try{
-        const resp = await axios.get(setGrid)
-        setCreature(resp.data)
-      } catch (err){
-        return err
+      try {
+        const resp = await axios.get(setGrid);
+        setCreature(resp.data);
+      } catch (err) {
+        return err;
       }
-    }
-    retrieveGridData()
+    };
+    retrieveGridData();
   }, [setGrid]);
   const fish = creatures.filter(
-    (creaturez) => creaturez.sourceSheet === "Fish"
+    (creaturez) => creaturez.sourceSheet === 'Fish'
   );
   const insect = creatures.filter(
-    (creaturez) => creaturez.sourceSheet === "Insects"
+    (creaturez) => creaturez.sourceSheet === 'Insects'
   );
   const seaCreature = creatures.filter(
-    (creaturez) => creaturez.sourceSheet === "Sea Creature"
+    (creaturez) => creaturez.sourceSheet === 'Sea Creature'
   );
   const villager = creatures.filter(
-    (creaturez) => creaturez.sourceSheet === "Villagers"
+    (creaturez) => creaturez.sourceSheet === 'Villagers'
   );
   const displayFishGrid = fish.map((creature) => {
     return (
@@ -84,13 +84,27 @@ export default function Grid({
   return (
     <div>
       {creatures.length === 0 ? (
-        <div className="icons"><LoadingGrid /></div>
+        <div className='icons'>
+          <LoadingGrid />
+        </div>
       ) : (
-        <div className="icons">{displayFishGrid}</div>
+        <div className='icons'>{displayFishGrid}</div>
       )}
-      <div className="icons">{displayInsectGrid}</div>
-      <div className="icons">{displaySeaCreatureGrid}</div>
-      <div className="icons">{displayVillagerGrid}</div>
+      {setGrid === '/insect' ? (
+        <div className='icons'>{displayInsectGrid}</div>
+      ) : (
+        ''
+      )}
+      {setGrid === '/seaCreature' ? (
+        <div className='icons'>{displaySeaCreatureGrid}</div>
+      ) : (
+        ''
+      )}
+      {setGrid === '/villager' ? (
+        <div className='icons'>{displayVillagerGrid}</div>
+      ) : (
+        ''
+      )}
     </div>
   );
 }

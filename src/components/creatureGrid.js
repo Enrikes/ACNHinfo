@@ -21,6 +21,7 @@ export default function Grid({
     };
     retrieveGridData();
   }, [setGrid]);
+
   const fish = creatures.filter(
     (creaturez) => creaturez.sourceSheet === 'Fish'
   );
@@ -28,7 +29,7 @@ export default function Grid({
     (creaturez) => creaturez.sourceSheet === 'Insects'
   );
   const seaCreature = creatures.filter(
-    (creaturez) => creaturez.sourceSheet === 'Sea Creature'
+    (creaturez) => creaturez.sourceSheet === 'Sea Creatures'
   );
   const villager = creatures.filter(
     (creaturez) => creaturez.sourceSheet === 'Villagers'

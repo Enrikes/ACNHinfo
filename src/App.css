@@ -104,6 +104,9 @@ body {
   margin-right: 10%;
   margin-bottom: 5%;
 }
+.creature-container {
+  overflow: hidden;
+}
 .creature-icon {
   width: 90%;
   max-width: 124px;
@@ -179,7 +182,7 @@ body {
   background-color: #68b893;
   left: 50%;
   right: 0;
-  top: 55%;
+  top: 65%;
   margin: 0;
   position: absolute;
   width: 70%;
@@ -214,7 +217,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  min-width: 20%;
+  min-width: 10%;
   max-width: 20%;
   padding-top: 50px;
   padding-bottom: 50px;

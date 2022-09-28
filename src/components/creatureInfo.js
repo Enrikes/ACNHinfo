@@ -3,6 +3,7 @@ import axios from 'axios';
 import MonthGrid from './monthGrid';
 import Timeline from './timeLine';
 import VillagerInfo from './villagerInfo';
+import xMark from '../img/loading/exit-button.png';
 
 export default function CreatureInfo({
   cardInfo,
@@ -19,6 +20,9 @@ export default function CreatureInfo({
     e.stopPropagation();
     toggleIsCreatureInfoShown();
     document.body.style.overflow = 'hidden';
+  }
+  function enableScroll() {
+    document.body.style.overflow = 'visble';
   }
   function setUrlNewState() {
     setUrlState(url);
@@ -68,8 +72,12 @@ export default function CreatureInfo({
           <div className='creature-info-container'>
             <div className='creature-header'>
               <h1 className='creature-title'>{creature.name}</h1>
-              <div className='x-mark' onClick={hideCreatureInfo}>
-                X
+              <div className='x-mark-container' onClick={hideCreatureInfo}>
+                <img
+                  className='x-mark'
+                  src={xMark}
+                  onClick={hideCreatureInfo}
+                ></img>
               </div>
             </div>
             <img id='creature-img' src={creature.critterpediaImage}></img>

@@ -163,20 +163,23 @@ body {
 .creature-header {
   display: flex;
 }
-.x-mark {
+.x-mark-container {
   display: flex;
   margin-left: auto;
   background-color: #f8eebc;
   border-radius: 30px;
   width: min-content;
-  padding-left: 10px;
-  padding-right: 10px;
   top: -20px;
   position: relative;
   height: 60px;
   color: red;
   font-size: 40px;
   align-items: center;
+}
+.x-mark {
+  display: flex;
+  width: 60px;
+  margin: 0 auto;
 }
 .creature-info-container {
   background-color: #68b893;

@@ -245,6 +245,11 @@ body {
   animation-name: fadeIn;
   animation-duration: 0.3s;
 }
+.creature-insect-item:hover #nameTag {
+  visibility: visible;
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+}
 /* Media block to stop hover event from firing on mobile devices */
 @media (hover: none) {
   .creature-fish-item:hover #nameTag {

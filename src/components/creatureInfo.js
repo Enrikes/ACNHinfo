@@ -14,7 +14,6 @@ export default function CreatureInfo({
   const [creature, setCreature] = useState();
   const [villager, setVillager] = useState();
   const [urlState, setUrlState] = useState();
-  const [disableScroll, setDisableScroll] = useState();
   function hideCreatureInfo(e) {
     if (e.currentTarget != e.target) return;
     e.stopPropagation();

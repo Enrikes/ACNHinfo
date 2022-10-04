@@ -78,32 +78,26 @@ export default function Timeline({ time }) {
       </div>
     );
   });
-  //Maps through hours array.
-  const mobileHoursPM = timesArrayPM.map((hour) => {
-    // Replaces the PM with nothing.
-    const mobileHours = hour.replace('pm', '');
-    function slicer(hour, date) {
-      // Converts hours into a number.
-      const convertedHour = parseInt(hour.replace('am', ''));
-      // Converts to miltary time.
-      function miltaryTime(newHour) {
-        if (newHour === 12) {
-          return 12;
-        }
-        return newHour + 12;
+
+  const timelimePM = timesArrayPM.map((hour) => {
+    const convertedHours = hour.replace('pm', '');
+    function miltaryTimeConverter() {
+      const miltaryTime = parseInt(convertedHours);
+      if (miltaryTime === 12) {
+        return 12;
       }
-      return miltaryTime(convertedHour);
+      return miltaryTime + 12;
     }
-    if (pm.includes(slicer(hour))) {
+    if (pm.includes(miltaryTimeConverter())) {
       return (
         <div
           className={
-            date.getHours() === slicer(hour)
+            date.getHours() === miltaryTimeConverter()
               ? 'timeline-hour-active-current'
               : 'timeline-hour-active'
           }
         >
-          {mobileHours}
+          {convertedHours}
         </div>
       );
     }
@@ -111,26 +105,22 @@ export default function Timeline({ time }) {
     return (
       <div
         className={
-          date.getHours() === slicer(hour)
+          date.getHours() === miltaryTimeConverter()
             ? 'timeline-hour-inactive-current'
             : 'timeline-hour-inactive'
         }
       >
-        {mobileHours}
+        {convertedHours}
       </div>
     );
   });
   return (
     <div className='timeline-container'>
-      {/* <div className="timeline-hours-container">
-        <div className="timeline-am-container">{hoursAM}</div>
-        <div className="timeline-pm-container">{hoursPM}</div>
-      </div> */}
       <div className='timeline-mobile-hours-container'>
         <div className='active-hours'>Active Hours</div>
 
         <div className='timeline-mobile-am-container'>{mobileHoursAM}</div>
-        <div className='timeline-mobile-pm-container'>{mobileHoursPM}</div>
+        <div className='timeline-mobile-pm-container'>{timelimePM}</div>
       </div>
       <div className='am-pm-container'>
         <div className='timeline-am'>

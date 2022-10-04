@@ -82,11 +82,11 @@ export default function Timeline({ time }) {
   const timelimePM = timesArrayPM.map((hour) => {
     const convertedHours = hour.replace('pm', '');
     function miltaryTimeConverter() {
-      const miltaryTime = parseInt(convertedHours);
-      if (miltaryTime === 12) {
+      const time = parseInt(convertedHours);
+      if (time === 12) {
         return 12;
       }
-      return miltaryTime + 12;
+      return time + 12;
     }
     if (pm.includes(miltaryTimeConverter())) {
       return (

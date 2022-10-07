@@ -16,7 +16,6 @@ export default function VillagerInfo({ villager, toggleIsCreatureInfoShown }) {
     if (genderId === 'Male') {
       return <img className='villager-gender' src={male}></img>;
     } else {
-      console.log('ima girl');
       return <img className='villager-gender' src={female}></img>;
     }
   }
@@ -35,7 +34,17 @@ export default function VillagerInfo({ villager, toggleIsCreatureInfoShown }) {
             {gender(villager.gender)}
           </div>
         </div>
-        <div className='creature-description'></div>
+        <div className='creature-description'>
+          <div className='catch-phrase'>{villager.favoriteSaying}</div>
+        </div>
+        <div className='villager-info-container'>
+          <div className='villager-desc-1'>
+            <p>{villager.favoriteSong}</p>
+          </div>
+          <div className='villager-desc-2'>
+            <p>{villager.personality}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

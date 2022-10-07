@@ -32,8 +32,7 @@ export default function Timeline({ time }) {
   let am = [];
   let pm = [];
   const date = new Date();
-  // This split creature array into AM and PM arrays.
-  function splitCreatureArrayAM(array, am, pm) {
+  function splitAMandPM(array, am, pm) {
     for (const hour of array) {
       if (hour < 12) {
         am.push(hour);
@@ -46,12 +45,10 @@ export default function Timeline({ time }) {
       }
     }
   }
-  splitCreatureArrayAM(time, am, pm);
+  splitAMandPM(time, am, pm);
 
-  //Mobile Timeline AM
-  const mobileHoursAM = timesArrayAM.map((hour, index) => {
-    const mobileHours = hour.replace('am', '');
-
+  const timelineAM = timesArrayAM.map((hour, index) => {
+    const convertedHours = hour.replace('am', '');
     if (am.includes(index)) {
       return (
         <div
@@ -61,11 +58,10 @@ export default function Timeline({ time }) {
               : 'timeline-hour-active'
           }
         >
-          {mobileHours}
+          {convertedHours}
         </div>
       );
     }
-
     return (
       <div
         className={
@@ -74,7 +70,7 @@ export default function Timeline({ time }) {
             : 'timeline-hour-inactive'
         }
       >
-        {mobileHours}
+        {convertedHours}
       </div>
     );
   });
@@ -101,7 +97,6 @@ export default function Timeline({ time }) {
         </div>
       );
     }
-
     return (
       <div
         className={
@@ -114,19 +109,18 @@ export default function Timeline({ time }) {
       </div>
     );
   });
+
   return (
     <div className='timeline-container'>
       <div className='timeline-mobile-hours-container'>
         <div className='active-hours'>Active Hours</div>
-
-        <div className='timeline-mobile-am-container'>{mobileHoursAM}</div>
+        <div className='timeline-mobile-am-container'>{timelineAM}</div>
         <div className='timeline-mobile-pm-container'>{timelimePM}</div>
       </div>
       <div className='am-pm-container'>
         <div className='timeline-am'>
           AM <div className='tests'>PM</div>
         </div>
-        {/* <div className='timeline-pm'>PM</div> */}
       </div>
     </div>
   );

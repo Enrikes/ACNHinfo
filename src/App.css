@@ -339,6 +339,20 @@ body {
 .villager-desc-2 {
   background-color: #025e57;
 }
+.villager-desc-box {
+  background-color: white;
+  border-radius: 20px;
+  max-width: 50%;
+  margin: 0 auto;
+}
+.villager-desc-title {
+  background-color: grey;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.villager-desc-content {
+  padding: 10px;
+}
 @keyframes fadeIn {
   0% {
     opacity: 0;

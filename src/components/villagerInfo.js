@@ -39,6 +39,10 @@ export default function VillagerInfo({ villager, toggleIsCreatureInfoShown }) {
         </div>
         <div className='villager-info-container'>
           <div className='villager-desc-1'>
+            <div className='villager-desc-box'>
+              <div className='villager-desc-title'>Hobby</div>
+              <div className='villager-desc-content'>{villager.hobby}</div>
+            </div>
             <p>{villager.favoriteSong}</p>
           </div>
           <div className='villager-desc-2'>

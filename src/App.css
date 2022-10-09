@@ -711,6 +711,9 @@ ul li a {
   .villager-info-container {
     flex-direction: column;
   }
+  .creature-title {
+    top: 0;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
   #creature-img {

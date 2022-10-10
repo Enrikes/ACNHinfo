@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import Header from "./components/header";
-import Grid from "./components/creatureGrid";
-import CreatureInfo from "./components/creatureInfo";
-import Footer from "./components/footer";
-import FilterButtons from "./components/filterButtons";
-import VillagerFilter from "./components/villagerFilter";
-import Login from "./components/login";
-import Dashboard from "./components/dashboard";
+import React, { useState } from 'react';
+import Header from './components/header';
+import Grid from './components/creatureGrid';
+import CreatureInfo from './components/creatureInfo';
+import Footer from './components/footer';
+import FilterButtons from './components/filterButtons';
+import VillagerFilter from './components/villagerFilter';
+import Login from './components/login';
+import Dashboard from './components/dashboard';
 
 function App({ setGrid, toggleLoginMode }) {
   const [isCreatureInfoShown, setIsCreatureInfoShown] = useState(false);
   const [cardInfo, setCardInfo] = useState();
-  const [url, setUrl] = useState("/fish");
+  const [url, setUrl] = useState('/fish');
   const [loginMode, setLoginMode] = useState(true);
   const [loginSuccess, setLoginSuccess] = useState();
-  const loggedIn = window.localStorage.getItem("isLoggedIn");
+  const loggedIn = window.localStorage.getItem('isLoggedIn');
 
   function toggleIsCreatureInfoShown() {
     setIsCreatureInfoShown(!isCreatureInfoShown);
@@ -23,7 +23,6 @@ function App({ setGrid, toggleLoginMode }) {
     setCardInfo(name);
     return cardInfo;
   }
-  const time = new Date();
   function setGrid(value) {
     setUrl(value);
     return url;
@@ -40,17 +39,17 @@ function App({ setGrid, toggleLoginMode }) {
           url={url}
         />
       ) : (
-        ""
+        ''
       )}
       <Dashboard setLoginSuccess={setLoginSuccess} />
       <Header setGrid={setGrid} toggleLoginMode={toggleLoginMode} />
       {!loginMode ? (
         <Login setLoginMode={setLoginMode} setLoginSuccess={setLoginSuccess} />
       ) : (
-        ""
+        ''
       )}
       <FilterButtons setGrid={setGrid} />
-      {url === "/villager" ? <VillagerFilter setGrid={url} /> : ""}
+      {url === '/villager' ? <VillagerFilter setGrid={url} /> : ''}
       <Grid
         toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
         grabCreatureInfo={setCreatureNameToSend}

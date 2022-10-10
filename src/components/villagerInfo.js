@@ -4,7 +4,6 @@ import female from '../img/villager/female.png';
 
 export default function VillagerInfo({ villager, toggleIsCreatureInfoShown }) {
   console.log(villager);
-  console.log(villager.nameColor);
   const villagerName = {
     color: villager.nameColor,
     backgroundColor: villager.bubbleColor,

@@ -9,6 +9,7 @@ export default function Grid({
   setGrid,
 }) {
   const [creatures, setCreature] = useState([]);
+  const villagerType = ['villager', 'Alligator'];
   useEffect(() => {
     // Sends grid name to enpoint to recieve info.
     const retrieveGridData = async () => {
@@ -21,7 +22,6 @@ export default function Grid({
     };
     retrieveGridData();
   }, [setGrid]);
-
   const fish = creatures.filter(
     (creaturez) => creaturez.sourceSheet === 'Fish'
   );
@@ -34,6 +34,7 @@ export default function Grid({
   const villager = creatures.filter(
     (creaturez) => creaturez.sourceSheet === 'Villagers'
   );
+
   const displayFishGrid = fish.map((creature) => {
     return (
       <Card
@@ -101,7 +102,7 @@ export default function Grid({
       ) : (
         ''
       )}
-      {setGrid === '/villager' ? (
+      {setGrid === '/villager' || setGrid === '/alligator' ? (
         <div className='icons'>{displayVillagerGrid}</div>
       ) : (
         ''

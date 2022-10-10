@@ -30,6 +30,7 @@ function App({ setGrid, toggleLoginMode }) {
   function toggleLoginMode(value) {
     setLoginMode(!loginMode);
   }
+  console.log(url);
   return (
     <>
       {isCreatureInfoShown && cardInfo ? (
@@ -49,7 +50,7 @@ function App({ setGrid, toggleLoginMode }) {
         ''
       )}
       <FilterButtons setGrid={setGrid} />
-      {url === '/villager' ? <VillagerFilter setGrid={url} /> : ''}
+      {url === '/villager' ? <VillagerFilter setGrid={setGrid} /> : ''}
       <Grid
         toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
         grabCreatureInfo={setCreatureNameToSend}

@@ -27,7 +27,7 @@ export default function CreatureInfo({
     setUrlState(url);
   }
   useEffect(() => {
-    if (url === '/villager') {
+    if (url === '/villager' || '/alligator') {
       axios
         .get('/singleVillager', { params: { name: cardInfo } })
         .then((res) => {
@@ -45,7 +45,7 @@ export default function CreatureInfo({
       setIsLoading(false);
     }, 2000);
   }, []);
-  if (url === '/villager') {
+  if (url === '/villager' || '/alligator') {
     return isLoading ? (
       <div className='creature-blur'></div>
     ) : (

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from './creatureCards';
 import LoadingGrid from './loadingGrid';
-import { type } from '@testing-library/user-event/dist/type';
 
 export default function Grid({
   toggleIsCreatureInfoShown,
@@ -10,10 +9,6 @@ export default function Grid({
   setGrid,
 }) {
   const [creatures, setCreature] = useState([]);
-  const villagerTypeArray = ['/villager', '/alligator'];
-  if (setGrid === villagerTypeArray.includes(setGrid)) {
-    console.log('Match!');
-  }
   useEffect(() => {
     // Sends grid name to enpoint to recieve info.
     const retrieveGridData = async () => {
@@ -24,8 +19,24 @@ export default function Grid({
         return err;
       }
     };
-    retrieveGridData();
+    const retrieveVillagerGridData = async () => {
+      try {
+        const resp = await axios.get(setGrid.endpoint, {
+          params: { species: setGrid.species },
+        });
+        setCreature(resp.data);
+      } catch (err) {
+        return err;
+      }
+    };
+    if (setGrid.endpoint === 'villagerType') {
+      retrieveVillagerGridData();
+    } else {
+      retrieveGridData();
+      console.log('i ran!');
+    }
   }, [setGrid]);
+
   const fish = creatures.filter(
     (creaturez) => creaturez.sourceSheet === 'Fish'
   );
@@ -106,7 +117,7 @@ export default function Grid({
       ) : (
         ''
       )}
-      {villagerTypeArray.includes(setGrid) ? (
+      {setGrid.endpoint === 'villagerType' || setGrid === '/villager' ? (
         <div className='icons'>{displayVillagerGrid}</div>
       ) : (
         ''

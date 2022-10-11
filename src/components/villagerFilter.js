@@ -1,14 +1,15 @@
 import React from 'react';
 export default function VillagerFilter({ setGrid }) {
   function setSpecies(species) {
-    setGrid('/alligator');
+    console.log(species);
+    setGrid(species);
   }
   return (
-    <div className='villager-filter-container' onClick={setSpecies}>
+    <div className='villager-filter-container'>
       <div
         className='villager-filter'
         onClick={() => {
-          setSpecies('/alligator');
+          setSpecies({ species: 'Alligator', endpoint: 'villagerType' });
         }}
       >
         Alligator
@@ -16,18 +17,18 @@ export default function VillagerFilter({ setGrid }) {
       <div
         className='villager-filter'
         onClick={() => {
-          setSpecies('/deer');
+          setSpecies({ species: 'Dog', endpoint: 'villagerType' });
         }}
       >
-        Deer
+        Dog
       </div>
       <div
         className='villager-filter'
         onClick={() => {
-          setSpecies('/dog');
+          setSpecies({ species: 'Deer', endpoint: 'villagerType' });
         }}
       >
-        Dog
+        Deer
       </div>
     </div>
   );

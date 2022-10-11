@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from './creatureCards';
 import LoadingGrid from './loadingGrid';
+import { type } from '@testing-library/user-event/dist/type';
 
 export default function Grid({
   toggleIsCreatureInfoShown,
@@ -9,7 +10,10 @@ export default function Grid({
   setGrid,
 }) {
   const [creatures, setCreature] = useState([]);
-  const villagerType = ['villager', 'Alligator'];
+  const villagerTypeArray = ['/villager', '/alligator'];
+  if (setGrid === villagerTypeArray.includes(setGrid)) {
+    console.log('Match!');
+  }
   useEffect(() => {
     // Sends grid name to enpoint to recieve info.
     const retrieveGridData = async () => {
@@ -102,7 +106,7 @@ export default function Grid({
       ) : (
         ''
       )}
-      {setGrid === '/villager' || setGrid === '/alligator' ? (
+      {villagerTypeArray.includes(setGrid) ? (
         <div className='icons'>{displayVillagerGrid}</div>
       ) : (
         ''

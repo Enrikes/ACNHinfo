@@ -1,18 +1,24 @@
 import React from 'react';
-export default function Header({ setGrid }) {
+export default function Header({ setGrid, toggleVillager }) {
   function setInsect() {
     setGrid('/insect');
+    toggleVillager(false);
   }
   function setFish() {
     setGrid('/fish');
+    toggleVillager(false);
   }
   function setVillager() {
     setGrid('/villager');
+    toggleVillager(false);
   }
   function setSeaCreature() {
     setGrid('/seaCreature');
+    toggleVillager(false);
   }
-
+  function handleVillager() {
+    toggleVillager(true);
+  }
   return (
     <nav className='navbar'>
       <div className='logo'>
@@ -30,7 +36,13 @@ export default function Header({ setGrid }) {
           </p>
         </li>
         <li className='list-item'>
-          <p onClick={setVillager} id='insect'>
+          <p
+            onClick={() => {
+              setVillager();
+              handleVillager();
+            }}
+            id='insect'
+          >
             Villager
           </p>
         </li>

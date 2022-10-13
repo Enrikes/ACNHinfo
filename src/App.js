@@ -15,6 +15,7 @@ function App({ setGrid, toggleLoginMode }) {
   const [loginMode, setLoginMode] = useState(true);
   const [loginSuccess, setLoginSuccess] = useState();
   const [villagerInfo, setVillagerInfo] = useState();
+  const [isVillagerActive, setIsVillagerActive] = useState(false);
   const loggedIn = window.localStorage.getItem('isLoggedIn');
 
   function toggleIsCreatureInfoShown() {
@@ -35,6 +36,9 @@ function App({ setGrid, toggleLoginMode }) {
     setVillagerInfo(info);
     return villagerInfo;
   }
+  function activateVillager(state) {
+    setIsVillagerActive(state);
+  }
   return (
     <>
       {isCreatureInfoShown && cardInfo ? (
@@ -47,14 +51,18 @@ function App({ setGrid, toggleLoginMode }) {
         ''
       )}
       <Dashboard setLoginSuccess={setLoginSuccess} />
-      <Header setGrid={setGrid} toggleLoginMode={toggleLoginMode} />
+      <Header
+        setGrid={setGrid}
+        toggleLoginMode={toggleLoginMode}
+        toggleVillager={activateVillager}
+      />
       {!loginMode ? (
         <Login setLoginMode={setLoginMode} setLoginSuccess={setLoginSuccess} />
       ) : (
         ''
       )}
       <FilterButtons setGrid={setGrid} />
-      {url === '/villager' || villagerInfo ? (
+      {isVillagerActive ? (
         <VillagerFilter setGrid={setGrid} villager={villagerInfo} />
       ) : (
         ''

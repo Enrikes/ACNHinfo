@@ -14,6 +14,7 @@ function App({ setGrid, toggleLoginMode }) {
   const [url, setUrl] = useState('/fish');
   const [loginMode, setLoginMode] = useState(true);
   const [loginSuccess, setLoginSuccess] = useState();
+  const [villagerInfo, setVillagerInfo] = useState();
   const loggedIn = window.localStorage.getItem('isLoggedIn');
 
   function toggleIsCreatureInfoShown() {
@@ -30,7 +31,10 @@ function App({ setGrid, toggleLoginMode }) {
   function toggleLoginMode(value) {
     setLoginMode(!loginMode);
   }
-  console.log(url);
+  function moveVillagerInfo(info) {
+    setVillagerInfo(info);
+    return villagerInfo;
+  }
   return (
     <>
       {isCreatureInfoShown && cardInfo ? (
@@ -50,11 +54,16 @@ function App({ setGrid, toggleLoginMode }) {
         ''
       )}
       <FilterButtons setGrid={setGrid} />
-      {url === '/villager' ? <VillagerFilter setGrid={setGrid} /> : ''}
+      {url === '/villager' || villagerInfo ? (
+        <VillagerFilter setGrid={setGrid} villager={villagerInfo} />
+      ) : (
+        ''
+      )}
       <Grid
         toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
         grabCreatureInfo={setCreatureNameToSend}
         setGrid={url}
+        villagerInfo={moveVillagerInfo}
       />
       <Footer />
     </>

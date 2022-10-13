@@ -7,6 +7,7 @@ export default function Grid({
   toggleIsCreatureInfoShown,
   grabCreatureInfo,
   setGrid,
+  villagerInfo,
 }) {
   const [creatures, setCreature] = useState([]);
   useEffect(() => {
@@ -36,7 +37,6 @@ export default function Grid({
       console.log('i ran!');
     }
   }, [setGrid]);
-
   const fish = creatures.filter(
     (creaturez) => creaturez.sourceSheet === 'Fish'
   );
@@ -49,6 +49,7 @@ export default function Grid({
   const villager = creatures.filter(
     (creaturez) => creaturez.sourceSheet === 'Villagers'
   );
+  villagerInfo();
 
   const displayFishGrid = fish.map((creature) => {
     return (

@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import DropdownItem from './dropdown';
+import DropdownItem from './dropdownitem';
 export default function VillagerFilter({ setGrid, villager }) {
   const [isOpen, setIsOpen] = useState(false);
   function setSpecies(species) {
-    console.log(species);
     setGrid(species);
   }
 
@@ -20,22 +19,82 @@ export default function VillagerFilter({ setGrid, villager }) {
       </div>
       {isOpen && (
         <div className='dropdown-content'>
-          <div
-            className='dropdown-item'
-            onClick={() => {
-              setSpecies({ species: 'Dog', endpoint: 'villagerType' });
-            }}
-          >
-            Dog
-          </div>
-          <div
-            className='dropdown-item'
-            onClick={() => {
-              setSpecies({ species: 'Alligator', endpoint: 'villagerType' });
-            }}
-          >
-            Aliigator
-          </div>
+          <DropdownItem type='All' endpoint='villager' function={setSpecies} />
+          <DropdownItem
+            type='Alligator'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Bear'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Cat'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Deer'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Eagle'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Goat'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Hippo'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Koala'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Mouse'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Penguin'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Rhinoceros'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Tiger'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Anteater'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Bird'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
+          <DropdownItem
+            type='Chicken'
+            endpoint='villagerType'
+            function={setSpecies}
+          />
         </div>
       )}
     </div>

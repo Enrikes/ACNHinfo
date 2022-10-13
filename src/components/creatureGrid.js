@@ -22,6 +22,7 @@ export default function Grid({
     };
     const retrieveVillagerGridData = async () => {
       try {
+        console.log();
         const resp = await axios.get(setGrid.endpoint, {
           params: { species: setGrid.species },
         });
@@ -30,11 +31,10 @@ export default function Grid({
         return err;
       }
     };
-    if (setGrid.endpoint === 'villagerType') {
+    if (setGrid.endpoint === 'villagerType' || typeof setGrid === 'object') {
       retrieveVillagerGridData();
     } else {
       retrieveGridData();
-      console.log('i ran!');
     }
   }, [setGrid]);
   const fish = creatures.filter(
@@ -100,7 +100,7 @@ export default function Grid({
     );
   });
   return (
-    <div>
+    <div className='grid-container'>
       {creatures.length === 0 ? (
         <div className='icons'>
           <LoadingGrid />
@@ -118,7 +118,9 @@ export default function Grid({
       ) : (
         ''
       )}
-      {setGrid.endpoint === 'villagerType' || setGrid === '/villager' ? (
+      {setGrid.endpoint === 'villagerType' ||
+      setGrid === '/villager' ||
+      setGrid.endpoint === 'villager' ? (
         <div className='icons'>{displayVillagerGrid}</div>
       ) : (
         ''

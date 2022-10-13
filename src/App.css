@@ -20,7 +20,6 @@ body {
   background-color: #fff9e5;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 .navbar {
   background-color: #f7d359;
@@ -94,6 +93,9 @@ body {
   left: 90vw;
   position: fixed;
   text-align: right;
+}
+.grid-container {
+  min-height: 90vh;
 }
 .icons {
   display: grid;
@@ -691,6 +693,7 @@ ul li a {
   width: inherit;
   text-align: center;
   margin-top: 5px;
+  z-index: 1;
 }
 
 .dropdown-menu .dropdown-content .dropdown-item {

@@ -697,11 +697,12 @@ ul li a {
 .dropdown-content {
   position: absolute;
   border-radius: 10px;
-  width: 200px;
+  width: 400px;
   text-align: center;
   margin-top: 5px;
   z-index: 1;
   top: 60px;
+  right: 20px;
   overflow: scroll;
   max-height: 30rem;
   display: flex;
@@ -712,11 +713,15 @@ ul li a {
 .dropdown-menu {
   left: 0;
 }
-.dropdown-item {
-  flex: 1;
-
+.dropdown-item-dummy {
   background-color: grey;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.06);
+  padding: 10px;
+}
+.dropdown-item {
+  background-color: grey;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.06);
+  padding: 10px;
 }
 .dropdown-item:first-child {
   border-top-left-radius: 10px;
@@ -724,10 +729,6 @@ ul li a {
 .dropdown-item:last-child {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-}
-
-.dropdown-item {
-  padding: 10px;
 }
 .dropdown-item:hover {
   background-color: rgba(55, 54, 56);

@@ -106,9 +106,7 @@ body {
   margin-right: 10%;
   margin-bottom: 5%;
 }
-.creature-container {
-  overflow: hidden;
-}
+
 .creature-icon {
   width: 90%;
   max-width: 124px;
@@ -148,7 +146,6 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(255, 255, 255, 0.363);
-  overflow: hidden;
   z-index: 1;
 }
 .creature-catch-phrase-container {
@@ -164,6 +161,7 @@ body {
 }
 .creature-header {
   display: flex;
+  z-index: 1;
 }
 .x-mark-container {
   display: flex;
@@ -187,9 +185,12 @@ body {
   background-color: #68b893;
   left: 50%;
   right: 0;
-  top: 65%;
   margin: 0;
-  position: absolute;
+  top: 45%;
+  height: 90%;
+  overflow: scroll;
+  overflow-x: hidden;
+  position: fixed;
   width: 70%;
   border-radius: 50px;
   margin-top: 40px;
@@ -198,6 +199,13 @@ body {
   background-size: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+}
+.creature-info-container::-webkit-scrollbar {
+  background-color: #00000000;
+}
+.creature-info-container::-webkit-scrollbar-thumb {
+  background-color: rgba(49, 49, 49, 0.377);
+  border-radius: 50px;
 }
 .creature-title {
   display: flex;
@@ -694,7 +702,7 @@ ul li a {
   width: 0;
 }
 
-.dropdown-content {
+.dropdown-animation {
   position: absolute;
   border-radius: 10px;
   width: 400px;
@@ -703,7 +711,6 @@ ul li a {
   z-index: 1;
   top: 60px;
   right: 20px;
-  overflow: scroll;
   max-height: 30rem;
   display: flex;
   flex-direction: column;
@@ -717,6 +724,7 @@ ul li a {
   background-color: grey;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.06);
   padding: 10px;
+  border-bottom-right-radius: 10px;
 }
 .dropdown-item {
   background-color: grey;
@@ -726,6 +734,9 @@ ul li a {
 .dropdown-item:first-child {
   border-top-left-radius: 10px;
 }
+.dropdown-item:nth-child(12) {
+  border-bottom-left-radius: 10px;
+}
 .dropdown-item:last-child {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -734,6 +745,21 @@ ul li a {
   background-color: rgba(55, 54, 56);
   transition: 150ms ease-in-out;
   color: white;
+}
+
+.dropdown-open-enter {
+  opacity: 0;
+  background-color: red;
+}
+.dropdown-open-enter-active {
+  opacity: 1;
+  transform: translateY(400px);
+}
+.dropdown-open-exit {
+  opacity: 1;
+}
+.dropdown-open-exit-active {
+  opacity: 0;
 }
 @media screen and (max-width: 480px) {
   .nav-list .list-item {
@@ -847,6 +873,5 @@ ul li a {
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .creature-info-container {
     width: 100%;
-    top: 20%;
   }
 }

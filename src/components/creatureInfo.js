@@ -47,7 +47,6 @@ export default function CreatureInfo({
     }, 2000);
   }, []);
   if (url === '/villager' || url.endpoint === 'villagerType') {
-    console.log('i fired');
     return isLoading ? (
       <div className='creature-blur'></div>
     ) : (

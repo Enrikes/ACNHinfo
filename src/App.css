@@ -132,6 +132,18 @@ body {
   background-repeat: repeat-x repeat-y;
   font-family: Humming;
 }
+.creature-sea-item {
+  display: flex;
+  justify-content: center;
+  background-color: #29746d;
+  border-radius: 10px;
+  background-image: url('img/creature-background/fish.png'),
+    linear-gradient(180deg, #592974, #199288);
+  background-size: 25%;
+  background-attachment: fixed;
+  background-repeat: repeat-x repeat-y;
+  font-family: Humming;
+}
 .creature-insect-item {
   display: flex;
   justify-content: center;
@@ -261,6 +273,11 @@ body {
   text-align: center;
 }
 .creature-fish-item:hover #nameTag {
+  visibility: visible;
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+}
+.creature-sea-item:hover #nameTag {
   visibility: visible;
   animation-name: fadeIn;
   animation-duration: 0.3s;
@@ -824,6 +841,36 @@ ul li a {
   }
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
+  .navbar {
+    background-color: #f7d359;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 50px;
+  }
+  .nav-list .list-item {
+    display: block;
+    padding: 10px;
+    border: 1px solid white;
+  }
+  .nav-list {
+    display: none;
+  }
+  .nav-list.active {
+    display: block;
+  }
+  .navbar {
+    flex-direction: column;
+  }
+  .menu {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+  }
   #creature-img {
     width: 30%;
     max-width: 30%;

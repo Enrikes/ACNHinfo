@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import logo from '../img/navbar/logo.png';
 export default function Header({ setGrid, toggleVillager }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   function setInsect() {
     setGrid('/insect');
     toggleVillager(false);
@@ -22,16 +24,32 @@ export default function Header({ setGrid, toggleVillager }) {
   return (
     <nav className='navbar'>
       <div className='logo'>
-        <img className='primary-logo' src='img/navbar/logo.png' />
+        <img className='primary-logo' src={logo} />
       </div>
-      <ul className='nav-list' id='navi-list'>
+      <ul
+        className={isMenuOpen ? 'nav-list.active' : 'nav-list'}
+        id='navi-list'
+      >
         <li className='list-item'>
-          <p onClick={setFish} id='fish' href=''>
+          <p
+            onClick={() => {
+              setFish();
+              setIsMenuOpen(false);
+            }}
+            id='fish'
+            href=''
+          >
             Fish
           </p>
         </li>
         <li className='list-item'>
-          <p onClick={setInsect} id='insect'>
+          <p
+            onClick={() => {
+              setInsect();
+              setIsMenuOpen(false);
+            }}
+            id='insect'
+          >
             Insect
           </p>
         </li>
@@ -40,6 +58,7 @@ export default function Header({ setGrid, toggleVillager }) {
             onClick={() => {
               setVillager();
               handleVillager();
+              setIsMenuOpen(false);
             }}
             id='insect'
           >
@@ -47,12 +66,24 @@ export default function Header({ setGrid, toggleVillager }) {
           </p>
         </li>
         <li className='list-item'>
-          <p onClick={setSeaCreature} id='insect'>
+          <p
+            onClick={() => {
+              setSeaCreature();
+              setIsMenuOpen(false);
+            }}
+            id='insect'
+          >
             Sea Creatures
           </p>
         </li>
       </ul>
-      <div className='menu' id='toggle-button'>
+      <div
+        onClick={() => {
+          setIsMenuOpen(!isMenuOpen);
+        }}
+        className='menu'
+        id='toggle-button'
+      >
         <div className='menu-line'></div>
         <div className='menu-line'></div>
         <div className='menu-line'></div>

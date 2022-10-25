@@ -21,6 +21,14 @@ body {
   display: flex;
   flex-direction: column;
 }
+.is-visible {
+  visibility: visible;
+  display: block;
+}
+.is-hidden {
+  visibility: hidden;
+  display: none;
+}
 .navbar {
   background-color: #f7d359;
   color: white;
@@ -249,6 +257,8 @@ body {
   font-size: 20px;
   margin-top: -20px;
   font-size: 15px;
+  min-width: 6rem;
+  text-align: center;
 }
 .creature-fish-item:hover #nameTag {
   visibility: visible;
@@ -873,5 +883,11 @@ ul li a {
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .creature-info-container {
     width: 100%;
+  }
+}
+
+@media (horizontal-viewport-segments: 2) {
+  .grid-container {
+    flex: 1 1 env(viewport-segment-width 0 0);
   }
 }

@@ -6,12 +6,14 @@ export default function Card({
   name,
   grabCreatureInfo,
   type,
+  nametagStyle,
 }) {
   function handleClick(e) {
     toggleIsCreatureInfoShown();
     grabCreatureInfo(name);
     return;
   }
+
   return (
     <>
       <div
@@ -22,8 +24,19 @@ export default function Card({
           handleClick(e);
         }}
       >
-        <div id='nameTag'>{name}</div>
-        <img className={'creature-icon'} src={icon}></img>
+        {nametagStyle === undefined ? (
+          <>
+            <div id='nameTag'>{name}</div>
+            <img className={'creature-icon'} src={icon}></img>
+          </>
+        ) : (
+          <>
+            <div style={nametagStyle} id='nameTag'>
+              {name}
+            </div>
+            <img className={'creature-icon'} src={icon}></img>
+          </>
+        )}
       </div>
     </>
   );

@@ -37,6 +37,7 @@ export default function Grid({
       retrieveGridData();
     }
   }, [setGrid]);
+
   const fish = creatures.filter(
     (creaturez) => creaturez.sourceSheet === 'Fish'
   );
@@ -88,6 +89,10 @@ export default function Grid({
     );
   });
   const displayVillagerGrid = villager.map((creature) => {
+    const villagerNameStyle = {
+      color: creature.nameColor,
+      backgroundColor: creature.bubbleColor,
+    };
     return (
       <Card
         toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
@@ -96,6 +101,7 @@ export default function Grid({
         name={creature.name}
         grabCreatureInfo={grabCreatureInfo}
         type={creature.sourceSheet}
+        nametagStyle={villagerNameStyle}
       />
     );
   });

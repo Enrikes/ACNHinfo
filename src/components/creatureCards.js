@@ -13,12 +13,17 @@ export default function Card({
     grabCreatureInfo(name);
     return;
   }
+  console.log(type);
 
   return (
     <>
       <div
         className={
-          type === 'Insects' ? 'creature-insect-item' : 'creature-fish-item'
+          type === 'Insects'
+            ? 'creature-insect-item'
+            : type === 'Sea Creatures'
+            ? 'creature-sea-item'
+            : 'creature-fish-item'
         }
         onClick={(e) => {
           handleClick(e);

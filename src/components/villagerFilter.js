@@ -38,7 +38,12 @@ export default function VillagerFilter({ setGrid, villager }) {
                 timeout={900}
                 classNames='dropdown-open'
               >
-                <div className='dropdown-animation'>
+                <div
+                  onClick={() => {
+                    setIsOpen(false);
+                  }}
+                  className='dropdown-animation'
+                >
                   <DropdownItem
                     type='All'
                     endpoint='villager'

@@ -1,10 +1,9 @@
-import React, { useRef, useEffect } from 'react';
-
-function useOutsideAlerter(ref) {
+import React, { useRef, useEffect, useState } from 'react';
+function useOutsideAlerter(ref, state) {
   useEffect(() => {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
-        alert('You clicked outside of me!');
+        state(false);
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -15,8 +14,9 @@ function useOutsideAlerter(ref) {
 }
 
 export default function OutsideAlerter(props) {
+  const state = props.state;
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef);
+  useOutsideAlerter(wrapperRef, state);
 
   return <div ref={wrapperRef}>{props.children}</div>;
 }

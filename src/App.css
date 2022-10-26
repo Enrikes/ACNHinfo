@@ -843,11 +843,9 @@ ul li a {
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .navbar {
     background-color: #f7d359;
-    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
     font-size: 20px;
     margin-bottom: 50px;
   }
@@ -855,12 +853,26 @@ ul li a {
     display: block;
     padding: 10px;
     border: 1px solid white;
+    width: 100%;
   }
+  ul {
+    width: 100%;
+    background-color: #f5c24c;
+    border-radius: 10px;
+  }
+  #fish,
+  #insect {
+    text-align: center;
+  }
+
   .nav-list {
     display: none;
   }
+
   .nav-list.active {
     display: block;
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
   }
   .navbar {
     flex-direction: column;

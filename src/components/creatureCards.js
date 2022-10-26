@@ -13,7 +13,6 @@ export default function Card({
     grabCreatureInfo(name);
     return;
   }
-  console.log(type);
 
   return (
     <>

@@ -13,25 +13,25 @@ export default function VillagerFilter({ setGrid, villager }) {
 
   return (
     <div className='dropdown-container'>
-      <div className='dropdown-menu'>
-        <div
-          className='dropdown-btn'
-          onClick={(e) => {
-            setIsOpen(!isOpen);
-          }}
-        >
-          <p className='dropdown-pad'>Species</p>
-        </div>
-        <button
-          className='dropdown-btn'
-          onClick={() => {
-            setNotIsOpen(!isNotOpen);
-          }}
-        >
-          Personality
-        </button>
-        {isOpen && (
-          <OutsideAlerter state={setIsOpen}>
+      <OutsideAlerter state={setIsOpen}>
+        <div className='dropdown-menu'>
+          <div
+            className='dropdown-btn'
+            onClick={(e) => {
+              setIsOpen(!isOpen);
+            }}
+          >
+            <p className='dropdown-pad'>Species</p>
+          </div>
+          <button
+            className='dropdown-btn'
+            onClick={() => {
+              setNotIsOpen(!isNotOpen);
+            }}
+          >
+            Personality
+          </button>
+          {isOpen && (
             <div className='dropdown-content' onClick={(e) => {}}>
               <CSSTransition
                 in={isOpen}
@@ -48,6 +48,7 @@ export default function VillagerFilter({ setGrid, villager }) {
                     type='All'
                     endpoint='villager'
                     function={setSpecies}
+                    aaaaaa
                   />
 
                   <DropdownItem
@@ -224,9 +225,9 @@ export default function VillagerFilter({ setGrid, villager }) {
                 </div>
               </CSSTransition>
             </div>
-          </OutsideAlerter>
-        )}
-      </div>
+          )}
+        </div>
+      </OutsideAlerter>
     </div>
   );
 }

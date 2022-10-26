@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../img/navbar/logo.png';
+import OutsideAlerter from './outsideAlerter';
 export default function Header({ setGrid, toggleVillager }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   function setInsect() {
@@ -21,61 +22,69 @@ export default function Header({ setGrid, toggleVillager }) {
   function handleVillager() {
     toggleVillager(true);
   }
+  window.addEventListener('resize', function () {
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      setIsMenuOpen(false);
+    }
+  });
   return (
     <nav className='navbar'>
       <div className='logo'>
         <img className='primary-logo' src={logo} />
       </div>
+
       <ul
         className={isMenuOpen ? 'nav-list.active' : 'nav-list'}
         id='navi-list'
       >
-        <li className='list-item'>
-          <p
-            onClick={() => {
-              setFish();
-              setIsMenuOpen(false);
-            }}
-            id='fish'
-            href=''
-          >
-            Fish
-          </p>
-        </li>
-        <li className='list-item'>
-          <p
-            onClick={() => {
-              setInsect();
-              setIsMenuOpen(false);
-            }}
-            id='insect'
-          >
-            Insect
-          </p>
-        </li>
-        <li className='list-item'>
-          <p
-            onClick={() => {
-              setVillager();
-              handleVillager();
-              setIsMenuOpen(false);
-            }}
-            id='insect'
-          >
-            Villager
-          </p>
-        </li>
-        <li className='list-item'>
-          <p
-            onClick={() => {
-              setSeaCreature();
-              setIsMenuOpen(false);
-            }}
-            id='insect'
-          >
-            Sea Creatures
-          </p>
-        </li>
+        <OutsideAlerter state={setIsMenuOpen}>
+          <li className='list-item'>
+            <p
+              onClick={() => {
+                setFish();
+                setIsMenuOpen(false);
+              }}
+              id='fish'
+              href=''
+            >
+              Fish
+            </p>
+          </li>
+          <li className='list-item'>
+            <p
+              onClick={() => {
+                setInsect();
+                setIsMenuOpen(false);
+              }}
+              id='insect'
+            >
+              Insect
+            </p>
+          </li>
+          <li className='list-item'>
+            <p
+              onClick={() => {
+                setVillager();
+                handleVillager();
+                setIsMenuOpen(false);
+              }}
+              id='insect'
+            >
+              Villager
+            </p>
+          </li>
+          <li className='list-item'>
+            <p
+              onClick={() => {
+                setSeaCreature();
+                setIsMenuOpen(false);
+              }}
+              id='insect'
+            >
+              Sea Creatures
+            </p>
+          </li>
+        </OutsideAlerter>
       </ul>
       <div
         onClick={() => {

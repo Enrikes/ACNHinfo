@@ -28,16 +28,16 @@ export default function Header({ setGrid, toggleVillager }) {
     }
   });
   return (
-    <nav className='navbar'>
-      <div className='logo'>
-        <img className='primary-logo' src={logo} />
-      </div>
+    <OutsideAlerter state={setIsMenuOpen}>
+      <nav className='navbar'>
+        <div className='logo'>
+          <img className='primary-logo' src={logo} />
+        </div>
 
-      <ul
-        className={isMenuOpen ? 'nav-list.active' : 'nav-list'}
-        id='navi-list'
-      >
-        <OutsideAlerter state={setIsMenuOpen}>
+        <ul
+          className={isMenuOpen ? 'nav-list.active' : 'nav-list'}
+          id='navi-list'
+        >
           <li className='list-item'>
             <p
               onClick={() => {
@@ -84,19 +84,19 @@ export default function Header({ setGrid, toggleVillager }) {
               Sea Creatures
             </p>
           </li>
-        </OutsideAlerter>
-      </ul>
-      <div
-        onClick={() => {
-          setIsMenuOpen(!isMenuOpen);
-        }}
-        className='menu'
-        id='toggle-button'
-      >
-        <div className='menu-line'></div>
-        <div className='menu-line'></div>
-        <div className='menu-line'></div>
-      </div>
-    </nav>
+        </ul>
+        <div
+          onClick={() => {
+            setIsMenuOpen(!isMenuOpen);
+          }}
+          className='menu'
+          id='toggle-button'
+        >
+          <div className='menu-line'></div>
+          <div className='menu-line'></div>
+          <div className='menu-line'></div>
+        </div>
+      </nav>
+    </OutsideAlerter>
   );
 }

@@ -861,10 +861,27 @@ ul li a {
     border: 1px solid white;
     width: 100%;
   }
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(0px);
+    }
+    100% {
+      opacity: 100;
+      background-color: rebeccapurple;
+      transform: translateY(200px);
+    }
+  }
   ul {
+    position: relative;
+    top: -200px;
     width: 100%;
     background-color: #f5c24c;
     border-radius: 10px;
+    animation-name: slideIn;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
   }
   #fish,
   #insect {
@@ -877,8 +894,6 @@ ul li a {
 
   .nav-list.active {
     display: block;
-    animation-name: fadeIn;
-    animation-duration: 0.3s;
   }
   .navbar {
     flex-direction: column;

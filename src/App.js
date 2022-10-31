@@ -68,9 +68,6 @@ function App({ setGrid, toggleLoginMode }) {
   function activateVillager(state) {
     setIsVillagerActive(state);
   }
-  function handleScroll() {
-    window.addEventListener('scroll', (e) => {});
-  }
 
   return (
     <>

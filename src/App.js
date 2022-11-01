@@ -8,7 +8,7 @@ import VillagerFilter from './components/villagerFilter';
 import Login from './components/login';
 import Dashboard from './components/dashboard';
 
-function App({ setGrid, toggleLoginMode }) {
+function App() {
   const [isCreatureInfoShown, setIsCreatureInfoShown] = useState(false);
   const [cardInfo, setCardInfo] = useState();
   const [url, setUrl] = useState('/fish');

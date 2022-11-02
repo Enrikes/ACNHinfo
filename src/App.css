@@ -418,7 +418,7 @@ body {
   max-width: 500px;
   grid-template-columns: repeat(3, 1fr);
   margin: 10px auto;
-  border: 25px solid #f8eebc;
+  border: 25px solid #017c74;
   border-radius: 15px;
   font: FinkHeavy;
   justify-content: center;
@@ -426,8 +426,7 @@ body {
 
 .month {
   text-align: center;
-  border: 1px solid #f8eebc;
-  background-color: bisque;
+  background-color: #8ecfca;
 }
 #month-idle {
   font-size: 25px;

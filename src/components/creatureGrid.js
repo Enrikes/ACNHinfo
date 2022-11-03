@@ -112,7 +112,12 @@ export default function Grid({
           <LoadingGrid />
         </div>
       ) : (
+        ''
+      )}
+      {setGrid === '/fish' ? (
         <div className='icons'>{displayFishGrid}</div>
+      ) : (
+        ''
       )}
       {setGrid === '/insect' ? (
         <div className='icons'>{displayInsectGrid}</div>

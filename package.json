@@ -18,7 +18,6 @@
     "react-kofi-button": "^0.7.1",
     "react-scripts": "5.0.1",
     "react-transition-group": "^4.4.5",
-    "viewportsegments-css-polyfill": "^1.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

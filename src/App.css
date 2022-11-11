@@ -835,8 +835,8 @@ ul li a {
     width: 100%;
   }
   #creature-img {
-    min-width: 90%;
-    max-width: 90%;
+    min-width: 50%;
+    max-width: 50%;
   }
   .villager-info-container {
     flex-direction: column;
@@ -962,11 +962,5 @@ ul li a {
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .creature-info-container {
     width: 100%;
-  }
-}
-
-@media (horizontal-viewport-segments: 2) {
-  .grid-container {
-    flex: 1 1 env(viewport-segment-width 0 0);
   }
 }

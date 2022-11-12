@@ -23,9 +23,6 @@ export default function CreatureInfo({
   function enableScroll() {
     document.body.style.overflow = 'visble';
   }
-  function setUrlNewState() {
-    setUrlState(url);
-  }
 
   useEffect(() => {
     if (url === '/villager' || url.endpoint === 'villagerType') {
@@ -39,12 +36,9 @@ export default function CreatureInfo({
         .get('/singleCreature', { params: { name: cardInfo } })
         .then((res) => {
           setCreature(res.data[0]);
+          setIsLoading(false);
         });
     }
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
   }, []);
   if (url === '/villager' || url.endpoint === 'villagerType') {
     return isLoading ? (

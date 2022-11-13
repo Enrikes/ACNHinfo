@@ -48,7 +48,6 @@ export default function VillagerFilter({ setGrid, villager }) {
                     type='All'
                     endpoint='villager'
                     function={setSpecies}
-                    aaaaaa
                   />
 
                   <DropdownItem

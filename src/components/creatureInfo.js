@@ -30,6 +30,7 @@ export default function CreatureInfo({
         .get('/singleVillager', { params: { name: cardInfo } })
         .then((res) => {
           setVillager(res.data[0]);
+          setIsLoading(false);
         });
     } else {
       axios

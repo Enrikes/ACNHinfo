@@ -41,7 +41,11 @@ export default function CreatureInfo({
         });
     }
   }, []);
-  if (url === '/villager' || url.endpoint === 'villagerType') {
+  if (
+    url === '/villager' ||
+    url.endpoint === 'villagerType' ||
+    url.endpoint === 'villagerPersonality'
+  ) {
     return isLoading ? (
       <div className='creature-blur'></div>
     ) : (

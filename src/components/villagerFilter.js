@@ -5,10 +5,13 @@ import { CSSTransition, Transition } from 'react-transition-group';
 import OutsideAlerter from './outsideAlerter';
 export default function VillagerFilter({ setGrid, villager }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isNotOpen, setNotIsOpen] = useState(!false);
+  const [isPersonalityOpen, setIsPersonalityOpen] = useState(false);
 
   function setSpecies(species) {
     setGrid(species);
+  }
+  function setPersonality(personality) {
+    setGrid(personality);
   }
 
   return (
@@ -19,6 +22,7 @@ export default function VillagerFilter({ setGrid, villager }) {
             className='dropdown-btn'
             onClick={(e) => {
               setIsOpen(!isOpen);
+              setIsPersonalityOpen(false);
             }}
           >
             <p className='dropdown-pad'>Species</p>
@@ -26,7 +30,8 @@ export default function VillagerFilter({ setGrid, villager }) {
           <button
             className='dropdown-btn'
             onClick={() => {
-              setNotIsOpen(!isNotOpen);
+              setIsOpen(false);
+              setIsPersonalityOpen(!isPersonalityOpen);
             }}
           >
             Personality
@@ -221,6 +226,54 @@ export default function VillagerFilter({ setGrid, villager }) {
                     function={setSpecies}
                   />
                   <div className='dropdown-item-dummy'>&nbsp;&nbsp;&nbsp; </div>
+                </div>
+              </CSSTransition>
+            </div>
+          )}
+          {isPersonalityOpen && (
+            <div className='dropdown-content' onClick={(e) => {}}>
+              <CSSTransition
+                in={isPersonalityOpen}
+                timeout={900}
+                classNames='dropdown-open'
+              >
+                <div
+                  onClick={() => {
+                    setIsPersonalityOpen(false);
+                  }}
+                  className='dropdown-animation'
+                >
+                  <DropdownItem
+                    type='Normal'
+                    endpoint='villagerPersonality'
+                    function={setPersonality}
+                  />
+                  <DropdownItem
+                    type='Lazy'
+                    endpoint='villagerPersonality'
+                    function={setPersonality}
+                  />
+
+                  <DropdownItem
+                    type='Snooty'
+                    endpoint='villagerPersonality'
+                    function={setPersonality}
+                  />
+                  <DropdownItem
+                    type='Cranky'
+                    endpoint='villagerPersonality'
+                    function={setPersonality}
+                  />
+                  <DropdownItem
+                    type='Jock'
+                    endpoint='villagerPersonality'
+                    function={setPersonality}
+                  />
+                  <DropdownItem
+                    type='Peppy'
+                    endpoint='villagerPersonality'
+                    function={setPersonality}
+                  />
                 </div>
               </CSSTransition>
             </div>

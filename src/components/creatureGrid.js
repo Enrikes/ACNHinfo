@@ -131,7 +131,8 @@ export default function Grid({
       )}
       {setGrid.endpoint === 'villagerType' ||
       setGrid === '/villager' ||
-      setGrid.endpoint === 'villager' ? (
+      setGrid.endpoint === 'villager' ||
+      setGrid.endpoint === 'villagerPersonality' ? (
         <div className='icons'>{displayVillagerGrid}</div>
       ) : (
         ''

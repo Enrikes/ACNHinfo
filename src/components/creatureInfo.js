@@ -4,6 +4,7 @@ import MonthGrid from './monthGrid';
 import Timeline from './timeLine';
 import VillagerInfo from './villagerInfo';
 import xMark from '../img/loading/exit-button.png';
+import Loading from './loading';
 
 export default function CreatureInfo({
   cardInfo,
@@ -59,7 +60,9 @@ export default function CreatureInfo({
     const price = (150 / 100) * creature?.sell;
 
     return isLoading ? (
-      <div className='creature-blur'>test</div>
+      <div className='creature-blur'>
+        <Loading />
+      </div>
     ) : (
       <div className='creature-container'>
         <div

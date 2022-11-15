@@ -6,6 +6,7 @@ import OutsideAlerter from './outsideAlerter';
 export default function VillagerFilter({ setGrid, villager }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isPersonalityOpen, setIsPersonalityOpen] = useState(false);
+  const [isHobbyOpen, setIsHobbyOpen] = useState(false);
 
   function setSpecies(species) {
     setGrid(species);
@@ -13,28 +14,43 @@ export default function VillagerFilter({ setGrid, villager }) {
   function setPersonality(personality) {
     setGrid(personality);
   }
+  function setHobby(hobby) {
+    setGrid(hobby);
+  }
 
   return (
     <div className='dropdown-container'>
       <OutsideAlerter state={setIsOpen}>
         <div className='dropdown-menu'>
-          <div
+          <button
             className='dropdown-btn'
             onClick={(e) => {
               setIsOpen(!isOpen);
               setIsPersonalityOpen(false);
+              setIsHobbyOpen(false);
             }}
           >
             <p className='dropdown-pad'>Species</p>
-          </div>
+          </button>
           <button
             className='dropdown-btn'
             onClick={() => {
               setIsOpen(false);
               setIsPersonalityOpen(!isPersonalityOpen);
+              setIsHobbyOpen(false);
             }}
           >
-            Personality
+            <p className='dropdown-pad'>Personality</p>
+          </button>
+          <button
+            className='dropdown-btn'
+            onClick={() => {
+              setIsOpen(false);
+              setIsPersonalityOpen(false);
+              setIsHobbyOpen(!isHobbyOpen);
+            }}
+          >
+            <p className='dropdown-pad'>Hobby</p>
           </button>
           {isOpen && (
             <div className='dropdown-content' onClick={(e) => {}}>
@@ -273,6 +289,54 @@ export default function VillagerFilter({ setGrid, villager }) {
                     type='Peppy'
                     endpoint='villagerPersonality'
                     function={setPersonality}
+                  />
+                </div>
+              </CSSTransition>
+            </div>
+          )}
+          {isHobbyOpen && (
+            <div className='dropdown-content' onClick={(e) => {}}>
+              <CSSTransition
+                in={isHobbyOpen}
+                timeout={900}
+                classNames='dropdown-open'
+              >
+                <div
+                  onClick={() => {
+                    setIsHobbyOpen(false);
+                  }}
+                  className='dropdown-animation'
+                >
+                  <DropdownItem
+                    type='Education'
+                    endpoint='villagerHobby'
+                    function={setHobby}
+                  />
+                  <DropdownItem
+                    type='Fashion'
+                    endpoint='villagerHobby'
+                    function={setHobby}
+                  />
+
+                  <DropdownItem
+                    type='Fitness'
+                    endpoint='villagerHobby'
+                    function={setHobby}
+                  />
+                  <DropdownItem
+                    type='Music'
+                    endpoint='villagerHobby'
+                    function={setHobby}
+                  />
+                  <DropdownItem
+                    type='Nature'
+                    endpoint='villagerHobby'
+                    function={setHobby}
+                  />
+                  <DropdownItem
+                    type='Play'
+                    endpoint='villagerHobby'
+                    function={setHobby}
                   />
                 </div>
               </CSSTransition>

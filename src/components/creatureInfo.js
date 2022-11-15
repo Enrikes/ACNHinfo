@@ -26,7 +26,12 @@ export default function CreatureInfo({
   }
 
   useEffect(() => {
-    if (url === '/villager' || url.endpoint === 'villagerType') {
+    if (
+      url === '/villager' ||
+      url.endpoint === 'villagerType' ||
+      url.endpoint === 'villagerPersonality' ||
+      url.endpoint === 'villagerHobby'
+    ) {
       axios
         .get('/singleVillager', { params: { name: cardInfo } })
         .then((res) => {
@@ -42,10 +47,12 @@ export default function CreatureInfo({
         });
     }
   }, []);
+  console.log(villager);
   if (
     url === '/villager' ||
     url.endpoint === 'villagerType' ||
-    url.endpoint === 'villagerPersonality'
+    url.endpoint === 'villagerPersonality' ||
+    url.endpoint === 'villagerHobby'
   ) {
     return isLoading ? (
       <div className='creature-blur'></div>

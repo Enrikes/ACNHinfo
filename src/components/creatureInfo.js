@@ -14,6 +14,7 @@ export default function CreatureInfo({
   const [isLoading, setIsLoading] = useState(true);
   const [creature, setCreature] = useState();
   const [villager, setVillager] = useState();
+  const [furniture, setFurniture] = useState();
   const [urlState, setUrlState] = useState();
   function hideCreatureInfo(e) {
     if (e.currentTarget != e.target) return;
@@ -24,8 +25,13 @@ export default function CreatureInfo({
   function enableScroll() {
     document.body.style.overflow = 'visble';
   }
+  const furnitureList = 1034;
 
   useEffect(() => {
+    axios.get('/furniture', { params: { items: 5729 } }).then((res) => {
+      setFurniture(res.data);
+      console.log(furniture);
+    });
     if (
       url === '/villager' ||
       url.endpoint === 'villagerType' ||
@@ -48,6 +54,7 @@ export default function CreatureInfo({
     }
   }, []);
   console.log(villager);
+  console.log(furniture);
   if (
     url === '/villager' ||
     url.endpoint === 'villagerType' ||

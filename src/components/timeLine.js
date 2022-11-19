@@ -52,6 +52,7 @@ export default function Timeline({ time }) {
     if (am.includes(index)) {
       return (
         <div
+          key={index}
           className={
             date.getHours() === index
               ? 'timeline-hour-active-current'
@@ -64,6 +65,7 @@ export default function Timeline({ time }) {
     }
     return (
       <div
+        key={index}
         className={
           date.getHours() === index
             ? 'timeline-hour-inactive-current'
@@ -87,6 +89,7 @@ export default function Timeline({ time }) {
     if (pm.includes(miltaryTimeConverter())) {
       return (
         <div
+          key={time}
           className={
             date.getHours() === miltaryTimeConverter()
               ? 'timeline-hour-active-current'
@@ -99,6 +102,7 @@ export default function Timeline({ time }) {
     }
     return (
       <div
+        key={time}
         className={
           date.getHours() === miltaryTimeConverter()
             ? 'timeline-hour-inactive-current'

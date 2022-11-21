@@ -25,13 +25,8 @@ export default function CreatureInfo({
   function enableScroll() {
     document.body.style.overflow = 'visble';
   }
-  const furnitureList = 1034;
 
   useEffect(() => {
-    axios.get('/furniture', { params: { items: 5729 } }).then((res) => {
-      setFurniture(res.data);
-      console.log(furniture);
-    });
     if (
       url === '/villager' ||
       url.endpoint === 'villagerType' ||
@@ -41,7 +36,7 @@ export default function CreatureInfo({
       axios
         .get('/singleVillager', { params: { name: cardInfo } })
         .then((res) => {
-          setVillager(res.data[0]);
+          setVillager(res.data.filteredCreatures[0]);
           setIsLoading(false);
         });
     } else {

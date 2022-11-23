@@ -1,9 +1,13 @@
 import React from 'react';
 import male from '../img/villager/male.png';
 import female from '../img/villager/female.png';
+import Carousel from './carousel';
 
-export default function VillagerInfo({ villager, toggleIsCreatureInfoShown }) {
-  console.log(villager);
+export default function VillagerInfo({
+  villager,
+  toggleIsCreatureInfoShown,
+  furniture,
+}) {
   const villagerName = {
     color: villager.nameColor,
     backgroundColor: villager.bubbleColor,
@@ -62,6 +66,7 @@ export default function VillagerInfo({ villager, toggleIsCreatureInfoShown }) {
             </div>
           </div>
         </div>
+        <Carousel furniture={furniture} />
       </div>
     </div>
   );

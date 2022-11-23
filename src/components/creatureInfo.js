@@ -37,6 +37,7 @@ export default function CreatureInfo({
         .get('/singleVillager', { params: { name: cardInfo } })
         .then((res) => {
           setVillager(res.data.filteredCreatures[0]);
+          setFurniture(res.data.furnitureArray);
           setIsLoading(false);
         });
     } else {
@@ -48,8 +49,6 @@ export default function CreatureInfo({
         });
     }
   }, []);
-  console.log(villager);
-  console.log(furniture);
   if (
     url === '/villager' ||
     url.endpoint === 'villagerType' ||
@@ -62,6 +61,7 @@ export default function CreatureInfo({
       <VillagerInfo
         villager={villager}
         toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
+        furniture={furniture}
       />
     );
   } else {

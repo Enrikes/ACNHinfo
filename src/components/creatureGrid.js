@@ -22,7 +22,6 @@ export default function Grid({
     };
     const retrieveVillagerGridData = async () => {
       try {
-        console.log();
         const resp = await axios.get(setGrid.endpoint, {
           params: { species: setGrid.species },
         });

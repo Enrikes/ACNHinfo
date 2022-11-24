@@ -38,16 +38,16 @@ export default function Grid({
   }, [setGrid]);
 
   const fish = creatures.filter(
-    (creaturez) => creaturez.sourceSheet === 'Fish'
+    (creatures) => creatures.sourceSheet === 'Fish'
   );
   const insect = creatures.filter(
-    (creaturez) => creaturez.sourceSheet === 'Insects'
+    (creatures) => creatures.sourceSheet === 'Insects'
   );
   const seaCreature = creatures.filter(
-    (creaturez) => creaturez.sourceSheet === 'Sea Creatures'
+    (creatures) => creatures.sourceSheet === 'Sea Creatures'
   );
   const villager = creatures.filter(
-    (creaturez) => creaturez.sourceSheet === 'Villagers'
+    (creatures) => creatures.sourceSheet === 'Villagers'
   );
   villagerInfo();
 

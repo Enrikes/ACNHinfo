@@ -164,7 +164,7 @@ body {
   background-repeat: repeat-x repeat-y;
   font-family: Humming;
 }
-.creature-blur {
+.background-blur {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -813,8 +813,10 @@ ul li a {
   animation: loading 1s linear infinite;
 }
 .carousel {
-  width: 100%;
+  width: 80%;
   height: 150px;
+  margin: 0 auto;
+  border-radius: 10px;
   background-color: white;
   overflow-y: none;
   overflow-x: auto;

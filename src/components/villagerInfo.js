@@ -2,6 +2,7 @@ import React from 'react';
 import male from '../img/villager/male.png';
 import female from '../img/villager/female.png';
 import Carousel from './carousel';
+import OutsideAlerter from './outsideAlerter';
 
 export default function VillagerInfo({
   villager,
@@ -23,51 +24,53 @@ export default function VillagerInfo({
     }
   }
   return (
-    <div className='creature-blur' onClick={hideCreatureInfo}>
-      <div className='x-mark' onClick={console.log('deez bolas')}>
-        <img src='/../src/img/loading/exit-button.png'></img>
-      </div>
-      <div className='creature-info-container'>
-        <h1 className='creature-title' style={villagerName}>
-          {villager.name}
-        </h1>
-        <div className='villager-image-container'>
-          <img className='villager-image' src={villager.photoImage}></img>
-          <div className='villager-gender-container'>
-            {gender(villager.gender)}
-          </div>
+    <div className='background-blur'>
+      <OutsideAlerter state={hideCreatureInfo}>
+        <div className='x-mark'>
+          <img src='/../src/img/loading/exit-button.png'></img>
         </div>
-        <div className='creature-description'>
-          <div className='catch-phrase'>{villager.favoriteSaying}</div>
-        </div>
-        <div className='villager-info-container'>
-          <div className='villager-desc-1'>
-            <div className='villager-desc-box'>
-              <div className='villager-desc-title'>Species</div>
-              <div className='villager-desc-content'>{villager.species}</div>
-            </div>
-            <div className='villager-desc-box'>
-              <div className='villager-desc-title'>Hobby</div>
-              <div className='villager-desc-content'>{villager.hobby}</div>
+        <div className='creature-info-container'>
+          <h1 className='creature-title' style={villagerName}>
+            {villager.name}
+          </h1>
+          <div className='villager-image-container'>
+            <img className='villager-image' src={villager.photoImage}></img>
+            <div className='villager-gender-container'>
+              {gender(villager.gender)}
             </div>
           </div>
-          <div className='villager-desc-2'>
-            <div className='villager-desc-box'>
-              <div className='villager-desc-title'>Personality</div>
-              <div className='villager-desc-content'>
-                {villager.personality}
+          <div className='creature-description'>
+            <div className='catch-phrase'>{villager.favoriteSaying}</div>
+          </div>
+          <div className='villager-info-container'>
+            <div className='villager-desc-1'>
+              <div className='villager-desc-box'>
+                <div className='villager-desc-title'>Species</div>
+                <div className='villager-desc-content'>{villager.species}</div>
+              </div>
+              <div className='villager-desc-box'>
+                <div className='villager-desc-title'>Hobby</div>
+                <div className='villager-desc-content'>{villager.hobby}</div>
               </div>
             </div>
-            <div className='villager-desc-box'>
-              <div className='villager-desc-title'>Favorite Song</div>
-              <div className='villager-desc-content'>
-                {villager.favoriteSong}
+            <div className='villager-desc-2'>
+              <div className='villager-desc-box'>
+                <div className='villager-desc-title'>Personality</div>
+                <div className='villager-desc-content'>
+                  {villager.personality}
+                </div>
+              </div>
+              <div className='villager-desc-box'>
+                <div className='villager-desc-title'>Favorite Song</div>
+                <div className='villager-desc-content'>
+                  {villager.favoriteSong}
+                </div>
               </div>
             </div>
           </div>
+          <Carousel furniture={furniture} />
         </div>
-        <Carousel furniture={furniture} />
-      </div>
+      </OutsideAlerter>
     </div>
   );
 }

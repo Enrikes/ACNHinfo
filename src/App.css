@@ -175,6 +175,9 @@ body {
   background: rgba(255, 255, 255, 0.363);
   z-index: 1;
 }
+.noscroll {
+  overflow: hidden;
+}
 .creature-catch-phrase-container {
   text-align: center;
   margin: 0 auto;

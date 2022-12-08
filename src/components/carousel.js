@@ -9,14 +9,12 @@ export default function Carousel({ furniture }) {
     if (content === '')
       return (
         <div className='carousel-item'>
-          <div className='furniture-name'>{furnitureName}</div>
           <img src={itemArray.image}></img>
         </div>
       );
 
     return (
       <div className='carousel-item'>
-        <div className='furniture-name'>{furnitureName}</div>
         <img src={content}></img>
       </div>
     );

@@ -714,9 +714,9 @@ ul li a {
   position: relative;
 }
 .dropdown-menu {
-  background-color: #017c74;
   display: flex;
   flex-direction: row-reverse;
+  padding-bottom: 20px;
 }
 .dropdown-btn {
 }
@@ -816,6 +816,7 @@ ul li a {
   animation: loading 1s linear infinite;
 }
 .carousel {
+  margin-top: 10px;
   width: 80%;
   height: 150px;
   margin: 0 auto;

@@ -135,6 +135,7 @@ body {
   background-repeat: repeat-x repeat-y;
   font-family: Humming;
 }
+
 .creature-sea-item {
   display: flex;
   min-width: 120px;
@@ -261,7 +262,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   min-width: 10%;
-  max-width: 20%;
+  max-width: 30%;
   padding-top: 50px;
   padding-bottom: 50px;
   padding-left: 20px;

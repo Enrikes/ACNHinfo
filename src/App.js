@@ -31,21 +31,6 @@ function App() {
   };
   document.addEventListener('click', closeOpenMenus);
 
-  const kofiWidget = document.querySelector('.floatingchat-container-wrap');
-  let scrollPos = 0;
-  function checkWindowY() {
-    let windowY = window.scrollY;
-    if (windowY < scrollPos) {
-      kofiWidget.classList.add('.is-visible');
-      kofiWidget.classList.remove('.is-hidden');
-    } else {
-      kofiWidget.classList.add('.is-hidden');
-      kofiWidget.classList.remove('.is-visible');
-    }
-    scrollPos = windowY;
-  }
-  window.addEventListener('scroll', checkWindowY);
-
   function toggleIsCreatureInfoShown() {
     setIsCreatureInfoShown(!isCreatureInfoShown);
   }

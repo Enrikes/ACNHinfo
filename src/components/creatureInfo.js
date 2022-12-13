@@ -21,10 +21,14 @@ export default function CreatureInfo({
     if (e.currentTarget != e.target) return;
     e.stopPropagation();
     toggleIsCreatureInfoShown();
+    enableScroll();
+  }
+  function disableScroll() {
     document.body.style.overflow = 'hidden';
   }
+  disableScroll();
   function enableScroll() {
-    document.body.style.overflow = 'visble';
+    document.body.style.overflow = 'scroll';
   }
 
   useEffect(() => {

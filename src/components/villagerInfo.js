@@ -14,9 +14,19 @@ export default function VillagerInfo({
     color: villager.nameColor,
     backgroundColor: villager.bubbleColor,
   };
+  function disableScroll() {
+    document.body.style.overflow = 'hidden';
+  }
+  disableScroll();
   function hideCreatureInfo() {
     toggleIsCreatureInfoShown();
+    enableScroll();
   }
+
+  function enableScroll() {
+    document.body.style.overflow = 'scroll';
+  }
+
   function gender(genderId) {
     if (genderId === 'Male') {
       return <img className='villager-gender' src={male}></img>;

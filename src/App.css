@@ -123,7 +123,7 @@ body {
 }
 .creature-fish-item {
   display: flex;
-  min-width: 120px;
+  min-width: 110px;
   min-height: 110px;
   justify-content: center;
   background-color: #017c74;
@@ -198,9 +198,6 @@ body {
   display: flex;
   margin-left: auto;
   background-color: #f8eebc;
-  border-radius: 30px;
-  width: min-content;
-  top: -20px;
   position: relative;
   height: 60px;
   color: red;
@@ -241,19 +238,13 @@ body {
 .creature-title {
   display: flex;
   text-transform: capitalize;
-  align-items: center;
   text-align: center;
   font-family: FinkHeavy;
   font-size: 60px;
   background-color: #f8eebc;
-  width: min-content;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 40px;
-  top: -30px;
-  left: 3%;
-  position: relative;
-  white-space: nowrap;
+  justify-content: center;
+
+  width: 100%;
 }
 /* */
 
@@ -861,7 +852,6 @@ ul li a {
     display: block;
   }
   .icons {
-    grid-template-columns: auto auto auto auto;
   }
   .creature-info-container {
     width: 100%;

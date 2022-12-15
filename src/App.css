@@ -109,7 +109,7 @@ body {
 .icons {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   min-width: 90px;
   margin-left: 10%;
   margin-right: 10%;
@@ -117,14 +117,11 @@ body {
 }
 
 .creature-icon {
-  width: 90%;
-  max-width: 124px;
+  max-width: 90px;
   padding: 1px;
 }
 .creature-fish-item {
   display: flex;
-  min-width: 110px;
-  min-height: 110px;
   justify-content: center;
   background-color: #017c74;
   border-radius: 10px;
@@ -193,21 +190,17 @@ body {
 .creature-header {
   display: flex;
   z-index: 1;
+  width: 100%;
 }
 .x-mark-container {
-  display: flex;
-  margin-left: auto;
-  background-color: #f8eebc;
-  position: relative;
-  height: 60px;
+  position: absolute;
+  right: 0%;
   color: red;
   font-size: 40px;
-  align-items: center;
 }
 .x-mark {
   display: flex;
-  width: 60px;
-  margin: 0 auto;
+  width: 90px;
 }
 .creature-info-container {
   background-color: #68b893;
@@ -216,7 +209,6 @@ body {
   margin: 0;
   top: 45%;
   height: 90%;
-  overflow: scroll;
   overflow-x: hidden;
   position: fixed;
   width: 70%;
@@ -229,7 +221,7 @@ body {
   z-index: 2;
 }
 .creature-info-container::-webkit-scrollbar {
-  background-color: #00000000;
+  background-color: #00000062;
 }
 .creature-info-container::-webkit-scrollbar-thumb {
   background-color: rgba(49, 49, 49, 0.377);
@@ -241,9 +233,7 @@ body {
   text-align: center;
   font-family: FinkHeavy;
   font-size: 60px;
-  background-color: #f8eebc;
   justify-content: center;
-
   width: 100%;
 }
 /* */

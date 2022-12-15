@@ -3,7 +3,7 @@ import male from '../img/villager/male.png';
 import female from '../img/villager/female.png';
 import Carousel from './carousel';
 import OutsideAlerter from './outsideAlerter';
-import CloseButton from '../../src/img/overaly/exit-button.png';
+import xMark from '../img/overaly/exit-button.png';
 
 export default function VillagerInfo({
   villager,
@@ -37,13 +37,20 @@ export default function VillagerInfo({
   return (
     <div className='background-blur'>
       <OutsideAlerter state={hideCreatureInfo}>
-        <div className='x-mark'>
-          <img src={CloseButton}></img>
-        </div>
         <div className='creature-info-container'>
-          <h1 className='creature-title' style={villagerName}>
-            {villager.name}
-          </h1>
+          <div className='creature-header'>
+            <h1 className='creature-title' style={villagerName}>
+              {villager.name}
+            </h1>
+            <div className='x-mark-container'>
+              <img
+                src={xMark}
+                className='x-mark'
+                onClick={hideCreatureInfo}
+              ></img>
+            </div>
+          </div>
+
           <div className='villager-image-container'>
             <img className='villager-image' src={villager.photoImage}></img>
             <div className='villager-gender-container'>

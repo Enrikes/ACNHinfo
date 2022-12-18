@@ -191,6 +191,7 @@ body {
   display: flex;
   z-index: 1;
   width: 100%;
+  margin-bottom: 20px;
 }
 .x-mark-container {
   position: absolute;
@@ -339,13 +340,15 @@ body {
   position: relative;
 }
 .villager-gender {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   position: absolute;
-  top: 29%;
+  top: 34%;
   transform: translateY(-29%);
 }
 .catch-phrase {
+  text-align: center;
+  width: 80%;
   margin-top: 10px;
   background-color: #fffce9;
   padding: 10px;
@@ -376,12 +379,12 @@ body {
   max-width: 200px;
   margin: 0 auto;
   margin-bottom: 30px;
-  box-shadow: 10px 10px black;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.441);
 }
 .villager-desc-title {
-  background-color: grey;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  color: white;
 }
 .villager-desc-content {
   padding: 10px;

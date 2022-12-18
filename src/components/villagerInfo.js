@@ -14,6 +14,7 @@ export default function VillagerInfo({
     color: villager.nameColor,
     backgroundColor: villager.bubbleColor,
   };
+  const villagerDescTab = { backgroundColor: villager.bubbleColor };
   function disableScroll() {
     document.body.style.overflow = 'hidden';
   }
@@ -63,23 +64,31 @@ export default function VillagerInfo({
           <div className='villager-info-container'>
             <div className='villager-desc-1'>
               <div className='villager-desc-box'>
-                <div className='villager-desc-title'>Species</div>
+                <div className='villager-desc-title' style={villagerDescTab}>
+                  Species
+                </div>
                 <div className='villager-desc-content'>{villager.species}</div>
               </div>
               <div className='villager-desc-box'>
-                <div className='villager-desc-title'>Hobby</div>
+                <div className='villager-desc-title' style={villagerDescTab}>
+                  Hobby
+                </div>
                 <div className='villager-desc-content'>{villager.hobby}</div>
               </div>
             </div>
             <div className='villager-desc-2'>
               <div className='villager-desc-box'>
-                <div className='villager-desc-title'>Personality</div>
+                <div className='villager-desc-title' style={villagerDescTab}>
+                  Personality
+                </div>
                 <div className='villager-desc-content'>
                   {villager.personality}
                 </div>
               </div>
               <div className='villager-desc-box'>
-                <div className='villager-desc-title'>Favorite Song</div>
+                <div className='villager-desc-title' style={villagerDescTab}>
+                  Favorite Song
+                </div>
                 <div className='villager-desc-content'>
                   {villager.favoriteSong}
                 </div>

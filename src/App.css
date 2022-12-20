@@ -135,8 +135,6 @@ body {
 
 .creature-sea-item {
   display: flex;
-  min-width: 120px;
-  min-height: 110px;
   justify-content: center;
   background-color: #29746d;
   border-radius: 10px;
@@ -149,8 +147,6 @@ body {
 }
 .creature-insect-item {
   display: flex;
-  min-width: 120px;
-  min-height: 110px;
   justify-content: center;
   border: 4px solid #6ba32d;
   background-color: #96cc39;
@@ -348,7 +344,8 @@ body {
 }
 .catch-phrase {
   text-align: center;
-  width: 80%;
+  display: inline-block;
+  width: 30%;
   margin-top: 10px;
   background-color: #fffce9;
   padding: 10px;
@@ -814,10 +811,30 @@ ul li a {
 .carousel .carousel-item {
   display: inline-block;
 }
+.carousel-item {
+  position: relative;
+}
 @keyframes loading {
   to {
     transform: rotate(1turn);
   }
+}
+.furniture-name {
+  margin: 0 auto;
+
+  visibility: hidden;
+  position: absolute;
+  background-color: white;
+  font-family: 'humming';
+  text-transform: capitalize;
+  border-radius: 10px;
+  padding: 4px;
+}
+.carousel-item:hover .furniture-name {
+  display: block;
+  visibility: visible;
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
 }
 @media screen and (max-width: 480px) {
   .nav-list .list-item {

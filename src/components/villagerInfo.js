@@ -95,7 +95,13 @@ export default function VillagerInfo({
               </div>
             </div>
           </div>
-          <Carousel furniture={furniture} />
+          <div className='carousel-container'>
+            <div className='carousel-title' style={villagerDescTab}>
+              <h1>Furniture in Home</h1>
+            </div>
+
+            <Carousel furniture={furniture} />
+          </div>
         </div>
       </OutsideAlerter>
     </div>

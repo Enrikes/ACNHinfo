@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import male from '../img/villager/male.png';
 import female from '../img/villager/female.png';
 import Carousel from './carousel';
@@ -10,11 +10,30 @@ export default function VillagerInfo({
   toggleIsCreatureInfoShown,
   furniture,
 }) {
+  function BrightColorDetector(color) {
+    // Calculate brightness of color
+    const r = parseInt(color.substring(1, 3), 16);
+    const g = parseInt(color.substring(3, 5), 16);
+    const b = parseInt(color.substring(5, 7), 16);
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+    // Return text color based on brightness
+    if (brightness > 125) {
+      return 'black';
+    } else {
+      return 'white';
+    }
+  }
+  BrightColorDetector(villager.bubbleColor);
+
   const villagerName = {
     color: villager.nameColor,
     backgroundColor: villager.bubbleColor,
   };
-  const villagerDescTab = { backgroundColor: villager.bubbleColor };
+  const villagerDescTab = {
+    backgroundColor: villager.bubbleColor,
+    color: BrightColorDetector(villager.bubbleColor),
+  };
   function disableScroll() {
     document.body.style.overflow = 'hidden';
   }

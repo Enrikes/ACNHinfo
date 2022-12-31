@@ -30,7 +30,7 @@ export default function Card({
       >
         {nametagStyle === undefined ? (
           <>
-            <div id='nameTag'>{name}</div>
+            <div id='nameTag'>{name} deez</div>
             <img className={'creature-icon'} src={icon}></img>
           </>
         ) : (

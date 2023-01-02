@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from './creatureCards';
 import LoadingGrid from './loadingGrid';
+import GridItem from './gridItem';
 
 export default function Grid({
   toggleIsCreatureInfoShown,
@@ -53,7 +54,7 @@ export default function Grid({
 
   const displayFishGrid = fish.map((creature) => {
     return (
-      <Card
+      <GridItem
         toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
         key={creature.name}
         icon={creature.iconImage}

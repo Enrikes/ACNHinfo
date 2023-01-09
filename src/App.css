@@ -175,13 +175,13 @@ body {
 .creature-catch-phrase-container {
   text-align: center;
   margin: 0 auto;
+  background-color: #f8eebc;
+  border-radius: 20px;
+  width: 70%;
 }
 #creature-catch-phrase {
-  background-color: #f8eebc;
-  width: min-content;
   display: inline;
   padding: 5px;
-  border-radius: 20px;
 }
 .creature-header {
   display: flex;

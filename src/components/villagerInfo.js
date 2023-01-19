@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import male from '../img/villager/male.png';
 import female from '../img/villager/female.png';
-import Carousel from './carousel';
+import CarouselOld from './carousel';
 import OutsideAlerter from './outsideAlerter';
 import xMark from '../img/overaly/exit-button.png';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 export default function VillagerInfo({
   villager,
@@ -25,7 +27,25 @@ export default function VillagerInfo({
     }
   }
   BrightColorDetector(villager.bubbleColor);
-
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 5,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 2,
+    },
+  };
+  console.log(furniture);
   const villagerName = {
     color: villager.nameColor,
     backgroundColor: villager.bubbleColor,
@@ -118,8 +138,26 @@ export default function VillagerInfo({
             <div className='carousel-title' style={villagerDescTab}>
               <h1>Furniture in Home</h1>
             </div>
+            <Carousel responsive={responsive} autoPlay='true'>
+              {furniture.map((carouselItem) => {
+                if (carouselItem.image === undefined) {
+                  return (
+                    <div className='carousel-item'>
+                      <div className='furniture-name'>{carouselItem.name}</div>
 
-            <Carousel furniture={furniture} />
+                      <img src={carouselItem.variations[0].image}></img>
+                    </div>
+                  );
+                }
+                return (
+                  <div className='carousel-item'>
+                    <div className='furniture-name'>{carouselItem.name}</div>
+
+                    <img src={carouselItem.image}></img>
+                  </div>
+                );
+              })}
+            </Carousel>
           </div>
         </div>
       </OutsideAlerter>

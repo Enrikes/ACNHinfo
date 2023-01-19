@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Carousel({ furniture }) {
+export default function CarouselOld({ furniture }) {
   const carouselContainer = furniture.map((itemArray) => {
     const villagerFurniture = itemArray.variations ?? [];
     const firstVariation = villagerFurniture[0]?.image;

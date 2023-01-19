@@ -100,22 +100,31 @@ export default function CreatureInfo({
             <div className='creature-catch-phrase-container'>
               <p id='creature-catch-phrase'>{creature.catchPhrase}</p>
             </div>
-            <MonthGrid months={months} />
-            <div className='creature-time-container'>
-              <p id='creature-time'>{creature?.hemispheres.north.time}</p>
-            </div>
-            <Timeline time={creature.hemispheres.north.timeArray} />
-            <div className='creature-description'>
-              <div className='creature-location'>
-                <h1>Location</h1>
-                <p>{creature.whereHow}</p>
+            <div className='availability'>
+              <MonthGrid months={months} />
+              <div className='creature-time-container'>
+                <p id='creature-time'>{creature?.hemispheres.north.time}</p>
               </div>
-              <div className='creature-price'>
-                <h1>Price</h1>
-                <p>{creature.sell} Bells</p>
-                <p>
-                  <b>Flick Price:</b> {price} Bells
-                </p>
+              <Timeline time={creature.hemispheres.north.timeArray} />
+            </div>
+
+            <div className='creature-description'>
+              <div className='creature-desc-1'>
+                <div className='creature-desc-box'>
+                  <h1 className='creature-desc-title'>Location</h1>
+                  <div className='creature-desc-content'>
+                    <p>{creature.whereHow}</p>
+                  </div>
+                </div>
+              </div>{' '}
+              <div className='creature-desc-2'>
+                <div className='creature-desc-box'>
+                  <h1 className='creature-desc-title'>Price</h1>
+                  <div className='creature-desc-content'>
+                    <p>{creature.sell} Bells</p>
+                    <p>Flick Price: {price} Bells</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

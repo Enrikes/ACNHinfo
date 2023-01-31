@@ -30,14 +30,15 @@ export default function CreatureInfo({
   function enableScroll() {
     document.body.style.overflow = 'scroll';
   }
+  const endpoints = [
+    'villager',
+    'villagerType',
+    'villagerPersonality',
+    'villagerHobby',
+  ];
 
   useEffect(() => {
-    if (
-      url === '/villager' ||
-      url.endpoint === 'villagerType' ||
-      url.endpoint === 'villagerPersonality' ||
-      url.endpoint === 'villagerHobby'
-    ) {
+    if (endpoints.includes(url.endpoint)) {
       axios
         .get('/singleVillager', { params: { name: cardInfo } })
         .then((res) => {

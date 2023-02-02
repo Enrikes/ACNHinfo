@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../img/navbar/logo.png';
 import OutsideAlerter from './outsideAlerter';
+import HeaderCSS from './header.module.css';
 export default function Header({ setGrid, toggleVillager }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   function setInsect() {
@@ -29,57 +30,59 @@ export default function Header({ setGrid, toggleVillager }) {
   });
   return (
     <OutsideAlerter state={setIsMenuOpen}>
-      <nav className='navbar'>
-        <div className='logo'>
-          <img className='primary-logo' src={logo} />
+      <nav className={HeaderCSS.navbar}>
+        <div className={HeaderCSS.logo}>
+          <img className={HeaderCSS['primary-logo']} src={logo} />
         </div>
 
         <ul
-          className={isMenuOpen ? 'nav-list.active' : 'nav-list'}
-          id='navi-list'
+          className={
+            isMenuOpen ? HeaderCSS['nav-list.active'] : HeaderCSS['nav-list']
+          }
+          id={HeaderCSS['navi-list']}
         >
-          <li className='list-item'>
+          <li className={HeaderCSS['list-item']}>
             <p
               onClick={() => {
                 setFish();
                 setIsMenuOpen(false);
               }}
-              id='fish'
+              id={HeaderCSS.fish}
               href=''
             >
               Fish
             </p>
           </li>
-          <li className='list-item'>
+          <li className={HeaderCSS['list-item']}>
             <p
               onClick={() => {
                 setInsect();
                 setIsMenuOpen(false);
               }}
-              id='insect'
+              id={HeaderCSS.insect}
             >
               Insect
             </p>
           </li>
-          <li className='list-item'>
+          <li className={HeaderCSS['list-item']}>
             <p
               onClick={() => {
                 setVillager();
                 handleVillager();
                 setIsMenuOpen(false);
               }}
-              id='insect'
+              id={HeaderCSS.insect}
             >
               Villager
             </p>
           </li>
-          <li className='list-item'>
+          <li className={HeaderCSS['list-item']}>
             <p
               onClick={() => {
                 setSeaCreature();
                 setIsMenuOpen(false);
               }}
-              id='insect'
+              id={HeaderCSS.insect}
             >
               Sea Creatures
             </p>
@@ -89,12 +92,12 @@ export default function Header({ setGrid, toggleVillager }) {
           onClick={() => {
             setIsMenuOpen(!isMenuOpen);
           }}
-          className='menu'
+          className={HeaderCSS.menu}
           id='toggle-button'
         >
-          <div className='menu-line'></div>
-          <div className='menu-line'></div>
-          <div className='menu-line'></div>
+          <div className={HeaderCSS['menu-line']}></div>
+          <div className={HeaderCSS['menu-line']}></div>
+          <div className={HeaderCSS['menu-line']}></div>
         </div>
       </nav>
     </OutsideAlerter>

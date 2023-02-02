@@ -5,7 +5,7 @@ import Timeline from './timeLine';
 import VillagerInfo from './villagerInfo';
 import xMark from '../img/overaly/exit-button.png';
 import Loading from './loading';
-import CloseButton from '../../src/img/overaly/exit-button.png';
+import CardCSS from './creatureInfo.module.css';
 
 export default function CreatureInfo({
   cardInfo,
@@ -30,6 +30,43 @@ export default function CreatureInfo({
   function enableScroll() {
     document.body.style.overflow = 'scroll';
   }
+  console.log(isLoading);
+  useEffect(() => {
+    if (!isLoading) {
+      const parent1 = document.querySelectorAll(
+        '.timeline-mobile-am-container .timeline-hour-active'
+      );
+      const currentHourAM = document.querySelectorAll(
+        '.timeline-mobile-am-container .timeline-hour-active-current'
+      );
+      const parent2 = document.querySelectorAll(
+        '.timeline-mobile-pm-container .timeline-hour-active'
+      );
+      console.log(currentHourAM);
+      if (
+        currentHourAM[0]?.classList.contains('timeline-hour-active-current')
+      ) {
+        currentHourAM[0].style.borderRadius = '0 0 8px 8px';
+      } else {
+        console.log('test');
+      }
+      if (parent1[0].classList.contains('timeline-hour-active')) {
+        parent1[0].style.borderRadius = '8px 0 0 8px';
+        parent1[0].style.backgroundColor = 'red';
+      }
+
+      if (parent2[0].classList.contains('timeline-hour-active')) {
+        parent2[0].style.borderRadius = '0 0 0 0';
+      }
+      if (
+        parent2[parent2.length - 1].classList.contains('timeline-hour-active')
+      ) {
+        parent2[parent2.length - 1].style.borderRadius = '0 8px 8px 0';
+        parent2[parent2.length - 1].style.backgroundColor = 'green';
+        parent2[parent2.length - 1].style.border = 'none';
+      }
+    }
+  }, [isLoading]);
   const endpoints = [
     'villager',
     'villagerType',
@@ -55,6 +92,7 @@ export default function CreatureInfo({
         });
     }
   }, []);
+
   if (
     url === '/villager' ||
     url.endpoint === 'villagerType' ||
@@ -75,53 +113,63 @@ export default function CreatureInfo({
     const price = (150 / 100) * creature?.sell;
 
     return isLoading ? (
-      <div className='background-blur'>
+      <div className={CardCSS['background-blur']}>
         <Loading />
       </div>
     ) : (
-      <div className='creature-container'>
+      <div className={'creature-container'}>
         <div
-          className='background-blur'
+          className={CardCSS['background-blur']}
           onClick={(e) => {
             hideCreatureInfo(e);
           }}
         >
-          <div className='creature-info-container'>
-            <div className='creature-header'>
-              <h1 className='creature-title'>{creature.name}</h1>
-              <div className='x-mark-container' onClick={hideCreatureInfo}>
+          <div className={CardCSS['creature-info-container']}>
+            <div className={CardCSS['creature-header']}>
+              <h1 className={CardCSS['creature-title']}>{creature.name}</h1>
+              <div
+                className={CardCSS['x-mark-container']}
+                onClick={hideCreatureInfo}
+              >
                 <img
-                  className='x-mark'
+                  className={CardCSS['x-mark']}
                   src={xMark}
                   onClick={hideCreatureInfo}
                 ></img>
               </div>
             </div>
-            <img id='creature-img' src={creature.critterpediaImage}></img>
-            <div className='creature-catch-phrase-container'>
-              <p id='creature-catch-phrase'>{creature.catchPhrase}</p>
+            <img
+              id={CardCSS['creature-img']}
+              src={creature.critterpediaImage}
+            ></img>
+            <div className={CardCSS['creature-catch-phrase-container']}>
+              <p id={CardCSS['creature-catch-phrase']}>
+                {creature.catchPhrase}
+              </p>
             </div>
-            <div className='availability'>
+            <div className={CardCSS['availability']}>
               <MonthGrid months={months} />
-              <div className='creature-time-container'>
-                <p id='creature-time'>{creature?.hemispheres.north.time}</p>
-              </div>
-              <Timeline time={creature.hemispheres.north.timeArray} />
+
+              <Timeline
+                time={creature.hemispheres.north.timeArray}
+                timeFormat={creature?.hemispheres.north.time}
+              />
             </div>
 
-            <div className='creature-description'>
-              <div className='creature-desc-1'>
-                <div className='creature-desc-box'>
-                  <h1 className='creature-desc-title'>Location</h1>
-                  <div className='creature-desc-content'>
+            <div className={CardCSS['creature-description']}>
+              <div className={CardCSS['creature-desc-1']}>
+                <div className={CardCSS['creature-desc-box']}>
+                  <h1 className={CardCSS['creature-desc-title']}>Location</h1>
+                  <div className={CardCSS['creature-desc-content']}>
                     <p>{creature.whereHow}</p>
                   </div>
                 </div>
-              </div>{' '}
-              <div className='creature-desc-2'>
-                <div className='creature-desc-box'>
-                  <h1 className='creature-desc-title'>Price</h1>
-                  <div className='creature-desc-content'>
+              </div>
+
+              <div className={CardCSS['creature-desc-2']}>
+                <div className={CardCSS['creature-desc-box']}>
+                  <h1 className={CardCSS['creature-desc-title']}>Price</h1>
+                  <div className={CardCSS['creature-desc-content']}>
                     <p>{creature.sell} Bells</p>
                     <p>Flick Price: {price} Bells</p>
                   </div>

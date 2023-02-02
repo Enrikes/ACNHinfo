@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import IconCSS from './creatureCards.module.css';
 
 export default function Card({
   icon,
@@ -19,9 +20,9 @@ export default function Card({
       <div
         className={
           type === 'Insects'
-            ? 'creature-insect-item'
+            ? IconCSS['creature-insect-item']
             : type === 'Sea Creatures'
-            ? 'creature-sea-item'
+            ? IconCSS['creature-sea-item']
             : 'creature-fish-item'
         }
         onClick={(e) => {
@@ -30,15 +31,15 @@ export default function Card({
       >
         {nametagStyle === undefined ? (
           <>
-            <div id='nameTag'>{name} deez</div>
-            <img className={'creature-icon'} src={icon}></img>
+            <div id={IconCSS['name-tag']}>{name} deez</div>
+            <img className={IconCSS['creature-icon']} src={icon}></img>
           </>
         ) : (
           <>
-            <div style={nametagStyle} id='nameTag'>
+            <div style={nametagStyle} id={IconCSS['name-tag']}>
               {name}
             </div>
-            <img className={'creature-icon'} src={icon}></img>
+            <img className={IconCSS['creature-icon']} src={icon}></img>
           </>
         )}
       </div>

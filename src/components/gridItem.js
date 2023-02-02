@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import IconCSS from './creatureCards.module.css';
 
 export default function GridItem({
   icon,
@@ -14,7 +15,6 @@ export default function GridItem({
     grabCreatureInfo(name);
     return;
   }
-  console.log(name.length);
 
   return (
     <div>
@@ -22,10 +22,10 @@ export default function GridItem({
       <div
         className={
           type === 'Insects'
-            ? 'creature-insect-item'
+            ? IconCSS['creature-insect-item']
             : type === 'Sea Creatures'
-            ? 'creature-sea-item'
-            : 'creature-fish-item'
+            ? IconCSS['creature-sea-item']
+            : IconCSS['creature-fish-item']
         }
         onClick={(e) => {
           handleClick(e);
@@ -33,9 +33,9 @@ export default function GridItem({
       >
         {nametagStyle === undefined ? (
           <>
-            <div id='nameTag'>{name} deez</div>
+            <div id={IconCSS['name-tag']}>{name} deez</div>
             <img
-              className={'creature-icon'}
+              className={IconCSS['creature-icon']}
               onLoad={() => setIsLoading(false)}
               src={icon}
             ></img>
@@ -46,7 +46,7 @@ export default function GridItem({
               {name}
             </div>
             <img
-              className={'creature-icon'}
+              className={IconCSS['creature-icon']}
               onLoad={() => setIsLoading(false)}
               src={icon}
             ></img>

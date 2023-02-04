@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import DropdownItem from './dropdownitem';
 import { CSSTransition, Transition } from 'react-transition-group';
 import OutsideAlerter from './outsideAlerter';
+import FilterCSS from './villagerFilter.module.css';
 export default function VillagerFilter({ setGrid, villager }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isPersonalityOpen, setIsPersonalityOpen] = useState(false);
@@ -19,51 +20,52 @@ export default function VillagerFilter({ setGrid, villager }) {
   }
 
   return (
-    <div className='dropdown-container'>
+    <div className={FilterCSS['dropdown-container']}>
       <OutsideAlerter state={setIsOpen}>
-        <div className='dropdown-menu'>
+        <div className={FilterCSS['dropdown-menu']}>
           <button
-            className='dropdown-btn'
+            className={FilterCSS.btn}
             onClick={(e) => {
               setIsOpen(!isOpen);
               setIsPersonalityOpen(false);
               setIsHobbyOpen(false);
             }}
           >
-            <p className='dropdown-pad'>Species</p>
+            <p className={FilterCSS.padding}>Species</p>
           </button>
           <button
-            className='dropdown-btn'
+            className={FilterCSS.btn}
             onClick={() => {
               setIsOpen(false);
               setIsPersonalityOpen(!isPersonalityOpen);
               setIsHobbyOpen(false);
             }}
           >
-            <p className='dropdown-pad'>Personality</p>
+            <p className={FilterCSS.padding}>Personality</p>
           </button>
           <button
-            className='dropdown-btn'
+            className={FilterCSS.btn}
             onClick={() => {
               setIsOpen(false);
               setIsPersonalityOpen(false);
               setIsHobbyOpen(!isHobbyOpen);
             }}
           >
-            <p className='dropdown-pad'>Hobby</p>
+            <p className={FilterCSS.padding}>Hobby</p>
           </button>
           {isOpen && (
-            <div className='dropdown-content' onClick={(e) => {}}>
+            <div className={FilterCSS.content} onClick={(e) => {}}>
               <CSSTransition
                 in={isOpen}
                 timeout={900}
-                classNames='dropdown-open'
+                // TODO: Fix dropdown animation.
+                className={FilterCSS['dropdown-open']}
               >
                 <div
                   onClick={() => {
                     setIsOpen(false);
                   }}
-                  className='dropdown-animation'
+                  className={FilterCSS['dropdown-animation']}
                 >
                   <DropdownItem
                     type='All'
@@ -257,7 +259,7 @@ export default function VillagerFilter({ setGrid, villager }) {
                   onClick={() => {
                     setIsPersonalityOpen(false);
                   }}
-                  className='dropdown-animation'
+                  className={FilterCSS['dropdown-animation']}
                 >
                   <DropdownItem
                     type='Normal'
@@ -305,7 +307,7 @@ export default function VillagerFilter({ setGrid, villager }) {
                   onClick={() => {
                     setIsHobbyOpen(false);
                   }}
-                  className='dropdown-animation'
+                  className={FilterCSS['dropdown-animation']}
                 >
                   <DropdownItem
                     type='Education'
@@ -347,29 +349,3 @@ export default function VillagerFilter({ setGrid, villager }) {
     </div>
   );
 }
-// <div className='villager-filter-container'>
-//   <div
-//     className='villager-filter'
-//     onClick={() => {
-//       setSpecies({ species: 'Alligator', endpoint: 'villagerType' });
-//     }}
-//   >
-//     Alligator
-//   </div>
-//   <div
-//     className='villager-filter'
-//     onClick={() => {
-//       setSpecies({ species: 'Dog', endpoint: 'villagerType' });
-//     }}
-//   >
-//     Dog
-//   </div>
-//   <div
-//     className='villager-filter'
-//     onClick={() => {
-//       setSpecies({ species: 'Deer', endpoint: 'villagerType' });
-//     }}
-//   >
-//     Deer
-//   </div>
-// </div>

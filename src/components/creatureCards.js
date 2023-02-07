@@ -31,7 +31,7 @@ export default function Card({
       >
         {nametagStyle === undefined ? (
           <>
-            <div id={IconCSS['name-tag']}>{name} deez</div>
+            <div id={IconCSS['name-tag']}>{name}</div>
             <img className={IconCSS['creature-icon']} src={icon}></img>
           </>
         ) : (

@@ -33,7 +33,7 @@ export default function GridItem({
       >
         {nametagStyle === undefined ? (
           <>
-            <div id={IconCSS['name-tag']}>{name} deez</div>
+            <div id={IconCSS['name-tag']}>{name}</div>
             <img
               className={IconCSS['creature-icon']}
               onLoad={() => setIsLoading(false)}

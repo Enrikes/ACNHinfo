@@ -1,6 +1,7 @@
 import React from 'react';
+import TimelineCSS from './timeline.module.css';
 
-export default function Timeline({ time }) {
+export default function Timeline({ time, timeFormat }) {
   const timesArrayAM = [
     '12am',
     '1am',
@@ -55,8 +56,8 @@ export default function Timeline({ time }) {
           key={index}
           className={
             date.getHours() === index
-              ? 'timeline-hour-active-current'
-              : 'timeline-hour-active'
+              ? TimelineCSS['active-current']
+              : TimelineCSS.active
           }
         >
           {convertedHours}
@@ -68,8 +69,8 @@ export default function Timeline({ time }) {
         key={index}
         className={
           date.getHours() === index
-            ? 'timeline-hour-inactive-current'
-            : 'timeline-hour-inactive'
+            ? TimelineCSS['inactive-current']
+            : TimelineCSS.inactive
         }
       >
         {convertedHours}
@@ -92,8 +93,8 @@ export default function Timeline({ time }) {
           key={time}
           className={
             date.getHours() === miltaryTimeConverter()
-              ? 'timeline-hour-active-current'
-              : 'timeline-hour-active'
+              ? TimelineCSS['active-current']
+              : TimelineCSS.active
           }
         >
           {convertedHours}
@@ -105,8 +106,8 @@ export default function Timeline({ time }) {
         key={time}
         className={
           date.getHours() === miltaryTimeConverter()
-            ? 'timeline-hour-inactive-current'
-            : 'timeline-hour-inactive'
+            ? TimelineCSS['inactive-current']
+            : TimelineCSS.inactive
         }
       >
         {convertedHours}
@@ -115,14 +116,16 @@ export default function Timeline({ time }) {
   });
 
   return (
-    <div className='timeline-container'>
-      <div className='timeline-mobile-hours-container'>
-        <div className='active-hours'>Active Hours</div>
-        <div className='timeline-mobile-am-container'>{timelineAM}</div>
-        <div className='timeline-mobile-pm-container'>{timelimePM}</div>
+    <div className={TimelineCSS.container}>
+      <div className={TimelineCSS['timeline-wrapper']}>
+        <div className={TimelineCSS['active-hours']}>
+          Active Hours <p id='display-hours'>{timeFormat}</p>
+        </div>
+        <div className={TimelineCSS['am-container']}>{timelineAM}</div>
+        <div className={TimelineCSS['pm-container']}>{timelimePM}</div>
       </div>
-      <div className='am-pm-container'>
-        <div className='timeline-am'>
+      <div className={TimelineCSS['am-pm-container']}>
+        <div className={TimelineCSS['timeline-am']}>
           AM <div className='tests'>PM</div>
         </div>
       </div>

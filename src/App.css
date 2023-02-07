@@ -171,12 +171,6 @@ body {
   text-align: center;
   font: FinkHeavy;
 }
-.active-hours {
-  background-color: #025e57;
-  border-radius: 10px;
-  text-align: center;
-  color: white;
-}
 
 .price-wrapper {
   display: inline-block;
@@ -290,90 +284,7 @@ ul li a {
 .timeline-pm-container {
   display: flex;
 }
-.timeline-hour-inactive {
-  background-color: #c48d3f;
-  border: #017c74 solid 3px;
-  color: rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  line-height: 250%;
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-}
-.timeline-hour-active {
-  background-color: blue;
-  color: white;
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  height: 80%;
-  text-align: center;
-  margin: auto;
-  border: 10px;
-  border-right: 1px solid white;
-}
 
-.timeline-hour-active-current {
-  background-color: blue;
-  border: red solid 3px;
-  padding: 5px;
-  color: white;
-  box-sizing: border-box;
-}
-.timeline-hour-inactive-current {
-  width: 50px;
-  height: 50px;
-  background-color: #c48d3f;
-  border: red solid 5px;
-  padding: 5px;
-  color: rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
-.timeline-mobile-hours-container {
-  display: flex;
-  background-color: #017c74;
-  margin: 0 auto;
-  flex-direction: column;
-  max-width: min-content;
-}
-.timeline-mobile-am-container,
-.timeline-mobile-pm-container {
-  display: flex;
-  align-content: stretch;
-  justify-content: space-between;
-  background-color: #c48d3f;
-}
-.timeline-mobile-am-container > * {
-  margin: 0;
-}
-.timeline-container {
-  display: flex;
-  background-color: rebeccapurple;
-  margin-top: 10px;
-}
-.am-pm-container {
-  text-align: center;
-  margin: 0 auto;
-  background-color: red;
-  border-radius: 0 10px 10px 0;
-}
-.timeline-am,
-.timeline-pm {
-  display: flex;
-  margin: 0 auto;
-  z-index: 1;
-  width: min-content;
-  padding: 10px;
-}
-.timeline-am {
-  display: flex;
-  flex-direction: column;
-}
-
-.tests {
-  display: flex;
-  margin-top: 25px;
-}
 /* Login */
 .dashboard-wrapper {
   background-color: #f7d359;
@@ -580,13 +491,6 @@ ul li a {
     display: none;
   }
 
-  .timeline-hour-active,
-  .timeline-hour-inactive,
-  .timeline-hour-active-current,
-  .timeline-hour-inactive-current {
-    text-align: center;
-  }
-
   .creature-info-container {
     border-radius: 0px;
     width: 100%;
@@ -597,9 +501,6 @@ ul li a {
     height: 100%;
     margin: 0;
     top: 50%;
-  }
-
-  .acHeader {
   }
   /* Footer */
   .footer-container {

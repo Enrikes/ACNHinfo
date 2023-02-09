@@ -90,7 +90,7 @@ export default function Timeline({ time, timeFormat }) {
     if (pm.includes(miltaryTimeConverter())) {
       return (
         <div
-          key={time}
+          key={hour}
           className={
             date.getHours() === miltaryTimeConverter()
               ? TimelineCSS['active-current']
@@ -103,7 +103,7 @@ export default function Timeline({ time, timeFormat }) {
     }
     return (
       <div
-        key={time}
+        key={hour}
         className={
           date.getHours() === miltaryTimeConverter()
             ? TimelineCSS['inactive-current']

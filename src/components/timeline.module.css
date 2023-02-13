@@ -54,8 +54,10 @@
 .active-current {
   background-color: blue;
   border: red solid 3px;
-  padding: 5px;
+  width: 40px;
+  height: 40px;
   color: white;
+  text-align: center;
   box-sizing: border-box;
 }
 .active-hours {
@@ -66,13 +68,14 @@
 }
 .inactive {
   background-color: #c48d3f;
-  border: #017c74 solid 3px;
   color: rgba(0, 0, 0, 0.1);
   padding: 5px;
   line-height: 250%;
   width: 40px;
   height: 40px;
   display: inline-block;
+  border-right: 1px solid white;
+  text-align: center;
 }
 .inactive-current {
   width: 50px;

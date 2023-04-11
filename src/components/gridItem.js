@@ -17,7 +17,7 @@ export default function GridItem({
   }
 
   return (
-    <div>
+    <>
       {isLoading && <div>Loading...</div>}
       <div
         className={
@@ -53,6 +53,6 @@ export default function GridItem({
           </>
         )}
       </div>
-    </div>
+    </>
   );
 }

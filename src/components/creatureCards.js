@@ -23,7 +23,7 @@ export default function Card({
             ? IconCSS['creature-insect-item']
             : type === 'Sea Creatures'
             ? IconCSS['creature-sea-item']
-            : 'creature-fish-item'
+            : IconCSS['creature-fish-item']
         }
         onClick={(e) => {
           handleClick(e);

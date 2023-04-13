@@ -2,6 +2,8 @@ import React from 'react';
 import TimelineCSS from './timeline.module.css';
 
 export default function Timeline({ time, timeFormat }) {
+  // let ampm = timeFormat.join('');
+  // const startingTimeIndicator = ampm.slice(2, 4);
   const timesArrayAM = [
     '12am',
     '1am',
@@ -82,6 +84,7 @@ export default function Timeline({ time, timeFormat }) {
     const convertedHours = hour.replace('pm', '');
     function miltaryTimeConverter() {
       const time = parseInt(convertedHours);
+      const standardTime = time + 12;
       if (time === 12) {
         return 12;
       }
@@ -90,7 +93,7 @@ export default function Timeline({ time, timeFormat }) {
     if (pm.includes(miltaryTimeConverter())) {
       return (
         <div
-          key={hour}
+          key={miltaryTimeConverter()}
           className={
             date.getHours() === miltaryTimeConverter()
               ? TimelineCSS['active-current']
@@ -101,9 +104,11 @@ export default function Timeline({ time, timeFormat }) {
         </div>
       );
     }
+    const standardTime = time + 12;
+
     return (
       <div
-        key={hour}
+        key={standardTime}
         className={
           date.getHours() === miltaryTimeConverter()
             ? TimelineCSS['inactive-current']

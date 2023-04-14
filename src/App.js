@@ -49,6 +49,10 @@ function App() {
     setVillagerInfo(info);
     return villagerInfo;
   }
+  function sendTrigger(fetch){
+    console.log('ive been clicked')
+    fetch()
+  }
 
   function activateVillager(state) {
     setIsVillagerActive(state);
@@ -62,6 +66,7 @@ function App() {
             cardInfo={cardInfo}
             toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
             url={url}
+            handleFetchData={sendTrigger}
           />
         ) : (
           ''
@@ -93,6 +98,7 @@ function App() {
           grabCreatureInfo={setCreatureNameToSend}
           setGrid={url}
           villagerInfo={moveVillagerInfo}
+          trigger={sendTrigger}
         />
         <Footer />
       </div>

@@ -1,22 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import MonthGrid from './monthGrid';
-import Timeline from './timeLine';
-import VillagerInfo from './villagerInfo';
-import xMark from '../img/overaly/exit-button.png';
-import Loading from './loading';
-import CardCSS from './creatureInfo.module.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import MonthGrid from "./monthGrid";
+import Timeline from "./timeLine";
+import VillagerInfo from "./villagerInfo";
+import xMark from "../img/overaly/exit-button.png";
+import Loading from "./loading";
+import CardCSS from "./creatureInfo.module.css";
+import TimelineCSS from "./timeline.module.css";
+import { useQuery } from "@tanstack/react-query";
 
 export default function CreatureInfo({
   cardInfo,
   toggleIsCreatureInfoShown,
   url,
+  handleFetchData,
+  isVillagerActive,
 }) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [creature, setCreature] = useState();
-  const [villager, setVillager] = useState();
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [creature, setCreature] = useState();
   const [furniture, setFurniture] = useState();
   const [urlState, setUrlState] = useState();
+  const [fetchInfo, setFetchInfo] = useState(false);
+
   function hideCreatureInfo(e) {
     if (e.currentTarget != e.target) return;
     e.stopPropagation();
@@ -24,83 +29,69 @@ export default function CreatureInfo({
     enableScroll();
   }
   function disableScroll() {
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   }
   disableScroll();
   function enableScroll() {
-    document.body.style.overflow = 'scroll';
+    document.body.style.overflow = "scroll";
   }
-  console.log(isLoading);
-  useEffect(() => {
-    if (!isLoading) {
-      const parent1 = document.querySelectorAll(
-        '.timeline-mobile-am-container .timeline-hour-active'
-      );
-      const currentHourAM = document.querySelectorAll(
-        '.timeline-mobile-am-container .timeline-hour-active-current'
-      );
-      const parent2 = document.querySelectorAll(
-        '.timeline-mobile-pm-container .timeline-hour-active'
-      );
-      console.log(currentHourAM);
-      if (
-        currentHourAM[0]?.classList.contains('timeline-hour-active-current')
-      ) {
-        currentHourAM[0].style.borderRadius = '0 0 8px 8px';
-      } else {
-        console.log('test');
-      }
-      if (parent1[0].classList.contains('timeline-hour-active')) {
-        parent1[0].style.borderRadius = '8px 0 0 8px';
-        parent1[0].style.backgroundColor = 'red';
-      }
 
-      if (parent2[0].classList.contains('timeline-hour-active')) {
-        parent2[0].style.borderRadius = '0 0 0 0';
-      }
-      if (
-        parent2[parent2.length - 1].classList.contains('timeline-hour-active')
-      ) {
-        parent2[parent2.length - 1].style.borderRadius = '0 8px 8px 0';
-        parent2[parent2.length - 1].style.backgroundColor = 'green';
-        parent2[parent2.length - 1].style.border = 'none';
-      }
-    }
-  }, [isLoading]);
   const endpoints = [
-    'villager',
-    'villagerType',
-    'villagerPersonality',
-    'villagerHobby',
+    "/villager",
+    "villagerType",
+    "villagerPersonality",
+    "villagerHobby",
   ];
+  console.log(toggleIsCreatureInfoShown);
 
-  useEffect(() => {
-    if (endpoints.includes(url.endpoint)) {
-      axios
-        .get('/singleVillager', { params: { name: cardInfo } })
-        .then((res) => {
-          setVillager(res.data.filteredCreatures[0]);
-          setFurniture(res.data.furnitureArray);
-          setIsLoading(false);
-        });
-    } else {
-      axios
-        .get('/singleCreature', { params: { name: cardInfo } })
-        .then((res) => {
-          setCreature(res.data[0]);
-          setIsLoading(false);
-        });
-    }
-  }, []);
+  const { villager } = useQuery(
+    ["villager"],
+    () => {
+      console.log("we been triggered conditionally");
+      return axios
+        .get("/singleVillager", { params: { name: cardInfo } })
+        .then((res) => res.data);
+    },
+    { enabled: isVillagerActive }
+  );
+  function fetchCreature() {
+    return axios
+      .get("/singleCreature", { params: { name: cardInfo } })
+      .then((res) => res.data);
+  }
+  const { creature, isLoading, isError, error } = useQuery(
+    "creature",
+    fetchCreature
+  );
+  if (isError) {
+    return <span>Error: {error.message}</span>;
+  }
 
+  // useEffect(() => {
+  //   const elements = document.querySelectorAll(`.${TimelineCSS.active}`);
+  //   console.log(elements);
+
+  //   let firstActive = elements[0];
+  //   let lastActive = elements[elements.length - 1];
+
+  //   if (firstActive) {
+  //     firstActive.style.borderTopLeftRadius = "10px";
+  //     firstActive.style.borderBottomLeftRadius = "10px";
+  //   }
+
+  //   if (lastActive) {
+  //     lastActive.style.borderTopRightRadius = "10px";
+  //     lastActive.style.borderBottomRightRadius = "10px";
+  //   }
+  // }, [isLoading]);
   if (
-    url === '/villager' ||
-    url.endpoint === 'villagerType' ||
-    url.endpoint === 'villagerPersonality' ||
-    url.endpoint === 'villagerHobby'
+    url === "/villager" ||
+    url.endpoint === "villagerType" ||
+    url.endpoint === "villagerPersonality" ||
+    url.endpoint === "villagerHobby"
   ) {
     return isLoading ? (
-      <div className='creature-blur'></div>
+      <div className="creature-blur"></div>
     ) : (
       <VillagerInfo
         villager={villager}
@@ -113,41 +104,41 @@ export default function CreatureInfo({
     const price = (150 / 100) * creature?.sell;
 
     return isLoading ? (
-      <div className={CardCSS['background-blur']}>
+      <div className={CardCSS["background-blur"]}>
         <Loading />
       </div>
     ) : (
-      <div className={'creature-container'}>
+      <div className={"creature-container"}>
         <div
-          className={CardCSS['background-blur']}
+          className={CardCSS["background-blur"]}
           onClick={(e) => {
             hideCreatureInfo(e);
           }}
         >
-          <div className={CardCSS['creature-info-container']}>
-            <div className={CardCSS['creature-header']}>
-              <h1 className={CardCSS['creature-title']}>{creature.name}</h1>
+          <div className={CardCSS["creature-info-container"]}>
+            <div className={CardCSS["creature-header"]}>
+              <h1 className={CardCSS["creature-title"]}>{creature.name}</h1>
               <div
-                className={CardCSS['x-mark-container']}
+                className={CardCSS["x-mark-container"]}
                 onClick={hideCreatureInfo}
               >
                 <img
-                  className={CardCSS['x-mark']}
+                  className={CardCSS["x-mark"]}
                   src={xMark}
                   onClick={hideCreatureInfo}
                 ></img>
               </div>
             </div>
             <img
-              id={CardCSS['creature-img']}
+              id={CardCSS["creature-img"]}
               src={creature.critterpediaImage}
             ></img>
-            <div className={CardCSS['creature-catch-phrase-container']}>
-              <p id={CardCSS['creature-catch-phrase']}>
+            <div className={CardCSS["creature-catch-phrase-container"]}>
+              <p id={CardCSS["creature-catch-phrase"]}>
                 {creature.catchPhrase}
               </p>
             </div>
-            <div className={CardCSS['availability']}>
+            <div className={CardCSS["availability"]}>
               <MonthGrid months={months} />
 
               <Timeline
@@ -156,20 +147,20 @@ export default function CreatureInfo({
               />
             </div>
 
-            <div className={CardCSS['creature-description']}>
-              <div className={CardCSS['creature-desc-1']}>
-                <div className={CardCSS['creature-desc-box']}>
-                  <h1 className={CardCSS['creature-desc-title']}>Location</h1>
-                  <div className={CardCSS['creature-desc-content']}>
+            <div className={CardCSS["creature-description"]}>
+              <div className={CardCSS["creature-desc-1"]}>
+                <div className={CardCSS["creature-desc-box"]}>
+                  <h1 className={CardCSS["creature-desc-title"]}>Location</h1>
+                  <div className={CardCSS["creature-desc-content"]}>
                     <p>{creature.whereHow}</p>
                   </div>
                 </div>
               </div>
 
-              <div className={CardCSS['creature-desc-2']}>
-                <div className={CardCSS['creature-desc-box']}>
-                  <h1 className={CardCSS['creature-desc-title']}>Price</h1>
-                  <div className={CardCSS['creature-desc-content']}>
+              <div className={CardCSS["creature-desc-2"]}>
+                <div className={CardCSS["creature-desc-box"]}>
+                  <h1 className={CardCSS["creature-desc-title"]}>Price</h1>
+                  <div className={CardCSS["creature-desc-content"]}>
                     <p>{creature.sell} Bells</p>
                     <p>Flick Price: {price} Bells</p>
                   </div>

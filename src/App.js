@@ -1,22 +1,22 @@
-import React, { useState, useRef } from 'react';
-import Header from './components/header';
-import Grid from './components/creatureGrid';
-import CreatureInfo from './components/creatureInfo';
-import Footer from './components/footer';
-import FilterButtons from './components/filterButtons';
-import VillagerFilter from './components/villagerFilter';
-import Login from './components/login';
-import Dashboard from './components/dashboard';
+import React, { useState, useRef } from "react";
+import Header from "./components/header";
+import Grid from "./components/creatureGrid";
+import CreatureInfo from "./components/creatureInfo";
+import Footer from "./components/footer";
+import FilterButtons from "./components/filterButtons";
+import VillagerFilter from "./components/villagerFilter";
+import Login from "./components/login";
+import Dashboard from "./components/dashboard";
 
 function App() {
   const [isCreatureInfoShown, setIsCreatureInfoShown] = useState(false);
   const [cardInfo, setCardInfo] = useState();
-  const [url, setUrl] = useState('/fish');
+  const [url, setUrl] = useState("/fish");
   const [loginMode, setLoginMode] = useState(true);
   const [loginSuccess, setLoginSuccess] = useState();
   const [villagerInfo, setVillagerInfo] = useState();
   const [isVillagerActive, setIsVillagerActive] = useState(false);
-  const loggedIn = window.localStorage.getItem('isLoggedIn');
+  const loggedIn = window.localStorage.getItem("isLoggedIn");
   const [isDropdownOpen, setIsDropdownOpen] = useState();
   const speciesDropdown = useRef(null);
 
@@ -29,7 +29,7 @@ function App() {
       setIsDropdownOpen(false);
     }
   };
-  document.addEventListener('click', closeOpenMenus);
+  document.addEventListener("click", closeOpenMenus);
 
   function toggleIsCreatureInfoShown() {
     setIsCreatureInfoShown(!isCreatureInfoShown);
@@ -49,9 +49,9 @@ function App() {
     setVillagerInfo(info);
     return villagerInfo;
   }
-  function sendTrigger(fetch){
-    console.log('ive been clicked')
-    fetch()
+  function sendTrigger(fetch) {
+    console.log("ive been clicked");
+    // fetch()
   }
 
   function activateVillager(state) {
@@ -67,9 +67,10 @@ function App() {
             toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
             url={url}
             handleFetchData={sendTrigger}
+            isVillagerActive={isVillagerActive}
           />
         ) : (
-          ''
+          ""
         )}
 
         <Dashboard setLoginSuccess={setLoginSuccess} />
@@ -84,13 +85,13 @@ function App() {
             setLoginSuccess={setLoginSuccess}
           />
         ) : (
-          ''
+          ""
         )}
         <FilterButtons setGrid={setGrid} />
         {isVillagerActive ? (
           <VillagerFilter setGrid={setGrid} villager={villagerInfo} />
         ) : (
-          ''
+          ""
         )}
 
         <Grid
@@ -98,7 +99,7 @@ function App() {
           grabCreatureInfo={setCreatureNameToSend}
           setGrid={url}
           villagerInfo={moveVillagerInfo}
-          trigger={sendTrigger}
+          trigger={setIsVillagerActive}
         />
         <Footer />
       </div>

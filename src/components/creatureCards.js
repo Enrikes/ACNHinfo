@@ -15,7 +15,6 @@ export default function Card({
     toggleIsCreatureInfoShown();
     grabCreatureInfo(name);
     setFetchInfo(true);
-    console.log(trigger);
     trigger(true);
     return;
   }

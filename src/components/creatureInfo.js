@@ -15,6 +15,7 @@ export default function CreatureInfo({
   url,
   handleFetchData,
   isVillagerActive,
+  isCreatureActive,
 }) {
   function hideCreatureInfo(e) {
     if (e.currentTarget != e.target) return;
@@ -43,6 +44,13 @@ export default function CreatureInfo({
     const res = data;
     return res;
   };
+  const fetchCreature = async () => {
+    const { data } = await axios.get("/singleCreature", {
+      params: { name: cardInfo },
+    });
+    const res = data;
+    return res;
+  };
   const { data: villager, isLoading: villagerLoading } = useQuery(
     ["villager"],
     fetchVillager,
@@ -50,18 +58,10 @@ export default function CreatureInfo({
       enabled: isVillagerActive,
     }
   );
-  function fetchCreature() {
-    return axios
-      .get("/singleCreature", { params: { name: cardInfo } })
-      .then((res) => res.data);
-  }
-  const { creature, isLoading, isError, error } = useQuery(
-    ["creature"],
-    fetchCreature
-  );
-  if (isError) {
-    return <span>Error: {error.message}</span>;
-  }
+  const { data: creature, isLoading } = useQuery(["creature"], fetchCreature, {
+    enabled: isCreatureActive,
+    select: (data) => data[0],
+  });
 
   if (
     url === "/villager" ||

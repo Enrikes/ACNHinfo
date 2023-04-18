@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Card from './creatureCards';
-import LoadingGrid from './loadingGrid';
-import GridItem from './gridItem';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Card from "./creatureCards";
+import LoadingGrid from "./loadingGrid";
+import GridItem from "./gridItem";
 
 export default function Grid({
   toggleIsCreatureInfoShown,
   grabCreatureInfo,
   setGrid,
   villagerInfo,
-  trigger
+  trigger,
+  creatureTrigger,
 }) {
   const [creatures, setCreature] = useState([]);
   useEffect(() => {
@@ -24,7 +25,7 @@ export default function Grid({
     };
     const retrieveVillagerGridData = async () => {
       try {
-        console.log(setGrid.endpoint)
+        console.log(setGrid.endpoint);
         const resp = await axios.get(setGrid.endpoint, {
           params: { species: setGrid.species },
         });
@@ -33,7 +34,7 @@ export default function Grid({
         return err;
       }
     };
-    if (setGrid.endpoint === 'villagerType' || typeof setGrid === 'object') {
+    if (setGrid.endpoint === "villagerType" || typeof setGrid === "object") {
       retrieveVillagerGridData();
     } else {
       retrieveGridData();
@@ -41,16 +42,16 @@ export default function Grid({
   }, [setGrid]);
 
   const fish = creatures.filter(
-    (creatures) => creatures.sourceSheet === 'Fish'
+    (creatures) => creatures.sourceSheet === "Fish"
   );
   const insect = creatures.filter(
-    (creatures) => creatures.sourceSheet === 'Insects'
+    (creatures) => creatures.sourceSheet === "Insects"
   );
   const seaCreature = creatures.filter(
-    (creatures) => creatures.sourceSheet === 'Sea Creatures'
+    (creatures) => creatures.sourceSheet === "Sea Creatures"
   );
   const villager = creatures.filter(
-    (creatures) => creatures.sourceSheet === 'Villagers'
+    (creatures) => creatures.sourceSheet === "Villagers"
   );
   villagerInfo();
 
@@ -63,6 +64,7 @@ export default function Grid({
         name={creature.name}
         grabCreatureInfo={grabCreatureInfo}
         type={creature.sourceSheet}
+        creatureTrigger={creatureTrigger}
       />
     );
   });
@@ -108,39 +110,39 @@ export default function Grid({
       />
     );
   });
-  console.log(setGrid)
+  console.log(setGrid);
   return (
-    <div className='grid-container'>
+    <div className="grid-container">
       {creatures.length === 0 ? (
-        <div className='icons'>
+        <div className="icons">
           <LoadingGrid />
         </div>
       ) : (
-        ''
+        ""
       )}
-      {setGrid === '/fish' ? (
-        <div className='icons'>{displayFishGrid}</div>
+      {setGrid === "/fish" ? (
+        <div className="icons">{displayFishGrid}</div>
       ) : (
-        ''
+        ""
       )}
-      {setGrid === '/insect' ? (
-        <div className='icons'>{displayInsectGrid}</div>
+      {setGrid === "/insect" ? (
+        <div className="icons">{displayInsectGrid}</div>
       ) : (
-        ''
+        ""
       )}
-      {setGrid === '/seaCreature' ? (
-        <div className='icons'>{displaySeaCreatureGrid}</div>
+      {setGrid === "/seaCreature" ? (
+        <div className="icons">{displaySeaCreatureGrid}</div>
       ) : (
-        ''
+        ""
       )}
-      {setGrid.endpoint === 'villagerType' ||
-      setGrid === '/villager' ||
-      setGrid.endpoint === 'villager' ||
-      setGrid.endpoint === 'villagerPersonality' ||
-      setGrid.endpoint === 'villagerHobby' ? (
-        <div className='icons'>{displayVillagerGrid}</div>
+      {setGrid.endpoint === "villagerType" ||
+      setGrid === "/villager" ||
+      setGrid.endpoint === "villager" ||
+      setGrid.endpoint === "villagerPersonality" ||
+      setGrid.endpoint === "villagerHobby" ? (
+        <div className="icons">{displayVillagerGrid}</div>
       ) : (
-        ''
+        ""
       )}
     </div>
   );

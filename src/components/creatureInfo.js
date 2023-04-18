@@ -16,12 +16,6 @@ export default function CreatureInfo({
   handleFetchData,
   isVillagerActive,
 }) {
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [creature, setCreature] = useState();
-  const [furniture, setFurniture] = useState();
-  const [urlState, setUrlState] = useState();
-  const [fetchInfo, setFetchInfo] = useState(false);
-
   function hideCreatureInfo(e) {
     if (e.currentTarget != e.target) return;
     e.stopPropagation();
@@ -42,17 +36,19 @@ export default function CreatureInfo({
     "villagerPersonality",
     "villagerHobby",
   ];
-  console.log(toggleIsCreatureInfoShown);
-
-  const { villager } = useQuery(
+  const fetchVillager = async () => {
+    const { data } = await axios.get("/singleVillager", {
+      params: { name: cardInfo },
+    });
+    const res = data;
+    return res;
+  };
+  const { data: villager, isLoading: villagerLoading } = useQuery(
     ["villager"],
-    () => {
-      console.log("we been triggered conditionally");
-      return axios
-        .get("/singleVillager", { params: { name: cardInfo } })
-        .then((res) => res.data);
-    },
-    { enabled: isVillagerActive }
+    fetchVillager,
+    {
+      enabled: isVillagerActive,
+    }
   );
   function fetchCreature() {
     return axios
@@ -60,43 +56,26 @@ export default function CreatureInfo({
       .then((res) => res.data);
   }
   const { creature, isLoading, isError, error } = useQuery(
-    "creature",
+    ["creature"],
     fetchCreature
   );
   if (isError) {
     return <span>Error: {error.message}</span>;
   }
 
-  // useEffect(() => {
-  //   const elements = document.querySelectorAll(`.${TimelineCSS.active}`);
-  //   console.log(elements);
-
-  //   let firstActive = elements[0];
-  //   let lastActive = elements[elements.length - 1];
-
-  //   if (firstActive) {
-  //     firstActive.style.borderTopLeftRadius = "10px";
-  //     firstActive.style.borderBottomLeftRadius = "10px";
-  //   }
-
-  //   if (lastActive) {
-  //     lastActive.style.borderTopRightRadius = "10px";
-  //     lastActive.style.borderBottomRightRadius = "10px";
-  //   }
-  // }, [isLoading]);
   if (
     url === "/villager" ||
     url.endpoint === "villagerType" ||
     url.endpoint === "villagerPersonality" ||
     url.endpoint === "villagerHobby"
   ) {
-    return isLoading ? (
+    return villagerLoading ? (
       <div className="creature-blur"></div>
     ) : (
       <VillagerInfo
         villager={villager}
         toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
-        furniture={furniture}
+        furniture={villager}
       />
     );
   } else {

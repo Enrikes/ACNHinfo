@@ -9,6 +9,7 @@ export default function Grid({
   grabCreatureInfo,
   setGrid,
   villagerInfo,
+  trigger
 }) {
   const [creatures, setCreature] = useState([]);
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function Grid({
     };
     const retrieveVillagerGridData = async () => {
       try {
+        console.log(setGrid.endpoint)
         const resp = await axios.get(setGrid.endpoint, {
           params: { species: setGrid.species },
         });
@@ -102,9 +104,11 @@ export default function Grid({
         grabCreatureInfo={grabCreatureInfo}
         type={creature.sourceSheet}
         nametagStyle={villagerNameStyle}
+        trigger={trigger}
       />
     );
   });
+  console.log(setGrid)
   return (
     <div className='grid-container'>
       {creatures.length === 0 ? (

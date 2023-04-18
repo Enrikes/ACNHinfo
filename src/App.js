@@ -16,6 +16,7 @@ function App() {
   const [loginSuccess, setLoginSuccess] = useState();
   const [villagerInfo, setVillagerInfo] = useState();
   const [isVillagerActive, setIsVillagerActive] = useState(false);
+  const [isCreatureActive, setIsCreatureActive] = useState(false);
   const loggedIn = window.localStorage.getItem("isLoggedIn");
   const [isDropdownOpen, setIsDropdownOpen] = useState();
   const speciesDropdown = useRef(null);
@@ -53,7 +54,9 @@ function App() {
     console.log("ive been clicked");
     // fetch()
   }
-
+  function activateCreature(state) {
+    setIsCreatureActive(state);
+  }
   function activateVillager(state) {
     setIsVillagerActive(state);
   }
@@ -68,6 +71,7 @@ function App() {
             url={url}
             handleFetchData={sendTrigger}
             isVillagerActive={isVillagerActive}
+            isCreatureActive={isCreatureActive}
           />
         ) : (
           ""
@@ -100,6 +104,7 @@ function App() {
           setGrid={url}
           villagerInfo={moveVillagerInfo}
           trigger={setIsVillagerActive}
+          creatureTrigger={activateCreature}
         />
         <Footer />
       </div>

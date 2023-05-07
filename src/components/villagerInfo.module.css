@@ -1,0 +1,180 @@
+.villager-container{
+  background-color: #68b893;
+  left: 50%;
+  right: 0;
+  margin: 0;
+  top: 45%;
+  height: 90%;
+  overflow-x: hidden;
+  position: fixed;
+  width: 70%;
+  border-radius: 50px;
+  margin-top: 40px;
+  font-family: Humming;
+  background-image: url('/src/img/creature-background/fish.png');
+  background-size: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.villager-image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .villager-image {
+    border-radius: 150px;
+    position: relative;
+    left: 20px;
+  }
+  .villager-gender-container {
+    color: red;
+    border-radius: 40px;
+    background-color: #017c74;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  .villager-gender {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 34%;
+    transform: translateY(-29%);
+  }
+  .catch-phrase {
+    text-align: center;
+    display: inline-block;
+    width: 30%;
+    margin-top: 10px;
+    background-color: #fffce9;
+    padding: 10px;
+    border-radius: 30px;
+  }
+  .villager-info-container {
+    display: flex;
+    background-color: #fffce9;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 30px;
+    padding: 30px;
+  }
+  .villager-desc-1,
+  .villager-desc-2 {
+    flex: 1;
+  }
+  .villager-desc-1 {
+    text-align: center;
+  }
+  .villager-desc-2 {
+    text-align: center;
+  }
+  .villager-desc-box {
+    background-color: white;
+    border-radius: 20px;
+    max-width: 200px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.441);
+  }
+  .villager-desc-title {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    color: white;
+  }
+  .villager-desc-content {
+    padding: 10px;
+  }
+  .background-blur {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.363);
+    z-index: 1;
+  }
+  .villager-header {
+    display: flex;
+    z-index: 1;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .villager-title {
+    display: flex;
+    text-transform: capitalize;
+    text-align: center;
+    font-family: FinkHeavy;
+    font-size: 60px;
+    justify-content: center;
+    width: 100%;
+  }
+  .x-mark-container {
+    position: absolute;
+    right: 0%;
+    color: red;
+    font-size: 40px;
+  }
+  .x-mark {
+    display: flex;
+    width: 90px;
+  }
+  .villager-description {
+    text-align: center;
+    display: flex;
+    background-color: #fffce9;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 30px;
+    padding: 30px;
+  }
+  .villager-phrase {
+    text-align: center;
+    display: inline-block;
+    width: 30%;
+    margin-top: 10px;
+    background-color: #fffce9;
+    padding: 10px;
+    border-radius: 30px;
+  }
+  @media screen and (max-width: 480px) {
+    .villager-container {
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      top: 50%;
+      border-radius: 0;
+  }
+  
+    .villager-title {
+        top: 0;
+      }
+  }
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .villager-info-container {
+      flex-direction: column;
+      border-radius: 0px;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      top: 50%;
+    }
+    .villager-title {
+        top: 0;
+      }
+
+  }
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .villager-container {
+      border-radius: 0px;
+
+      width: 100%;
+    }
+  }
+

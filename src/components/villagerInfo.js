@@ -6,6 +6,7 @@ import OutsideAlerter from "./outsideAlerter";
 import xMark from "../img/overaly/exit-button.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import villagerCSS from "./villagerInfo.module.css";
 
 export default function VillagerInfo({
   villager,
@@ -76,60 +77,81 @@ export default function VillagerInfo({
     }
   }
   return (
-    <div className="background-blur">
+    <div className={villagerCSS["background-blur"]}>
       <OutsideAlerter state={hideCreatureInfo}>
-        <div className="creature-info-container">
-          <div className="creature-header">
-            <h1 className="creature-title" style={villagerName}>
+        <div className={villagerCSS["villager-container"]}>
+          <div className={villagerCSS["villager-header"]}>
+            <h1 className={villagerCSS["villager-title"]} style={villagerName}>
               {villager.name}
             </h1>
-            <div className="x-mark-container">
+            <div className={villagerCSS["x-mark-container"]}>
               <img
                 src={xMark}
-                className="x-mark"
+                className={villagerCSS["x-mark"]}
                 onClick={hideCreatureInfo}
               ></img>
             </div>
           </div>
 
-          <div className="villager-image-container">
-            <img className="villager-image" src={villager.photoImage}></img>
-            <div className="villager-gender-container">
+          <div className={villagerCSS["villager-image-container"]}>
+            <img
+              className={villagerCSS["villager-image"]}
+              src={villager.photoImage}
+            ></img>
+            <div className={villagerCSS["villager-gender-container"]}>
               {gender(villager.gender)}
             </div>
           </div>
-          <div className="creature-description">
-            <div className="catch-phrase">{villager.favoriteSaying}</div>
+          <div className={villagerCSS["villager-description"]}>
+            <div className={villagerCSS["villager-phrase"]}>
+              {villager.favoriteSaying}
+            </div>
           </div>
-          <div className="villager-info-container">
-            <div className="villager-desc-1">
-              <div className="villager-desc-box">
-                <div className="villager-desc-title" style={villagerDescTab}>
+          <div className={villagerCSS["villager-info-container"]}>
+            <div className={villagerCSS["villager-desc-1"]}>
+              <div className={villagerCSS["villager-desc-box"]}>
+                <div
+                  className={villagerCSS["villager-desc-title"]}
+                  style={villagerDescTab}
+                >
                   Species
                 </div>
-                <div className="villager-desc-content">{villager.species}</div>
+                <div className={villagerCSS["villager-desc-content"]}>
+                  {villager.species}
+                </div>
               </div>
-              <div className="villager-desc-box">
-                <div className="villager-desc-title" style={villagerDescTab}>
+              <div className={villagerCSS["villager-desc-box"]}>
+                <div
+                  className={villagerCSS["villager-desc-title"]}
+                  style={villagerDescTab}
+                >
                   Hobby
                 </div>
-                <div className="villager-desc-content">{villager.hobby}</div>
+                <div className={villagerCSS["villager-desc-content"]}>
+                  {villager.hobby}
+                </div>
               </div>
             </div>
-            <div className="villager-desc-2">
-              <div className="villager-desc-box">
-                <div className="villager-desc-title" style={villagerDescTab}>
+            <div className={villagerCSS["villager-desc-2"]}>
+              <div className={villagerCSS["villager-desc-box"]}>
+                <div
+                  className={villagerCSS["villager-desc-title"]}
+                  style={villagerDescTab}
+                >
                   Personality
                 </div>
-                <div className="villager-desc-content">
+                <div className={villagerCSS["villager-desc-content"]}>
                   {villager.personality}
                 </div>
               </div>
-              <div className="villager-desc-box">
-                <div className="villager-desc-title" style={villagerDescTab}>
+              <div className={villagerCSS["villager-desc-box"]}>
+                <div
+                  className={villagerCSS["villager-desc-title"]}
+                  style={villagerDescTab}
+                >
                   Favorite Song
                 </div>
-                <div className="villager-desc-content">
+                <div className={villagerCSS["villager-desc-content"]}>
                   {villager.favoriteSong}
                 </div>
               </div>

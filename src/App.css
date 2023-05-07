@@ -109,15 +109,7 @@ body {
   top: 34%;
   transform: translateY(-29%);
 }
-.catch-phrase {
-  text-align: center;
-  display: inline-block;
-  width: 30%;
-  margin-top: 10px;
-  background-color: #fffce9;
-  padding: 10px;
-  border-radius: 30px;
-}
+
 .villager-info-container {
   display: flex;
   background-color: #fffce9;

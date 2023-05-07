@@ -38,7 +38,7 @@
 }
 .nav-list {
   list-style-type: none;
-  width: 100%;
+  width: 90%;
   text-align: center;
   padding-top: 10px;
 }
@@ -81,7 +81,7 @@
     top: 15px;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 1000px) {
   #fish,
   #insect {
     text-align: center;
@@ -93,6 +93,9 @@
     justify-content: space-around;
     font-size: 20px;
     margin-bottom: 50px;
+  }
+  .nav-list {
+    display: none;
   }
   .navbar {
     flex-direction: column;

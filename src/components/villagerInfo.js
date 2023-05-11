@@ -15,6 +15,7 @@ export default function VillagerInfo({
 }) {
   villager = villager.filteredCreatures[0];
   furniture = furniture.furnitureArray;
+
   function BrightColorDetector(color) {
     // Calculate brightness of color
     const r = parseInt(color.substring(1, 3), 16);
@@ -163,20 +164,14 @@ export default function VillagerInfo({
             </div>
             <Carousel responsive={responsive} autoPlay="true">
               {furniture.map((carouselItem) => {
-                if (carouselItem.image === undefined) {
-                  return (
-                    <div className="carousel-item">
-                      <div className="furniture-name">{carouselItem.name}</div>
-
-                      <img src={carouselItem.variations[0].image}></img>
-                    </div>
-                  );
-                }
                 return (
                   <div className="carousel-item">
                     <div className="furniture-name">{carouselItem.name}</div>
-
-                    <img src={carouselItem.image}></img>
+                    {carouselItem.variations ? (
+                      <img src={carouselItem.variations[0].image}></img>
+                    ) : (
+                      <img src={carouselItem.image}></img>
+                    )}
                   </div>
                 );
               })}

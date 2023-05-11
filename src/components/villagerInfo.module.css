@@ -124,10 +124,10 @@
     width: 90px;
   }
   .villager-description {
-    text-align: center;
     display: flex;
     background-color: #fffce9;
     width: 50%;
+    max-width: 55%;
     margin: 0 auto;
     border-radius: 20px;
     margin-top: 30px;
@@ -135,12 +135,8 @@
   }
   .villager-phrase {
     text-align: center;
-    display: inline-block;
-    width: 30%;
-    margin-top: 10px;
-    background-color: #fffce9;
-    padding: 10px;
-    border-radius: 30px;
+    width: 100%;
+
   }
   @media screen and (max-width: 480px) {
     .villager-container {
@@ -150,6 +146,10 @@
       margin: 0;
       top: 50%;
       border-radius: 0;
+      padding-bottom: 60px;
+  }
+  .villager-info-container {
+    flex-direction: column;
   }
   
     .villager-title {
@@ -157,7 +157,7 @@
       }
   }
   @media screen and (min-width: 481px) and (max-width: 768px) {
-    .villager-info-container {
+    .villager-container {
       flex-direction: column;
       border-radius: 0px;
       width: 100%;

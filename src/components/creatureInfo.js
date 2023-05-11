@@ -30,7 +30,6 @@ export default function CreatureInfo({
   function enableScroll() {
     document.body.style.overflow = "scroll";
   }
-
   const endpoints = [
     "/villager",
     "villagerType",
@@ -51,13 +50,14 @@ export default function CreatureInfo({
     const res = data;
     return res;
   };
-  const { data: villager, isLoading: villagerLoading } = useQuery(
-    ["villager"],
-    fetchVillager,
-    {
-      enabled: isVillagerActive,
-    }
-  );
+  function useVillagerQuery(name) {}
+  const {
+    data: villager,
+    isLoading: villagerLoading,
+    isFetching,
+  } = useQuery(["villager"], fetchVillager, {
+    enabled: isVillagerActive,
+  });
   const { data: creature, isLoading } = useQuery(["creature"], fetchCreature, {
     enabled: isCreatureActive,
     select: (data) => data[0],
@@ -69,8 +69,8 @@ export default function CreatureInfo({
     url.endpoint === "villagerPersonality" ||
     url.endpoint === "villagerHobby"
   ) {
-    return villagerLoading ? (
-      <div className="creature-blur"></div>
+    return isFetching ? (
+      <div className={CardCSS["background-blur"]}></div>
     ) : (
       <VillagerInfo
         villager={villager}

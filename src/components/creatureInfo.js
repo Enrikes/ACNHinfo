@@ -58,10 +58,15 @@ export default function CreatureInfo({
   } = useQuery(["villager"], fetchVillager, {
     enabled: isVillagerActive,
   });
-  const { data: creature, isLoading } = useQuery(["creature"], fetchCreature, {
-    enabled: isCreatureActive,
-    select: (data) => data[0],
-  });
+  const { data: creature, isFetching: isCreatureFetching } = useQuery(
+    ["creature"],
+    fetchCreature,
+    {
+      enabled: isCreatureActive,
+      select: (data) => data[0],
+    }
+  );
+  console.log(creature);
 
   if (
     url === "/villager" ||
@@ -82,7 +87,7 @@ export default function CreatureInfo({
     const months = creature?.hemispheres.north.monthsArray;
     const price = (150 / 100) * creature?.sell;
 
-    return isLoading ? (
+    return isCreatureFetching ? (
       <div className={CardCSS["background-blur"]}>
         <Loading />
       </div>

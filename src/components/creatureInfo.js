@@ -57,6 +57,7 @@ export default function CreatureInfo({
     isFetching,
   } = useQuery(["villager"], fetchVillager, {
     enabled: isVillagerActive,
+    refetchOnWindowFocus: false,
   });
   const { data: creature, isFetching: isCreatureFetching } = useQuery(
     ["creature"],
@@ -64,9 +65,9 @@ export default function CreatureInfo({
     {
       enabled: isCreatureActive,
       select: (data) => data[0],
+      refetchOnWindowFocus: false,
     }
   );
-  console.log(creature);
 
   if (
     url === "/villager" ||

@@ -1,14 +1,16 @@
 .container {
   display: flex;
-  background-color: rebeccapurple;
   margin-top: 10px;
 }
 .timeline-wrapper {
   display: flex;
-  background-color: #017c74;
+  background-color: white;
+  border-radius: 10px;
   margin: 0 auto;
   flex-direction: column;
-  max-width: min-content;
+  height: min-content;
+  padding-bottom: 20px;
+
 }
 .timeline-am,
 .timeline-pm {
@@ -16,7 +18,8 @@
   margin: 0 auto;
   z-index: 1;
   width: min-content;
-  padding: 10px;
+  height: min-content;
+  padding-bottom: 20px;
 }
 .timeline-am {
   display: flex;
@@ -51,6 +54,18 @@
   border: 10px;
   border-right: 1px solid white;
 }
+.active2 {
+  background-color: lightgreen;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  height: 80%;
+  text-align: center;
+  margin: auto;
+  border: 10px;
+  border-right: 1px solid white;
+}
 .active-current {
   background-color: blue;
   border: red solid 3px;
@@ -60,9 +75,19 @@
   text-align: center;
   box-sizing: border-box;
 }
+.active-current2 {
+  background-color: lightgreen;
+  border: red solid 3px;
+  width: 40px;
+  height: 40px;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
+}
 .active-hours {
   background-color: #025e57;
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   text-align: center;
   color: white;
 }
@@ -85,6 +110,48 @@
   padding: 5px;
   color: rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+}
+.time-start{
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: blue;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  height: 80%;
+  text-align: center;
+  margin: auto;
+  border: 10px;
+  border-right: 1px solid white;
+}
+.time-start2{
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: lightgreen;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  height: 80%;
+  text-align: center;
+  margin: auto;
+  border: 10px;
+  border-right: 1px solid white;
+}
+.time-end{
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: blue;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  height: 80%;
+  text-align: center;
+  margin: auto;
+  border: 10px;
+  border-right: 1px solid white;
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {

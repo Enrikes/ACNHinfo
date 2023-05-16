@@ -3,9 +3,7 @@ import TimelineCSS from "./timeline.module.css";
 
 export default function Timeline({ time, timeFormat }) {
   function grabStartEndTime(time, arrayIndex) {
-    console.log(time, arrayIndex);
     let rawTime = time[arrayIndex];
-    console.log(rawTime);
     let formattedTime = rawTime.replace(/–|\s/g, "");
     const startTime = formattedTime.substr(0, 3); // Extracts the first 3 characters (4AM)
     const endTime = formattedTime.substr(3);
@@ -17,9 +15,12 @@ export default function Timeline({ time, timeFormat }) {
   const startStyle = grabStartEndTime(timeFormat, 0)[0];
   const endStyle = grabStartEndTime(timeFormat, 0)[1];
 
-  const startStyle2 = grabStartEndTime(timeFormat, 1)[0];
-  const endStyle2 = grabStartEndTime(timeFormat, 1)[1];
-  console.log(startStyle, endStyle, startStyle2, endStyle2);
+  let startStyle2;
+  let endStyle2;
+  if (time.length === 2) {
+    startStyle2 = grabStartEndTime(timeFormat, 1)[0];
+    endStyle2 = grabStartEndTime(timeFormat, 1)[1];
+  }
 
   // let ampm = timeFormat.join('');
   // const startingTimeIndicator = ampm.slice(2, 4);
@@ -94,25 +95,24 @@ export default function Timeline({ time, timeFormat }) {
     }
   }
   splitAMandPM(time, am, pm);
+
   const lastAM = am[am.length - 1] + "am";
+  const lastAM2 = am2[am2.length - 1] + "am";
+
   const lastPM = (pm[pm.length - 1] % 12 || 12) + "pm";
   const lastPM2 = (pm2[pm2.length - 1] % 12 || 12) + "pm";
-  console.log(pm2, lastPM);
-  console.log(endStyle2, lastPM2);
   function shouldStyleHour(key, boolean) {
-    console.log(key, lastPM2);
     if (key === startStyle2) {
       return "time-start2";
-    } else if (key === endStyle2) {
-      return "time-end";
+    } else if (key === lastAM2) {
+      return "time-end2";
     }
 
     if (key === startStyle) {
-      console.log("i played tho");
       return "time-start";
     } else if (endStyle === "day" || key === "11am") {
       return "active";
-    } else if (key === endStyle || key === lastAM) {
+    } else if (key === endStyle || key === lastAM || key === lastPM) {
       return "time-end";
     } else {
       return "active";
@@ -151,7 +151,7 @@ export default function Timeline({ time, timeFormat }) {
           className={
             date.getHours() === index
               ? TimelineCSS["active-current"]
-              : hour === startStyle || hour === lastAM
+              : hour === startStyle || hour === lastAM2
               ? TimelineCSS[shouldStyleHour(hour)]
               : TimelineCSS.active2
           }
@@ -200,7 +200,6 @@ export default function Timeline({ time, timeFormat }) {
       );
     }
     if (pm2.includes(miltaryTimeConverter())) {
-      console.log(hour, startStyle);
       return (
         <div
           key={hour}

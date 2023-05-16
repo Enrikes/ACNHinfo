@@ -153,6 +153,20 @@
   border: 10px;
   border-right: 1px solid white;
 }
+.time-end2{
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: lightgreen;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  height: 80%;
+  text-align: center;
+  margin: auto;
+  border: 10px;
+  border-right: 1px solid white;
+}
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .timeline-hour-active,

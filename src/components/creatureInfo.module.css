@@ -100,7 +100,8 @@
   padding: 10px;
 }
 .availability {
-  display: inline-flex;
+  display: flex;
+  
 }
 
 .x-mark-container {

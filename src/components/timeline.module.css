@@ -172,10 +172,18 @@
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
+  .timeline-wrapper{
+    width: 90%;
+  }
   .timeline-hour-active,
   .timeline-hour-inactive,
   .timeline-hour-active-current,
   .timeline-hour-inactive-current {
     text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .timeline-wrapper{
+    width: 80%;
   }
 }

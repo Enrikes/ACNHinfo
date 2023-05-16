@@ -240,11 +240,6 @@ export default function Timeline({ time, timeFormat }) {
         <div className={TimelineCSS["am-container"]}>{timelineAM}</div>
         <div className={TimelineCSS["pm-container"]}>{timelimePM}</div>
       </div>
-      <div className={TimelineCSS["am-pm-container"]}>
-        <div className={TimelineCSS["timeline-am"]}>
-          AM <div className="tests">PM</div>
-        </div>
-      </div>
     </div>
   );
 }

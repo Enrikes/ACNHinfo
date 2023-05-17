@@ -110,7 +110,7 @@ export default function Timeline({ time, timeFormat }) {
 
     if (key === startStyle) {
       return "time-start";
-    } else if (endStyle === "day" || key === "11am") {
+    } else if (endStyle === "day" || key === "11am" || key === "11pm") {
       return "active";
     } else if (key === endStyle || key === lastAM || key === lastPM) {
       return "time-end";

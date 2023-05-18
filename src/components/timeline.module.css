@@ -25,6 +25,9 @@
   display: flex;
   flex-direction: column;
 }
+.am-container{
+  border-bottom: solid 1px white;
+}
 
 .am-container,
 .pm-container {

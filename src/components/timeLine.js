@@ -62,34 +62,22 @@ export default function Timeline({ time, timeFormat }) {
       for (const hour of array[0]) {
         if (hour < 12) {
           am.push(hour);
-        }
-        if (hour === 12) {
-          pm.push(hour);
-        }
-        if (hour > 12) {
+        } else {
           pm.push(hour);
         }
       }
       for (const hour of array[1]) {
         if (hour < 12) {
-          am2.push(hour);
-        }
-        if (hour === 12) {
-          pm2.push(hour);
-        }
-        if (hour > 12) {
-          pm2.push(hour);
+          am.push(hour);
+        } else {
+          pm.push(hour);
         }
       }
     }
     for (const hour of array) {
       if (hour < 12) {
         am.push(hour);
-      }
-      if (hour === 12) {
-        pm.push(hour);
-      }
-      if (hour > 12) {
+      } else {
         pm.push(hour);
       }
     }

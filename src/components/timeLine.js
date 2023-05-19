@@ -57,23 +57,8 @@ export default function Timeline({ time, timeFormat }) {
   let pm = [];
   let pm2 = [];
   const date = new Date();
-  function splitAMandPM(array, am, pm) {
-    if (time.length === 2) {
-      for (const hour of array[0]) {
-        if (hour < 12) {
-          am.push(hour);
-        } else {
-          pm.push(hour);
-        }
-      }
-      for (const hour of array[1]) {
-        if (hour < 12) {
-          am.push(hour);
-        } else {
-          pm.push(hour);
-        }
-      }
-    }
+
+  function processHourArray(array, am, pm) {
     for (const hour of array) {
       if (hour < 12) {
         am.push(hour);
@@ -81,6 +66,13 @@ export default function Timeline({ time, timeFormat }) {
         pm.push(hour);
       }
     }
+  }
+  function splitAMandPM(array, am, pm) {
+    if (time.length === 2) {
+      processHourArray(array[0], am, pm);
+      processHourArray(array[1], am, pm);
+    }
+    processHourArray(array, am, pm);
   }
   splitAMandPM(time, am, pm);
 

@@ -34,6 +34,7 @@
   margin-bottom: 20px;
 }
 .creature-title {
+  background-color: #fffce9;
   display: flex;
   text-transform: capitalize;
   text-align: center;

@@ -55,18 +55,30 @@
   padding: 1px;
 }
 #name-tag {
+  padding-left: 10px;
+  padding-right: 10px;
+  white-space: nowrap;
+  
+  width: min-content;
   visibility: hidden;
   position: absolute;
   background-color: aliceblue;
   border-radius: 15px;
-  padding: 2px;
   text-transform: capitalize;
   font: Humming !important;
   font-size: 20px;
   margin-top: -20px;
   font-size: 15px;
-  min-width: 6rem;
   text-align: center;
+  animation-name: fadeIn;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
 }
 
 /* Media block to stop hover event from firing on mobile devices */

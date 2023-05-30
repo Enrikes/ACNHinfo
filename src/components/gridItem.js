@@ -17,25 +17,47 @@ export default function GridItem({
     creatureTrigger(true);
     return;
   }
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+  function handleClassName(type) {
+    switch (type) {
+      case "Insects":
+        return IconCSS["creature-insect-item"];
+        break;
+      case "Sea Creatures":
+        return IconCSS["creature-sea-item"];
+        break;
+      default:
+        return IconCSS["creature-fish-item"];
+    }
+  }
+  function handleNameTagAnimation() {
+    return `${isHovered ? `${IconCSS.visible}` : "hidden"}`;
+  }
 
   return (
     <>
       {isLoading && <div>Loading...</div>}
       <div
-        className={
-          type === "Insects"
-            ? IconCSS["creature-insect-item"]
-            : type === "Sea Creatures"
-            ? IconCSS["creature-sea-item"]
-            : IconCSS["creature-fish-item"]
-        }
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className={handleClassName(type)}
         onClick={(e) => {
           handleClick(e);
         }}
       >
         {nametagStyle === undefined ? (
           <>
-            <div id={IconCSS["name-tag"]}>{name}</div>
+            <div className={handleNameTagAnimation()} id={IconCSS["name-tag"]}>
+              {name}
+            </div>
             <img
               className={IconCSS["creature-icon"]}
               onLoad={() => setIsLoading(false)}

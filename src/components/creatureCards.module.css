@@ -36,10 +36,10 @@
 .creature-fish-item {
   display: flex;
   justify-content: center;
-  background-color: #017c74;
+  background-color: white;
   border-radius: 10px;
-  background-image: url('../img/creature-background/fish.png'),
-    linear-gradient(180deg, #017c74, #7cc9c3);
+  /* background-image: url('../img/creature-background/fish.png'),
+    linear-gradient(180deg, #017c74, #7cc9c3); */
   background-size: 25%;
   background-attachment: fixed;
   background-repeat: repeat-x repeat-y;
@@ -70,7 +70,11 @@
   margin-top: -20px;
   font-size: 15px;
   text-align: center;
+
+}
+.visible{
   animation-name: fadeIn;
+  animation-duration: 1s;
 }
 @keyframes fadeIn {
   0% {

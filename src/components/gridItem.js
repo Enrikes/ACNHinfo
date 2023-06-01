@@ -30,17 +30,13 @@ export default function GridItem({
     switch (type) {
       case "Insects":
         return IconCSS["creature-insect-item"];
-        break;
       case "Sea Creatures":
         return IconCSS["creature-sea-item"];
-        break;
       default:
         return IconCSS["creature-fish-item"];
     }
   }
-  function handleNameTagAnimation() {
-    return `${isHovered ? `${IconCSS.visible}` : "hidden"}`;
-  }
+  const className = `${isHovered ? `${IconCSS.visible}` : IconCSS["fade-out"]}`;
 
   return (
     <>
@@ -55,13 +51,14 @@ export default function GridItem({
       >
         {nametagStyle === undefined ? (
           <>
-            <div className={handleNameTagAnimation()} id={IconCSS["name-tag"]}>
+            <div className={className} id={IconCSS["name-tag"]}>
               {name}
             </div>
             <img
               className={IconCSS["creature-icon"]}
               onLoad={() => setIsLoading(false)}
               src={icon}
+              alt={name}
             ></img>
           </>
         ) : (
@@ -73,6 +70,7 @@ export default function GridItem({
               className={IconCSS["creature-icon"]}
               onLoad={() => setIsLoading(false)}
               src={icon}
+              alt={name}
             ></img>
           </>
         )}

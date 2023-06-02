@@ -70,25 +70,27 @@ export default function Grid({
   });
   const displayInsectGrid = insect.map((creature) => {
     return (
-      <Card
+      <GridItem
         toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
         key={creature.name}
         icon={creature.iconImage}
         name={creature.name}
         grabCreatureInfo={grabCreatureInfo}
         type={creature.sourceSheet}
+        creatureTrigger={creatureTrigger}
       />
     );
   });
   const displaySeaCreatureGrid = seaCreature.map((creature) => {
     return (
-      <Card
+      <GridItem
         toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
         key={creature.name}
         icon={creature.iconImage}
         name={creature.name}
         grabCreatureInfo={grabCreatureInfo}
         type={creature.sourceSheet}
+        creatureTrigger={creatureTrigger}
       />
     );
   });
@@ -98,7 +100,7 @@ export default function Grid({
       backgroundColor: creature.bubbleColor,
     };
     return (
-      <Card
+      <GridItem
         toggleIsCreatureInfoShown={toggleIsCreatureInfoShown}
         key={creature.name}
         icon={creature.iconImage}
@@ -107,10 +109,10 @@ export default function Grid({
         type={creature.sourceSheet}
         nametagStyle={villagerNameStyle}
         trigger={trigger}
+        creatureTrigger={creatureTrigger}
       />
     );
   });
-  console.log(setGrid);
   return (
     <div className="grid-container">
       {creatures.length === 0 ? (

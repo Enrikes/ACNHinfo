@@ -63,7 +63,7 @@ export default function GridItem({
           </>
         ) : (
           <>
-            <div style={nametagStyle} id="nameTag">
+            <div style={nametagStyle} id={IconCSS["name-tag"]}>
               {name}
             </div>
             <img

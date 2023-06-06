@@ -34,6 +34,9 @@ function App() {
 
   function toggleIsCreatureInfoShown() {
     setIsCreatureInfoShown(!isCreatureInfoShown);
+    if (isCreatureInfoShown) {
+      document.title = `ACNHInfo`;
+    }
   }
   function setCreatureNameToSend(name) {
     setCardInfo(name);

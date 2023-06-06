@@ -36,6 +36,7 @@ export default function CreatureInfo({
     "villagerPersonality",
     "villagerHobby",
   ];
+
   const fetchVillager = async () => {
     const { data } = await axios.get("/singleVillager", {
       params: { name: cardInfo },
@@ -68,6 +69,20 @@ export default function CreatureInfo({
       refetchOnWindowFocus: false,
     }
   );
+  // Update title
+  async function changeTitle() {
+    const name = creature.name.toUpperCase();
+    const arr = creature.name.split(" ");
+    for (var i = 0; i < arr.length; i++) {
+      arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+    }
+    const str2 = arr.join(" ");
+
+    if (!isFetching) {
+      document.title = `ACNHInfo - ${str2}`;
+    }
+  }
+  changeTitle();
 
   if (
     url === "/villager" ||

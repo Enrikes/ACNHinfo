@@ -15,7 +15,10 @@ export default function VillagerInfo({
 }) {
   villager = villager.filteredCreatures[0];
   furniture = furniture.furnitureArray;
-
+  function changeTitle() {
+    document.title = `ACNHInfo - ${villager.name}`;
+  }
+  changeTitle();
   function BrightColorDetector(color) {
     // Calculate brightness of color
     const r = parseInt(color.substring(1, 3), 16);

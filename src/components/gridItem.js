@@ -17,8 +17,7 @@ export default function GridItem({
     creatureTrigger(true);
     return;
   }
-  const [isHovered, setIsHovered] = useState(false);
-
+  const [isHovered, setIsHovered] = useState(undefined);
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -36,11 +35,18 @@ export default function GridItem({
         return IconCSS["creature-fish-item"];
     }
   }
-  const className = `${isHovered ? `${IconCSS.visible}` : IconCSS["fade-out"]}`;
+  const className = () => {
+    if (isHovered) {
+      return IconCSS.visible;
+    } else if (isHovered === undefined) {
+      return "";
+    } else {
+      return IconCSS["fade-out"];
+    }
+  };
 
   return (
     <>
-      {isLoading && <div>Loading...</div>}
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -51,7 +57,7 @@ export default function GridItem({
       >
         {nametagStyle === undefined ? (
           <>
-            <div className={className} id={IconCSS["name-tag"]}>
+            <div className={className()} id={IconCSS["name-tag"]}>
               {name}
             </div>
             <img

@@ -7,6 +7,7 @@ import FilterButtons from "./components/filterButtons";
 import VillagerFilter from "./components/villagerFilter";
 import Login from "./components/login";
 import Dashboard from "./components/dashboard";
+import SkeletonElement from "./skeleton/skeletonElement";
 
 function App() {
   const [isCreatureInfoShown, setIsCreatureInfoShown] = useState(false);
@@ -67,6 +68,7 @@ function App() {
   return (
     <>
       <div ref={speciesDropdown}>
+        <SkeletonElement type="avatar" />
         {isCreatureInfoShown && cardInfo ? (
           <CreatureInfo
             cardInfo={cardInfo}

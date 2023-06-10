@@ -1,0 +1,13 @@
+.skeleton{
+    background: #ddd;
+}
+.skeleton.avatar{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.skeleton-card {
+    border-radius: 10px;
+    background-color: #f2f2f2;
+}

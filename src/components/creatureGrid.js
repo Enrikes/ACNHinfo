@@ -122,6 +122,15 @@ export default function Grid({
       ) : (
         ""
       )}
+      {setGrid === "/caughtNow" ? (
+        <div className="icons">
+          {displayFishGrid}
+          {displayInsectGrid}
+          {displaySeaCreatureGrid}
+        </div>
+      ) : (
+        ""
+      )}
       {setGrid === "/fish" ? (
         <div className="icons">{displayFishGrid}</div>
       ) : (

@@ -71,15 +71,14 @@ export default function CreatureInfo({
   );
   // Update title
   async function changeTitle() {
-    const name = creature.name.toUpperCase();
-    const arr = creature.name.split(" ");
-    for (var i = 0; i < arr.length; i++) {
-      arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+    const nameArr = creature.name.split(" ");
+    for (var i = 0; i < nameArr.length; i++) {
+      nameArr[i] = nameArr[i].charAt(0).toUpperCase() + nameArr[i].slice(1);
     }
-    const str2 = arr.join(" ");
+    const name = nameArr.join(" ");
 
     if (!isFetching) {
-      document.title = `ACNHInfo - ${str2}`;
+      document.title = `ACNHInfo - ${name}`;
     }
   }
   changeTitle();

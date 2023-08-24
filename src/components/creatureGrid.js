@@ -40,6 +40,14 @@ export default function Grid({
       retrieveGridData();
     }
   }, [setGrid]);
+  const endpoints = [
+    "villagerType",
+    "/villager",
+    "villager",
+    "villagerPersonality",
+    "villagerHobby",
+  ];
+  console.log(setGrid.endpoint);
 
   const fish = creatures.filter(
     (creatures) => creatures.sourceSheet === "Fish"
@@ -146,11 +154,7 @@ export default function Grid({
       ) : (
         ""
       )}
-      {setGrid.endpoint === "villagerType" ||
-      setGrid === "/villager" ||
-      setGrid.endpoint === "villager" ||
-      setGrid.endpoint === "villagerPersonality" ||
-      setGrid.endpoint === "villagerHobby" ? (
+      {endpoints.includes(setGrid) || endpoints.includes(setGrid.endpoint) ? (
         <div className="icons">{displayVillagerGrid}</div>
       ) : (
         ""

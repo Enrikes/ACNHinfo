@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Card from "./creatureCards";
-import LoadingGrid from "./loadingGrid";
-import GridItem from "./gridItem";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Card from './creatureCards';
+import LoadingGrid from './loadingGrid';
+import GridItem from './gridItem';
 
 export default function Grid({
   toggleIsCreatureInfoShown,
@@ -34,32 +34,31 @@ export default function Grid({
         return err;
       }
     };
-    if (setGrid.endpoint === "villagerType" || typeof setGrid === "object") {
+    if (setGrid.endpoint === 'villagerType' || typeof setGrid === 'object') {
       retrieveVillagerGridData();
     } else {
       retrieveGridData();
     }
   }, [setGrid]);
   const endpoints = [
-    "villagerType",
-    "/villager",
-    "villager",
-    "villagerPersonality",
-    "villagerHobby",
+    'villagerType',
+    '/villager',
+    'villager',
+    'villagerPersonality',
+    'villagerHobby',
   ];
-  console.log(setGrid.endpoint);
 
   const fish = creatures.filter(
-    (creatures) => creatures.sourceSheet === "Fish"
+    (creatures) => creatures.sourceSheet === 'Fish'
   );
   const insect = creatures.filter(
-    (creatures) => creatures.sourceSheet === "Insects"
+    (creatures) => creatures.sourceSheet === 'Insects'
   );
   const seaCreature = creatures.filter(
-    (creatures) => creatures.sourceSheet === "Sea Creatures"
+    (creatures) => creatures.sourceSheet === 'Sea Creatures'
   );
   const villager = creatures.filter(
-    (creatures) => creatures.sourceSheet === "Villagers"
+    (creatures) => creatures.sourceSheet === 'Villagers'
   );
   villagerInfo();
 
@@ -122,42 +121,42 @@ export default function Grid({
     );
   });
   return (
-    <div className="grid-container">
+    <div className='grid-container'>
       {creatures.length === 0 ? (
-        <div className="icons">
+        <div className='icons'>
           <LoadingGrid />
         </div>
       ) : (
-        ""
+        ''
       )}
-      {setGrid === "/caughtNow" ? (
-        <div className="icons">
+      {setGrid === '/caughtNow' ? (
+        <div className='icons'>
           {displayFishGrid}
           {displayInsectGrid}
           {displaySeaCreatureGrid}
         </div>
       ) : (
-        ""
+        ''
       )}
-      {setGrid === "/fish" ? (
-        <div className="icons">{displayFishGrid}</div>
+      {setGrid === '/fish' ? (
+        <div className='icons'>{displayFishGrid}</div>
       ) : (
-        ""
+        ''
       )}
-      {setGrid === "/insect" ? (
-        <div className="icons">{displayInsectGrid}</div>
+      {setGrid === '/insect' ? (
+        <div className='icons'>{displayInsectGrid}</div>
       ) : (
-        ""
+        ''
       )}
-      {setGrid === "/seaCreature" ? (
-        <div className="icons">{displaySeaCreatureGrid}</div>
+      {setGrid === '/seaCreature' ? (
+        <div className='icons'>{displaySeaCreatureGrid}</div>
       ) : (
-        ""
+        ''
       )}
       {endpoints.includes(setGrid) || endpoints.includes(setGrid.endpoint) ? (
-        <div className="icons">{displayVillagerGrid}</div>
+        <div className='icons'>{displayVillagerGrid}</div>
       ) : (
-        ""
+        ''
       )}
     </div>
   );

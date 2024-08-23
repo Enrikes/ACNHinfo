@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import logo from '../img/navbar/logo.png';
 import OutsideAlerter from './outsideAlerter';
 import HeaderCSS from './header.module.css';
-export default function Header({ setGrid, toggleVillager }) {
+interface headerProps {
+  setGrid: (value: string) => void;
+  toggleVillager: (value: boolean) => void;
+}
+export default function Header({
+  setGrid,
+  toggleVillager,
+}: headerProps): React.ReactElement {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  function setInsect() {
+  function setInsect(): void {
     setGrid('/insect');
     toggleVillager(false);
   }
@@ -48,7 +55,6 @@ export default function Header({ setGrid, toggleVillager }) {
                 setIsMenuOpen(false);
               }}
               id={HeaderCSS.fish}
-              href=''
             >
               Fish
             </p>

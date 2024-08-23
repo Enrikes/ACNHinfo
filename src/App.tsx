@@ -81,11 +81,7 @@ const App: React.FC = (): React.ReactNode => {
         )}
 
         <Dashboard setLoginSuccess={setLoginSuccess} />
-        <Header
-          setGrid={setGrid}
-          toggleLoginMode={toggleLoginMode}
-          toggleVillager={activateVillager}
-        />
+        <Header setGrid={setGrid} toggleVillager={activateVillager} />
         {!loginMode ? (
           <Login
             setLoginMode={setLoginMode}

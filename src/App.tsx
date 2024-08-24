@@ -9,7 +9,7 @@ import Login from './components/login';
 import Dashboard from './components/dashboard';
 import SkeletonElement from './skeleton/skeletonElement';
 
-interface creatureInfoProps {
+export interface creatureInfoProps {
   cardInfo: string;
   toggleIsCreatureInfoShown: () => void;
   url: string;

@@ -9,9 +9,17 @@ import Login from './components/login';
 import Dashboard from './components/dashboard';
 import SkeletonElement from './skeleton/skeletonElement';
 
+interface creatureInfoProps {
+  cardInfo: string;
+  toggleIsCreatureInfoShown: () => void;
+  url: string;
+  isVillagerActive: boolean;
+  isCreatureActive: boolean;
+}
+
 const App: React.FC = (): React.ReactNode => {
   const [isCreatureInfoShown, setIsCreatureInfoShown] = useState(false);
-  const [cardInfo, setCardInfo] = useState<string>('');
+  const [cardInfo, setCardInfo] = useState('');
   const [url, setUrl] = useState('/fish');
   const [loginMode, setLoginMode] = useState(true);
   const [loginSuccess, setLoginSuccess] = useState();

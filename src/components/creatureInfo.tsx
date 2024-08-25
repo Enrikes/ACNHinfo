@@ -25,7 +25,7 @@ export default function CreatureInfo({
   isVillagerActive,
   isCreatureActive,
 }: creatureInfoProps): React.ReactElement {
-  function hideCreatureInfo(e: MouseEvent): void {
+  function hideCreatureInfo(e: React.MouseEvent<HTMLDivElement>): void {
     if (e.currentTarget != e.target) return;
     e.stopPropagation();
     toggleIsCreatureInfoShown();
@@ -126,12 +126,14 @@ export default function CreatureInfo({
               <h1 className={CardCSS['creature-title']}>{creature.name}</h1>
               <div
                 className={CardCSS['x-mark-container']}
-                onClick={hideCreatureInfo}
+                onClick={(e) => hideCreatureInfo(e)}
               >
                 <img
                   className={CardCSS['x-mark']}
                   src={xMark}
-                  onClick={hideCreatureInfo}
+                  onClick={(e) => {
+                    hideCreatureInfo(e);
+                  }}
                 ></img>
               </div>
             </div>

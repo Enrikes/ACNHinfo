@@ -20,7 +20,7 @@ export interface creatureInfoProps {
 const App: React.FC = (): React.ReactNode => {
   const [isCreatureInfoShown, setIsCreatureInfoShown] = useState(false);
   const [cardInfo, setCardInfo] = useState('');
-  const [url, setUrl] = useState('/fish');
+  const [url, setUrl] = useState<{ endpoint: string }>({ endpoint: '/fish' });
   const [loginMode, setLoginMode] = useState(true);
   const [loginSuccess, setLoginSuccess] = useState();
   const [villagerInfo, setVillagerInfo] = useState<object>({});

@@ -8,6 +8,15 @@ import Loading from './loading';
 import CardCSS from './creatureInfo.module.css';
 import TimelineCSS from './timeline.module.css';
 import { useQuery } from '@tanstack/react-query';
+import { creatureInfoProps } from '../App';
+
+interface Url {
+  endpoint:
+    | '/villager'
+    | 'villagerType'
+    | 'villagerPersonality'
+    | 'villagerHobby';
+}
 
 export default function CreatureInfo({
   cardInfo,
@@ -15,8 +24,8 @@ export default function CreatureInfo({
   url,
   isVillagerActive,
   isCreatureActive,
-}) {
-  function hideCreatureInfo(e) {
+}: creatureInfoProps): React.ReactElement {
+  function hideCreatureInfo(e: MouseEvent): void {
     if (e.currentTarget != e.target) return;
     e.stopPropagation();
     toggleIsCreatureInfoShown();
@@ -50,7 +59,6 @@ export default function CreatureInfo({
     const res = data;
     return res;
   };
-  function useVillagerQuery(name) {}
   const {
     data: villager,
     isLoading: villagerLoading,

@@ -91,7 +91,7 @@ export default function CreatureInfo({
   changeTitle();
 
   if (
-    url === '/villager' ||
+    url.endpoint === '/villager' ||
     url.endpoint === 'villagerType' ||
     url.endpoint === 'villagerPersonality' ||
     url.endpoint === 'villagerHobby'

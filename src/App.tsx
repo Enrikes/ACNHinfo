@@ -12,7 +12,7 @@ import SkeletonElement from './skeleton/skeletonElement';
 export interface creatureInfoProps {
   cardInfo: string;
   toggleIsCreatureInfoShown: () => void;
-  url: string;
+  url: { endpoint: string };
   isVillagerActive: boolean;
   isCreatureActive: boolean;
 }

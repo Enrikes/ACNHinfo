@@ -53,9 +53,8 @@ const App: React.FC = (): React.ReactNode => {
     setCardInfo(name);
     return cardInfo;
   }
-  function setGrid(value: string): string {
-    setUrl(value);
-    return url;
+  function setGrid(value: string): void {
+    setUrl({ endpoint: value });
   }
   function toggleLoginMode(): void {
     setLoginMode(!loginMode);

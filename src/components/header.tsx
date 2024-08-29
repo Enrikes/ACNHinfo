@@ -11,6 +11,7 @@ export default function Header({
   toggleVillager,
 }: headerProps): React.ReactElement {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // TODO: Gotta make a single handler 🤭
   function setInsect(): void {
     setGrid('/insect');
     toggleVillager(false);

@@ -27,21 +27,6 @@ const App: React.FC = (): React.ReactNode => {
   const [isVillagerActive, setIsVillagerActive] = useState<boolean>(false);
   const [isCreatureActive, setIsCreatureActive] = useState<boolean>(false);
   const loggedIn = window.localStorage.getItem('isLoggedIn');
-  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>();
-  const speciesDropdown = useRef(null);
-
-  const closeOpenMenus = (e: MouseEvent): void => {
-    const target = e.target as Node;
-    const speciesDropdown = useRef<HTMLDivElement>(null);
-    if (
-      speciesDropdown.current &&
-      isDropdownOpen &&
-      !speciesDropdown.current.contains(target)
-    ) {
-      setIsDropdownOpen(false);
-    }
-  };
-  document.addEventListener('click', closeOpenMenus);
 
   function toggleIsCreatureInfoShown(): void {
     setIsCreatureInfoShown(!isCreatureInfoShown);
@@ -73,7 +58,7 @@ const App: React.FC = (): React.ReactNode => {
 
   return (
     <>
-      <div ref={speciesDropdown}>
+      <div>
         <SkeletonElement type='avatar' />
         {isCreatureInfoShown && cardInfo ? (
           <CreatureInfo

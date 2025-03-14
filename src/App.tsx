@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react';
-import Header from './components/header';
-import Grid from './components/creatureGrid';
-import CreatureInfo from './components/creatureInfo';
-import Footer from './components/footer';
-import FilterButtons from './components/filterButtons';
-import VillagerFilter from './components/villagerFilter';
-import Login from './components/login';
-import Dashboard from './components/dashboard';
-import SkeletonElement from './skeleton/skeletonElement';
+import Header from '@components/header';
+import Grid from '@components/creatureGrid';
+import CreatureInfo from '@components/creatureInfo';
+import Footer from '@components/footer';
+import FilterButtons from '@components/filterButtons';
+import VillagerFilter from '@components/villagerFilter';
+import Login from '@components/login';
+import Dashboard from '@components/dashboard';
+import SkeletonElement from '@skeleton/skeletonElement';
 
 export interface creatureInfoProps {
   cardInfo: string;

@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default function CarouselOld({ furniture }) {
+interface CarouselProps {
+  furniture: Objectj;
+}
+
+export default function CarouselOld({ furniture }: CarouselProps) {
   const carouselContainer = furniture.map((itemArray) => {
     const villagerFurniture = itemArray.variations ?? [];
     const firstVariation = villagerFurniture[0]?.image;

@@ -1,7 +1,16 @@
-# ACNHinfo
+# React + Vite
 
-The website lets you find information on any creature in Animal Crossing: New Horizons. Shows detailed information on what time, location, month, and price
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Why am I building this?
-Trying to track your creatures on Animal Crossing can be a hassle. Having a second screen to quickly glance at information on a creature is a big help. Thats why im creating this website. To track your collection of creatures.
+Currently, two official plugins are available:
 
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

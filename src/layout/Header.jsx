@@ -4,13 +4,25 @@ export default function Header({}) {
     <nav>
       <ul>
         <li>
-          <a>Creatures</a>
+          <h1>ACNHinfo</h1>
         </li>
+        <ul className={styles.navigation}>
+          <li>
+            <a>Creatures</a>
+          </li>
+
+          <li>
+            <a>Fish</a>
+          </li>
+          <li>
+            <a>Sea Creatures</a>
+          </li>
+          <li>
+            <a>Villagers</a>
+          </li>
+        </ul>
         <li>
-          <a>Fish</a>
-        </li>
-        <li>
-          <a>Villagers</a>
+          <p>Profile</p>
         </li>
       </ul>
     </nav>

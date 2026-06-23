@@ -4,7 +4,7 @@ export default function Header({}) {
     <nav>
       <ul>
         <li>
-          <h1>ACNHinfo</h1>
+          <h1 className={styles.title}>ACNHinfo</h1>
         </li>
         <ul className={styles.navigation}>
           <li>

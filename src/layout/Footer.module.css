@@ -2,10 +2,21 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
-  background-color: bisque;
+  background-color: #1a3314;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  color: #fbf9f1;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  min-height: 100px;
 }
 footer div {
+}
+.title {
+  color: #a5d63f;
+}
+.copyright {
+  font-size: x-small;
 }

@@ -7,6 +7,9 @@ export default function FishPage({}) {
     queryKey: ['fish'],
     queryFn: GetFish,
   });
-  console.log(query.data);
-  return <CatalogGrid data={query.data} />;
+  if (query.isPending === true) {
+    return <div>Loading...</div>;
+  } else {
+    return <CatalogGrid item={query.data} />;
+  }
 }

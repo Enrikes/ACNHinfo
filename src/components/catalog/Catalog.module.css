@@ -1,7 +1,7 @@
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 11px;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 30px;
@@ -11,14 +11,15 @@
   background-color: #4f888a;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  height: 100px;
-  width: 100px;
+  height: 130px;
+  width: 130px;
 }
 .itemName {
   background-color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  font-size: x-small;
+  font-size: small;
   text-align: center;
-  width: 100px;
+  width: 130px;
+  min-height: 50px;
 }

@@ -10,6 +10,6 @@ export default function FishPage({}) {
   if (query.isPending === true) {
     return <div>Loading...</div>;
   } else {
-    return <CatalogGrid item={query.data} />;
+    return <CatalogGrid item={query.data} basePath={'/fish'} />;
   }
 }

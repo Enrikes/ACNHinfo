@@ -8,6 +8,7 @@ import InsectPage from './pages/insectPage.jsx';
 import SeaCreaturePage from './pages/seaCreaturePage.jsx';
 import VillagerPage from './pages/villagerPage.jsx';
 import { Routes, Route } from 'react-router';
+import CreatureDetail from './pages/detail/creatureDetail.jsx';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='insect' element={<InsectPage />} />
         <Route path='sea-creature' element={<SeaCreaturePage />} />
         <Route path='villager' element={<VillagerPage />} />
+        <Route path='fish/:slug'element={<CreatureDetail />} />
       </Routes>
       <Footer></Footer>
     </>

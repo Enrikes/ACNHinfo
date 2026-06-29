@@ -1,0 +1,13 @@
+.container {
+  background-color: red;
+  display: flex;
+
+}
+.returnButton {
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+  padding: 5px;
+  border-radius: 20px;
+  border-style: solid;
+  cursor: pointer;
+}

@@ -19,7 +19,7 @@ function App() {
         <Route path='insect' element={<InsectPage />} />
         <Route path='sea-creature' element={<SeaCreaturePage />} />
         <Route path='villager' element={<VillagerPage />} />
-        <Route path='fish/:slug'element={<CreatureDetail />} />
+        <Route path=':catergory/:slug'element={<CreatureDetail />} />
       </Routes>
       <Footer></Footer>
     </>

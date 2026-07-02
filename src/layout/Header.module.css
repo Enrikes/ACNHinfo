@@ -1,11 +1,12 @@
 nav {
   background-color: #1a3314;
   margin: 0 auto;
+  width: 100%;
 }
 ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   color: white;
   align-items: center;
 }
@@ -18,4 +19,25 @@ ul {
 }
 .title {
   color: #a5d63f;
+}
+.active,
+.inactive {
+  color: white;
+  text-decoration: none;
+}
+.active {
+  position: relative;
+  display: inline-block;
+}
+.active::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 5px;
+  background-color: #a5d63f;
+  border-radius: 5px;
+  margin-top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8px;
 }

@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router';
 import styles from './Header.module.css';
 export default function Header({}) {
   return (
@@ -8,17 +9,45 @@ export default function Header({}) {
         </li>
         <ul className={styles.navigation}>
           <li>
-            <a>Creatures</a>
+            <NavLink
+              to={'/insect'}
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.inactive
+              }
+            >
+              insect
+            </NavLink>
           </li>
 
-          <li>
-            <a>Fish</a>
+          <li className={styles.tab}>
+            <NavLink
+              to={'/fish'}
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.inactive
+              }
+            >
+              Fish
+            </NavLink>
           </li>
           <li>
-            <a>Sea Creatures</a>
+            <NavLink
+              to={'/sea-creature'}
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.inactive
+              }
+            >
+              Sea Creature
+            </NavLink>
           </li>
           <li>
-            <a>Villagers</a>
+            <NavLink
+              to={'/villager'}
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.inactive
+              }
+            >
+              Villager
+            </NavLink>
           </li>
         </ul>
         <li>

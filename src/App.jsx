@@ -12,17 +12,19 @@ import CreatureDetail from './pages/detail/creatureDetail.jsx';
 
 function App() {
   return (
-    <>
+    <div className='appShell'>
       <Header></Header>
-      <Routes>
-        <Route path='fish' element={<FishPage />} />
-        <Route path='insect' element={<InsectPage />} />
-        <Route path='sea-creature' element={<SeaCreaturePage />} />
-        <Route path='villager' element={<VillagerPage />} />
-        <Route path=':catergory/:slug'element={<CreatureDetail />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path='fish' element={<FishPage />} />
+          <Route path='insect' element={<InsectPage />} />
+          <Route path='sea-creature' element={<SeaCreaturePage />} />
+          <Route path='villager' element={<VillagerPage />} />
+          <Route path=':catergory/:slug' element={<CreatureDetail />} />
+        </Routes>
+      </main>
       <Footer></Footer>
-    </>
+    </div>
   );
 }
 

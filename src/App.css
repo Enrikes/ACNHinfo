@@ -2,6 +2,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   font-family: Humming;
@@ -33,4 +34,12 @@ img {
 @font-face {
   font-family: Humming;
   src: url(/src/fonts/Humming.otf);
+}
+.appShell{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main{
+  flex: 1;
 }

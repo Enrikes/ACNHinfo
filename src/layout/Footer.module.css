@@ -1,5 +1,4 @@
 footer {
-  position: relative;
   left: 0;
   bottom: 0;
   background-color: #1a3314;
@@ -13,8 +12,7 @@ footer {
   min-height: 100px;
   margin-top: 40px;
 }
-footer div {
-}
+
 .title {
   color: #a5d63f;
 }

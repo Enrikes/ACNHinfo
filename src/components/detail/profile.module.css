@@ -1,0 +1,17 @@
+.detailCard {
+  background-color: #004e52;
+}
+.imageSection {
+  display: flex;
+}
+.imageFrame {
+  background-color: #205a5e;
+  width: 220px;
+  height: 220px;
+  border-radius: 10px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.image {
+}
